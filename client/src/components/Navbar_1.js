@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/booknet_logo.png";
 import { HiMenu } from "react-icons/hi";
 import { RiCloseFill } from "react-icons/ri";
+import { GrLogout } from "react-icons/gr";
+import { BsBellFill } from "react-icons/bs";
 
 const navLinks = [
   { to: "/", text: "Home" },
@@ -14,17 +16,41 @@ const navLinks = [
 function Navbar_1() {
   const [open, setOpen] = useState(true);
 
+  const [scrolled, setScrolled] = useState(false);
+
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="navbar fixed top-5 left-[50%] translate-x-[-50%] right-0 max-w-[1400px] w-full">
-      <div className={`md:flex justify-between items-start bg-[#F5F5F5] py-4 `}>
-        <div className="md:h-[80px] min-w-280px md:ml-[30px] ">
+    <div
+      className={`navbar fixed top-[10px] left-[50%] translate-x-[-50%] right-0 max-w-[1400px] w-full z-[1000] `}
+    >
+      <div
+        className={`md:flex md:justify-between items-center h-[70px] pt-2 ${
+          scrolled ? "bg-[#F5F5F5] opacity-95" : "bg-[#F5F5F5]"
+        }`}
+      >
+        <div className="md:h-[70px] min-w-280px md:ml-[30px] ">
           <div>
             <img
-              className="h-[90px] px-5 mx-auto md:flex justify-center items-center"
+              className="h-[70px] px-5 mx-auto md:flex justify-center items-center"
               src={logo}
               alt=""
             />
@@ -39,7 +65,7 @@ function Navbar_1() {
         </div>
 
         <div
-          className={`transition ease-in-out duration-300 absolute text-start bg-[#F5F5F5] md:flex items-center md:relative ${
+          className={`transition ease-in-out duration-300 w-[198px] md:w-auto absolute text-start md:flex items-center md:justify-between bg-[#F5F5F5] opacity-95 md:bg-transparent md:relative ${
             open ? "translate-x-0" : "-translate-x-full"
           }`}
         >
