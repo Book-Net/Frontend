@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Button from "../components/Button";
+import Button from "./Button";
 
-function Login() {
+function LoginForm() {
   return (
     <div className="w-full">
       <form action="">
@@ -34,7 +34,7 @@ function Login() {
         <p className="my-2">
           Don’t have an account?
           <span>
-            <Link className=" underline text-[#BF5A36] font-bold">
+            <Link to="/signup" className=" underline text-[#BF5A36] font-bold">
               {" "}
               Register{" "}
             </Link>
@@ -52,4 +52,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LoginForm;

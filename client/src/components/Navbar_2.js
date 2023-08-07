@@ -111,7 +111,7 @@ function Navbar_2() {
                   <img
                     src={image1}
                     alt=""
-                    className=" w-[60px] rounded-full border-4 shadow-lg border-[#885F53]"
+                    className=" w-[60px] rounded-full border-4 shadow-lg border-[#bf5a36]"
                   />
                 </Link>
               </li>
