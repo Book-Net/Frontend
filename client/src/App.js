@@ -4,11 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar_1 from "./components/Navbar_1";
 import Navbar_2 from "./components/Navbar_2";
 import Signup from "./pages/Signup";
-import Home from "./pages/Home";
+import Reg_home from "./pages/Reg_home";
 import Login from "./pages/Login";
 import { createContext, useState } from "react";
-import Add_book_for_sell from "./components/Add_book_for_sell";
-import Add_book_for_bid from "./components/Add_book_for_bid";
 
 function App() {
   const isLoggedIn = false; //change this after authentication done
@@ -25,12 +23,12 @@ function App() {
       </header>
       <main className="mt-[120px]">
         <Routes>
-          <Route path="/" element={<Add_book_for_bid />} />
+          <Route path="/" element={<Reg_home />} />
           <Route path="/login" element={<Login />} />
           {/* If you meant /signUp instead of /signup, change the path accordingly */}
           <Route path="/signup" element={<Signup />} />
           {/* Redirect to home page if no matching route is found */}
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<Reg_home />} />
         </Routes>
       </main>
     </div>
