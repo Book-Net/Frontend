@@ -4,6 +4,8 @@ import "./App.css";
 import Navbar_1 from "./components/Navbar_1";
 import Signup from "./pages/Signup";
 import Profile_card from "./components/Profile_card";
+import Profile from "./pages/Profile";
+import Profile_navbar from "./components/Profile_navbar";
 
 function App() {
   return (
@@ -16,7 +18,9 @@ function App() {
       <main className="mt-[120px]">
         {/* <Main_image /> */}
         {/* <Signup /> */}
-        <Profile_card/>
+        {/* <Profile_card/> */}
+        {/* <Profile/> */}
+        <Profile_navbar/>
       </main>
     </div>
   );

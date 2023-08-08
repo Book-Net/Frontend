@@ -9,7 +9,9 @@ function Profile_card() {
             <div className='flex justify-start'><p className='font-roboto text-2xl text-[#BF5A36] font-bold pl-3 pt-4 pb-0 '>Sales</p></div>
             <div>
                 <p className='font-roboto text-3xl text-[#555555] pt-0'>10</p>
-                <p className='font-roboto text-1xl text-[#555555] underline pt-0'><Link to='/#'>View</Link></p>
+                <div className='pt-2'>
+                    <p className='font-roboto text-1xl text-[#555555] underline pt-0'><Link to='/#'>View</Link></p>
+                </div>
             </div>
         </div>
         
