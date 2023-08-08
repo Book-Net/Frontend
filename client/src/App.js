@@ -3,6 +3,7 @@ import "./App.css";
 // import Navbar_2 from "./components/Navbar_2";
 import Navbar_1 from "./components/Navbar_1";
 import Signup from "./pages/Signup";
+import Profile_card from "./components/Profile_card";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       </header>
       <main className="mt-[120px]">
         {/* <Main_image /> */}
-        <Signup />
+        {/* <Signup /> */}
+        <Profile_card/>
       </main>
     </div>
   );
