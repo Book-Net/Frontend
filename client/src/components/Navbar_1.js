@@ -91,7 +91,7 @@ function Navbar_1() {
             <ul className="md:flex md:mr-[30px]">
               <li className="my-2 md:my-0 md:ml-4">
                 <Link
-                  to="/"
+                  to="/login"
                   className="font-roboto shadow-md md:mx-[20px] px-[15px] py-[8px] font-semibold rounded-md bg-[#4F6D7A] text-[#FFFFFf] block md:inline"
                 >
                   Login
@@ -99,7 +99,7 @@ function Navbar_1() {
               </li>
               <li className="my-2 md:my-0">
                 <Link
-                  to="/"
+                  to="/signup"
                   className="font-roboto shadow-md px-[15px] py-[8px] font-semibold rounded-md bg-[#F2CB9E] text-[#885F53] block md:inline"
                 >
                   Signup
