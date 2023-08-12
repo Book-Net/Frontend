@@ -27,10 +27,10 @@ function App() {
       </header>
       <main className="mt-[120px]">
         {/* <Main_image /> */}
-        <Signup />
+        {/* <Signup /> */}
         {/* <Profile_card/> */}
         {/* <Profile/> */}
-        {/* <Profile_navbar/> */}
+        <Profile_navbar/>
         <Routes>
           <Route path="/" element={<Unreg_home />} />
           <Route path="/login" element={<Login />} />

@@ -5,7 +5,6 @@ function Unreg_home() {
   return (
     <div>
       <Main_image />
-      <
     </div>
   );
 }
