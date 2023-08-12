@@ -33,9 +33,6 @@ function BookCard() {
           <p className="text-left text-xl font-semibold text-[#BF5A36] mb-4">
             Rs. <span>500</span>
           </p>
-          <Link className="bg-transparent border-[2px] font-bold text-[#4F6D7A] px-3 py-1 mb-2 rounded-lg border-[#BF5A36] hover:bg-[#BF5A36] transition duration-300 hover:text-white">
-            Buy now
-          </Link>
         </div>
       </div>
     </div>

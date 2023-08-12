@@ -7,6 +7,7 @@ import Signup from "./pages/Signup";
 import Reg_home from "./pages/Reg_home";
 import Login from "./pages/Login";
 import { createContext, useState } from "react";
+import Unreg_home from "./pages/Unreg_home";
 
 function App() {
   const isLoggedIn = false; //change this after authentication done
@@ -23,7 +24,7 @@ function App() {
       </header>
       <main className="mt-[120px]">
         <Routes>
-          <Route path="/" element={<Reg_home />} />
+          <Route path="/" element={<Unreg_home />} />
           <Route path="/login" element={<Login />} />
           {/* If you meant /signUp instead of /signup, change the path accordingly */}
           <Route path="/signup" element={<Signup />} />
