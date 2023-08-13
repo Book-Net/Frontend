@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../assets/booknet_logo.png";
+import image1 from "../assets/image1.png";
 import { HiMenu } from "react-icons/hi";
 import { RiCloseFill } from "react-icons/ri";
+import { GrLogout } from "react-icons/gr";
+import { BsBellFill } from "react-icons/bs";
 
 const navLinks = [
   { to: "/", text: "Home" },
@@ -11,7 +14,7 @@ const navLinks = [
   { to: "/", text: "Contact Us" },
 ];
 
-function Navbar_1() {
+function Navbar_2() {
   const [open, setOpen] = useState(true);
 
   const handleToggle = () => {
@@ -20,7 +23,7 @@ function Navbar_1() {
 
   return (
     <div className="navbar fixed top-5 left-[50%] translate-x-[-50%] right-0 max-w-[1400px] w-full">
-      <div className={`md:flex justify-between items-start bg-[#F5F5F5] py-4 `}>
+      <div className={`md:flex md:justify-between items-center bg-[#F5F5F5] `}>
         <div className="md:h-[80px] min-w-280px md:ml-[30px] ">
           <div>
             <img
@@ -39,7 +42,7 @@ function Navbar_1() {
         </div>
 
         <div
-          className={`transition ease-in-out duration-300 absolute text-start bg-[#F5F5F5] md:flex items-center md:relative ${
+          className={`transition ease-in-out duration-300 absolute text-start bg-[#F5F5F5] md:flex items-center md:justify-between md:relative ${
             open ? "translate-x-0" : "-translate-x-full"
           }`}
         >
@@ -62,21 +65,30 @@ function Navbar_1() {
           </div>
 
           <div className="mx-[20px] my-3">
-            <ul className="md:flex md:mr-[30px]">
-              <li className="my-2 md:my-0 md:ml-4">
+            <ul className="flex md:mr-[30px] justify-start items-center">
+              <li className="my-2 md:my-0 md:mx-3">
                 <Link
                   to="/"
-                  className="font-roboto shadow-md md:mx-[20px] px-[15px] py-[8px] font-semibold rounded-md bg-[#4F6D7A] text-[#FFFFFf] block md:inline"
+                  className="font-roboto px-[15px] py-[8px] text-2xl block md:inline"
                 >
-                  Login
+                  <BsBellFill />
+                </Link>
+              </li>{" "}
+              <li className="my-2 md:my-0 md:mx-3 ">
+                <Link
+                  to="/"
+                  className="font-roboto px-[15px] py-[8px] text-2xl block md:inline"
+                >
+                  <GrLogout />
                 </Link>
               </li>
               <li className="my-2 md:my-0">
-                <Link
-                  to="/"
-                  className="font-roboto shadow-md px-[15px] py-[8px] font-semibold rounded-md bg-[#F2CB9E] text-[#885F53] block md:inline"
-                >
-                  Signup
+                <Link to="/" className="px-[15px] py-[8px] block ">
+                  <img
+                    src={image1}
+                    alt=""
+                    className=" w-[60px] rounded-full border-4 shadow-lg border-[#885F53]"
+                  />
                 </Link>
               </li>
             </ul>
@@ -87,4 +99,4 @@ function Navbar_1() {
   );
 }
 
-export default Navbar_1;
+export default Navbar_2;
