@@ -4,10 +4,10 @@ import Button from "./Button";
 
 function Add_book_for_sell() {
   return (
-    <div className="w-2/3 mx-auto">
+    <div className="w-2/3 mx-auto shadow bg-[#FFFFFF] p-5 mb-5 rounded-md">
       <form action="">
         <p className=" font-roboto text-4xl text-[#4F6D7A] my-6 font-bold">
-          Add book for sale
+          ADD BOOK FOR SALE
         </p>
         <br />
         <input
@@ -71,11 +71,12 @@ function Add_book_for_sell() {
           rows="5"
           placeholder="Description"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
+          minLength="600"
         ></textarea>
         <br />
 
         <Button
-          className="bg-[#BF5A36] text-white my-6 font-bold px-6"
+          className="bg-[#BF5A36] text-white my-6 font-bold px-6 shadow-lg"
           type="submit"
         >
           Add Book
