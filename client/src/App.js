@@ -4,6 +4,14 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar_1 from "./components/Navbar_1";
 import Navbar_2 from "./components/Navbar_2";
 import Signup from "./pages/Signup";
+import Reg_home from "./pages/Reg_home";
+import Login from "./pages/Login";
+import { createContext, useState } from "react";
+import Unreg_home from "./pages/Unreg_home";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:9000";
+axios.defaults.withCredentials = true;
 
 function App() {
   const isLoggedIn = false; //change this after authentication done
@@ -19,8 +27,14 @@ function App() {
         {isLoggedIn ? <Navbar_2 /> : <Navbar_1 />}
       </header>
       <main className="mt-[120px]">
-        {/* <Main_image /> */}
-        <Signup />
+        <Routes>
+          <Route path="/" element={<Unreg_home />} />
+          <Route path="/login" element={<Login />} />
+          {/* If you meant /signUp instead of /signup, change the path accordingly */}
+          <Route path="/signup" element={<Signup />} />
+          {/* Redirect to home page if no matching route is found */}
+          <Route path="*" element={<Reg_home />} />
+        </Routes>
       </main>
     </div>
   );

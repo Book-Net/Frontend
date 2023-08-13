@@ -1,42 +1,52 @@
 import React from "react";
-import book from "../assets/book1.png";
-import Button from "./Button";
 import { AiFillStar } from "react-icons/ai";
-import { Link } from "react-router-dom";
 
-function BookCard() {
+const BookCard = ({ book }) => {
+  const { title, image, price, rating, author, number_of_ratings } = book;
+
+  function BookRating({ rating, number_of_ratings }) {
+    const stars = [];
+
+    for (let i = 0; i < rating; i++) {
+      stars.push(<AiFillStar key={i} className="text-yellow-500" />);
+    }
+
+    return (
+      <div className="ratings items-center flex text-yellow-500 mb-2">
+        {stars}
+        <p className="ml-1 text-sm text-gray-600">({number_of_ratings})</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="md:flex h-[350px] bg-[#F5F5F5] shadow-md hover:shadow-lg transition rounded-md max-w-[300px] max-h-[230px]">
-      <div className="p-3 w-full min-w-[140px]">
+    <div className="flex h-[350px] bg-[#F5F5F5] shadow-md hover:shadow-lg transition mx-auto rounded-md max-w-[350px] max-h-[230px]">
+      <div className="p-3 w-full min-w-[150px]">
         <img
-          src={book}
+          src={image}
           className="h-full object-cover w-full rounded-md"
           alt=""
-          srcset=""
+          srcSet=""
         />
       </div>
-      <div className="p-3 w-full max-w-[160px]">
-        <div className="ratings flex text-yellow-500 mb-2">
-          <AiFillStar />
-          <AiFillStar />
-          <AiFillStar />
-          <AiFillStar />
-          <AiFillStar />
+      <div className="p-3 w-full max-w-[200px] relative">
+        <div>
+          <BookRating rating={rating} number_of_ratings={number_of_ratings} />
         </div>
         <div>
           <p className="font-bold mb-2 w-full overflow-hidden text-md text-left text-[#4F6D7A]">
-            The Magical Language of Other
+            {title}
           </p>
-          <p className="text-left text-sm mb-2 text-[#4F6D7A]">
-            Kavinda medagoda
-          </p>
+          <p className="text-left text-sm mb-2 text-[#4F6D7A]">{author}</p>
+        </div>
+        <div className=" absolute bottom-2">
           <p className="text-left text-xl font-semibold text-[#BF5A36] mb-4">
-            Rs. <span>500</span>
+            Rs. <span>{price}</span>
           </p>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default BookCard;
