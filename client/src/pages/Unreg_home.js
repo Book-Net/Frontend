@@ -7,11 +7,8 @@ function Unreg_home() {
   return (
     <div>
       <Main_image />
-<<<<<<< HEAD
-=======
       <Searchbar />
       <BookList />
->>>>>>> origin/main
     </div>
   );
 }
