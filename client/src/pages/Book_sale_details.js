@@ -6,6 +6,8 @@ import Seller_description from "../components/Seller_description";
 import BuyNowCard from "../components/BuyNowCard";
 import Book_name_author from "../components/Book_name_author";
 import Button from "../components/Button";
+import React from "react";
+
 
 const Book_sale_details = () => {
     return ( 

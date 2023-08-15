@@ -3,7 +3,9 @@ import Button from "./Button";
 function Book_categories() {
     return (
       <>
-      <div className="categoryContainer">
+      <div 
+      className="flex gap-5 justify-center"
+      >
 
           <div>
             <Button
