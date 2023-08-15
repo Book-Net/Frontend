@@ -22,7 +22,7 @@ function LoginForm() {
           email,
           password,
         },
-        { withCredentials: false }
+        { withCredentials: true }
       );
       if (data.error) {
         toast.error(data.error);
