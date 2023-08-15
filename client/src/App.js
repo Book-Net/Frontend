@@ -11,6 +11,8 @@ import Reg_home from "./pages/Reg_home";
 import Login from "./pages/Login";
 import { createContext, useState } from "react";
 import Unreg_home from "./pages/Unreg_home";
+import Add_book_for_bid from "./components/Add_book_for_bid";
+import Add_book_for_sell from "./components/Add_book_for_sell";
 
 function App() {
   const isLoggedIn = false; //change this after authentication done
@@ -30,7 +32,10 @@ function App() {
         {/* <Signup /> */}
         {/* <Profile_card/> */}
         {/* <Profile/> */}
-        <Profile_navbar/>
+        {/* <Profile_navbar/> */}
+        {/* <Add_book_for_bid/> */}
+        <Add_book_for_sell/>
+
         <Routes>
           <Route path="/" element={<Unreg_home />} />
           <Route path="/login" element={<Login />} />

@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
+
 function SignupForm() {
 
   const [name, setName] = useState();
@@ -11,7 +12,7 @@ function SignupForm() {
   
   const submit_signup = (y) => {
     y.preventDefault();
-    axios.post('',name, email, pword)
+    axios.post('http://127.0.0.1:3002/db_add',{name, email, pword})
     .then(result => console.log(result))
     .catch(err => console.log(err))
   }
