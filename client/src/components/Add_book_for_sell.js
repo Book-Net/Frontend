@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
-import Swal from 'sweetalert2'
+// import Swal from 'sweetalert2'
 
 function Add_book_for_sell() {
   const [formdata,setISBN]=useState('');
