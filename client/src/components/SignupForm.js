@@ -58,7 +58,6 @@ function SignupForm() {
           type="text"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
           placeholder="Name"
-          onChange={(x) => setName(x.target.value)}
           required
           value={data.userName}
           onChange={(e) =>
@@ -71,7 +70,6 @@ function SignupForm() {
           type="email"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
           placeholder="E-mail"
-          onChange={(x) => setEmail(x.target.value)}
           required
           value={data.email}
           onChange={(e) =>
@@ -84,7 +82,6 @@ function SignupForm() {
           type="password"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
           placeholder="Password"
-          onChange={(x) => setPword(x.target.value)}
           required
           value={data.password}
           onChange={(e) =>
@@ -97,7 +94,6 @@ function SignupForm() {
           type="password"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
           placeholder="Re-Enter Password"
-          onChange={(x) => setPword(x.target.value)}
           required
           value={data.rePassword}
           onChange={(e) =>
