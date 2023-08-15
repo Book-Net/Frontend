@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import { createContext, useState } from "react";
 import Unreg_home from "./pages/Unreg_home";
 import axios from "axios";
+import { Toaster } from "react-hot-toast";
 
 axios.defaults.baseURL = "http://localhost:9000";
 axios.defaults.withCredentials = true;
@@ -26,6 +27,7 @@ function App() {
       <header className="header">
         {isLoggedIn ? <Navbar_2 /> : <Navbar_1 />}
       </header>
+      <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
       <main className="mt-[120px]">
         <Routes>
           <Route path="/" element={<Unreg_home />} />
