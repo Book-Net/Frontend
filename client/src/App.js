@@ -13,6 +13,11 @@ import { createContext, useState } from "react";
 import Add_book_for_sell from "./components/Add_book_for_sell";
 import Add_book_for_bid from "./components/Add_book_for_bid";
 import Unreg_home from "./pages/Unreg_home";
+import axios from "axios";
+import { Toaster } from "react-hot-toast";
+
+axios.defaults.baseURL = "http://localhost:9000";
+axios.defaults.withCredentials = true;
 
 function App() {
   const isLoggedIn = false; //change this after authentication done
@@ -27,6 +32,7 @@ function App() {
       <header className="header">
         {isLoggedIn ? <Navbar_2 /> : <Navbar_1 />}
       </header>
+      <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
       <main className="mt-[120px]">
         {/* <Main_image /> */}
         {/* <Signup /> */}
