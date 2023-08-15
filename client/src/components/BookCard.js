@@ -25,10 +25,10 @@ function BookCard() {
         </div>
         <div>
           <p className="font-bold mb-2 w-full overflow-hidden text-md text-left text-[#4F6D7A]">
-            The Magical Language of Other
+            The Great Gatsby
           </p>
           <p className="text-left text-sm mb-2 text-[#4F6D7A]">
-            Kavinda medagoda
+            F.Scott Fitzgerald
           </p>
           <p className="text-left text-xl font-semibold text-[#BF5A36] mb-4">
             Rs. <span>500</span>
