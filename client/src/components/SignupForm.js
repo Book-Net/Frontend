@@ -11,7 +11,7 @@ function SignupForm() {
   
   const submit_signup = (y) => {
     y.preventDefault();
-    axios.post('',name, email, pword)
+    axios.post('http://localhost:3002/db_add',{name, email, pword})
     .then(result => console.log(result))
     .catch(err => console.log(err))
   }
