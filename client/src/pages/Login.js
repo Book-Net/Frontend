@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import login from "../assets/login.png";
-import OtpEnter from "../components/OtpEnter";
 import LoginForm from "../components/LoginForm";
 
 function Login() {
