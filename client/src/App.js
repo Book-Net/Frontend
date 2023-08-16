@@ -10,6 +10,7 @@ import { createContext, useState } from "react";
 import Unreg_home from "./pages/Unreg_home";
 import Book_sale_details from "./pages/Book_sale_details";
 import Book_bid_details from "./pages/Book_bid_details";
+import Profile from "./pages/Profile";
 
 function App() {
   const isLoggedIn = false; //change this after authentication done
@@ -29,11 +30,9 @@ function App() {
           <Route path="/" element={<Unreg_home />} />
           <Route path="/bookSaleDetails" element={<Book_sale_details/>}/>
           <Route path="/bookBidDetails" element={<Book_bid_details/>}/>
+          <Route path="/profile" element={<Profile/>}/>
           <Route path="/login" element={<Login />} />
-          {/* If you meant /signUp instead of /signup, change the path accordingly */}
           <Route path="/signup" element={<Signup />} />
-          {/* Redirect to home page if no matching route is found */}
-          {/* <Route path="*" element={<Reg_home />} /> */}
         </Routes>
       </main>
     </div>
