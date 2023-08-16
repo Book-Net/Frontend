@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import login from "../assets/login.png";
 import LoginForm from "../components/LoginForm";
 
+
 function Login() {
   const [signInOrReg, setSignOrReg] = useState(true); //change this after authentication done
 
@@ -19,6 +20,7 @@ function Login() {
       </div>
       <div className="flex justify-center items-center bg-[#F5F5F5] shadow-[#c76f4f] md:absolute md:right-0 md:top-0 md:bottom-0 shadow-md rounded-2xl md:w-3/5 w-full p-3">
         <LoginForm />
+        
       </div>
     </div>
   );

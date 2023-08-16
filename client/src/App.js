@@ -39,6 +39,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           {/* If you meant /signUp instead of /signup, change the path accordingly */}
           <Route path="/signup" element={<Signup />} />
+          <Route path="/Unreg_home" element={<Unreg_home />} />
+          <Route path="/Author_profile" element={<Author_profile />} />
+          <Route path="/" element={<PostView />} />
           {/* Redirect to home page if no matching route is found */}
           <Route path="/" element={<Unreg_home />} />
         </Routes>
