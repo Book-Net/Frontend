@@ -3,17 +3,22 @@ import { AiOutlineLike, AiOutlineComment } from 'react-icons/ai';
 
 const PostActions = () => {
   const [isLiked, setIsLiked] = useState(false);
+  const [showComments, setShowComments] = useState(false); // Track whether to show comments
   const [commentCount, setCommentCount] = useState(3); // For demonstration purposes, start with 3 comments
   const [comments, setComments] = useState([
-    "Great post!",
-    "Thanks for sharing!",
-    "I agree!",
+    "I have one!",
+    "Where are you from?",
+    "I have a new book",
   ]);
 
   const [newComment, setNewComment] = useState('');
 
   const handleLike = () => {
     setIsLiked(!isLiked);
+  };
+
+  const handleCommentIconClick = () => {
+    setShowComments(!showComments);
   };
 
   const handleComment = () => {
@@ -30,8 +35,8 @@ const PostActions = () => {
   };
 
   return (
-    <div className="flex flex-col justify-around space-y-4">
-      <div className="flex items-center justify-around space-x-2">
+    <div className="flex flex-col space-y-4">
+      <div className="flex justify-around space-x-2">
         <button
           className={`flex items-center font-bold ${
             isLiked ? 'text-[#BF5A36] font-bold' : 'text-gray-500'
@@ -41,17 +46,21 @@ const PostActions = () => {
           <AiOutlineLike className="mr-2 font-bold" />
           Like
         </button>
-        <button className="flex items-center font-bold text-gray-500">
+        <button
+          className={`flex items-center font-bold text-gray-500`}
+          onClick={handleCommentIconClick}
+        >
           <AiOutlineComment className="mr-2" />
-          Comment
+          Comment {commentCount > 0 && <span>({commentCount})</span>}
         </button>
       </div>
-      <div className="space-y-2">
-        <p>Total {commentCount} comments</p>
-        {comments.map((comment, index) => (
-          <p key={index}>{comment}</p>
-        ))}
-      </div>
+      {showComments && (
+        <div className="space-y-1 text-left text-gray-500 ml-12">
+          {comments.map((comment, index) => (
+            <p key={index}>{comment}</p>
+          ))}
+        </div>
+      )}
       <div className="flex space-x-2">
         <input
           type="text"
@@ -61,7 +70,7 @@ const PostActions = () => {
           className="flex-1 p-2 border rounded-md focus:outline-none"
         />
         <button
-          className="px-4 py-2 text-white font-bold bg-[#BF5A36] rounded-[4px] hover:bg-[#da7d5c]"
+          className="px-4 py-2 text-white font-bold bg-[#BF5A36] rounded-[4px] hover:bg-[#9e553b]"
           onClick={handleComment}
         >
           Send
