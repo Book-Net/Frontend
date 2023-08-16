@@ -42,8 +42,8 @@ function App() {
         {/* <Profile_card/> */}
         {/* <Profile/> */}
         {/* <Profile_navbar/> */}
-        {/* <Add_book_for_sell/> */}
-        <Appk/>
+        <Add_book_for_sell/>
+        {/* <Appk/> */}
         <Routes>
           <Route path="*" element={<Add_book_for_bid />} />
           <Route path="/login" element={<Login />} />

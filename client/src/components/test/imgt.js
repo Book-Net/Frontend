@@ -34,9 +34,9 @@ function Appk() {
 
   return (
     <div>
-        <form enctype="multipart/form-data">
+        <form action="http://localhost:9000/upload" method="post" encType="multipart/form-data">
             <input type="file" name="file" onChange={handleFileChange} />
-            <button onClick={handleUpload}>Upload</button>
+            <button type="submit">Upload</button>
         </form>
       
     </div>

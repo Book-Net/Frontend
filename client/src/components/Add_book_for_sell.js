@@ -58,12 +58,14 @@ function Add_book_for_sell() {
 
   return (
     <div className="w-2/3 mx-auto shadow bg-[#FFFFFF] p-5 mb-5 rounded-md">
-      <form >
+
+      <form action="http://localhost:9000/add_book_detail_sell" method="post" encType="multipart/form-data">
         <p className=" font-roboto text-4xl text-[#4F6D7A] my-6 font-bold">
           ADD BOOK FOR SALE
         </p>
         <br />
         <input
+          name="isbn"
           type="text"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] text-[#BF5A36] w-3/5"
           placeholder="ISBN Number"
@@ -90,10 +92,12 @@ function Add_book_for_sell() {
             Check!
         </button>
         <br />
-      </form>
+      {/* </form> */}
 
-      <form>
+    
+      
         <input
+          name='title'
           type="text"
           className="pl-2 py-3 text-[#BF5A36] shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
           placeholder="Name of the Book"
@@ -102,6 +106,7 @@ function Add_book_for_sell() {
         />
         <br />
         <input
+        name='author'
           type="text"
           className="pl-2 py-3 text-[#BF5A36] shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
           placeholder="Author"
@@ -112,6 +117,7 @@ function Add_book_for_sell() {
         <select
           className="pl-2 py-3 shadow-md my-3 rounded-md text-[#BF5A36] w-3/5"
           required
+          name='condition'
         >
           <option value="" disabled selected>
             Condition
@@ -122,6 +128,7 @@ function Add_book_for_sell() {
         </select>
         <br />
         <input
+          name='price'
           type="number"
           className="pl-2 py-3 text-[#BF5A36] shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
           placeholder="Price"
@@ -137,7 +144,7 @@ function Add_book_for_sell() {
               <br /> */}
         <input
           type="file"
-          name="image"
+          name="file"
           accept="image/*"
           className="pl-2 py-3 text-[#BF5A36] shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
           placeholder="Quantity"
