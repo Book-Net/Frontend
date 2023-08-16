@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 // import Main_image from "./components/Main_image";
 import Navbar_1 from "./components/Navbar_1";
 import Navbar_2 from "./components/Navbar_2";
@@ -13,10 +13,15 @@ import { createContext, useState } from "react";
 import Add_book_for_sell from "./components/Add_book_for_sell";
 import Add_book_for_bid from "./components/Add_book_for_bid";
 import Unreg_home from "./pages/Unreg_home";
+import BookForm from "./components/BookForm";
 import Author_profile from "./pages/Author_profile";
 import PostView from "./pages/PostView";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
+
+///
+import Appk from "./components/test/imgt";
+import BookList from "./pages/BookList";
 
 axios.defaults.baseURL = "http://localhost:9000";
 axios.defaults.withCredentials = true;
@@ -36,6 +41,18 @@ function App() {
       </header>
       <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
       <main className="mt-[120px]">
+        {/* <Main_image /> */}
+        {/* <Signup /> */}
+        {/* <Profile_card/> */}
+        {/* <Profile/> */}
+        {/* <Profile_navbar/> */}
+        <Add_book_for_sell />
+        {/* <Appk/> */}
+        <ul>
+          <li>
+            <Link to="/add-book">Add Book</Link>
+          </li>
+        </ul>
         <Routes>
           <Route path="*" element={<Add_book_for_bid />} />
           <Route path="/login" element={<Login />} />
@@ -45,6 +62,9 @@ function App() {
           <Route path="/Author_profile" element={<Author_profile />} />
           <Route path="/" element={<PostView />} />
           {/* Redirect to home page if no matching route is found */}
+          <Route path="/" element={<Unreg_home />} />
+          <Route path="/add-book" element={<BookForm />} />
+          <Route path="/BookList" element={<BookList />} />
         </Routes>
       </main>
     </div>

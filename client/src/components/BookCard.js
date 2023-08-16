@@ -2,8 +2,8 @@ import React from "react";
 import { AiFillStar } from "react-icons/ai";
 
 const BookCard = ({ book }) => {
-  const { title, image, price,  rating, author, number_of_ratings } = book;
-
+  const { title, img, price, rating, number_of_ratings, author } = book;
+   
   function BookRating({ rating, number_of_ratings }) {
     const stars = [];
 
@@ -12,7 +12,7 @@ const BookCard = ({ book }) => {
     }
 
     return (
-      <div className="ratings items-center flex text-yellow-500 mb-2">
+      <div className="flex items-center mb-2 text-yellow-500 ratings">
         {stars}
         <p className="ml-1 text-sm text-gray-600 font-roboto">({number_of_ratings})</p>
       </div>
@@ -23,8 +23,8 @@ const BookCard = ({ book }) => {
     <div className="flex h-[350px] bg-[#F5F5F5] shadow-md hover:shadow-lg transition mx-auto rounded-md max-w-[350px] max-h-[230px]">
       <div className="p-3 w-full min-w-[150px]">
         <img
-          src={image}
-          className="h-full object-cover w-full rounded-md"
+          src={`http://localhost:9000/give_file/${img}`}
+          className="object-cover w-full h-full rounded-md"
           alt=""
           srcSet=""
         />
@@ -41,6 +41,8 @@ const BookCard = ({ book }) => {
         </div>
         <div className=" absolute bottom-2">
         <p className="text-left text-xl font-semibold text-[#BF5A36] mb-4">
+        <div className="absolute bottom-2">
+          <p className="text-left text-xl font-semibold text-[#BF5A36] mb-4">
             Rs. <span>{price}</span>
           </p>
         </div>
