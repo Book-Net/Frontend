@@ -3,7 +3,7 @@ import { AiFillStar } from "react-icons/ai";
 
 const BookCard = ({ book }) => {
   const { title, img, price, rating, number_of_ratings, author } = book;
-   
+
   function BookRating({ rating, number_of_ratings }) {
     const stars = [];
 
@@ -14,7 +14,9 @@ const BookCard = ({ book }) => {
     return (
       <div className="flex items-center mb-2 text-yellow-500 ratings">
         {stars}
-        <p className="ml-1 text-sm text-gray-600 font-roboto">({number_of_ratings})</p>
+        <p className="ml-1 text-sm text-gray-600 font-roboto">
+          ({number_of_ratings})
+        </p>
       </div>
     );
   }
@@ -40,8 +42,6 @@ const BookCard = ({ book }) => {
           <p className="text-left text-sm mb-2 text-[#4F6D7A]">{author}</p>
         </div>
         <div className=" absolute bottom-2">
-        <p className="text-left text-xl font-semibold text-[#BF5A36] mb-4">
-        <div className="absolute bottom-2">
           <p className="text-left text-xl font-semibold text-[#BF5A36] mb-4">
             Rs. <span>{price}</span>
           </p>

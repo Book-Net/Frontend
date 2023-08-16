@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import Profile_navbar from "./components/Profile_navbar";
 import Reg_home from "./pages/Reg_home";
 import Login from "./pages/Login";
+import Booklist from "./pages/BookList";
 import { createContext, useState } from "react";
 import Add_book_for_sell from "./components/Add_book_for_sell";
 import Add_book_for_bid from "./components/Add_book_for_bid";
@@ -41,18 +42,6 @@ function App() {
       </header>
       <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
       <main className="mt-[120px]">
-        {/* <Main_image /> */}
-        {/* <Signup /> */}
-        {/* <Profile_card/> */}
-        {/* <Profile/> */}
-        {/* <Profile_navbar/> */}
-        <Add_book_for_sell />
-        {/* <Appk/> */}
-        <ul>
-          <li>
-            <Link to="/add-book">Add Book</Link>
-          </li>
-        </ul>
         <Routes>
           <Route path="*" element={<Add_book_for_bid />} />
           <Route path="/login" element={<Login />} />
@@ -64,7 +53,7 @@ function App() {
           {/* Redirect to home page if no matching route is found */}
           <Route path="/" element={<Unreg_home />} />
           <Route path="/add-book" element={<BookForm />} />
-          <Route path="/BookList" element={<BookList />} />
+          <Route path="/booklist" element={<BookList />} />
         </Routes>
       </main>
     </div>
