@@ -34,11 +34,6 @@ function App() {
       </header>
       <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
       <main className="mt-[120px]">
-        {/* <Main_image /> */}
-        {/* <Signup /> */}
-        {/* <Profile_card/> */}
-        {/* <Profile/> */}
-        <Profile_navbar/>
         <Routes>
           <Route path="*" element={<Add_book_for_bid />} />
           <Route path="/login" element={<Login />} />
