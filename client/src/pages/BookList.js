@@ -10,7 +10,7 @@ const BookList = () => {
       try {
         const response = await axios.get("http://localhost:9000/BookList");
         setBooks(response.data);
-        console.log("1")
+        console.log(response.data)
       } catch (error) {
         console.error('Error fetching books:', error);
         console.error();

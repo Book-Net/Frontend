@@ -49,10 +49,20 @@ function BookForm() {
 
   return (
     <div className="w-full">
-      <form action="" onSubmit={addBook}>
+      <form action="" onSubmit={addBook} >
         <p className="font-roboto text-4xl text-[#4F6D7A] my-6 font-bold">
           Add a New Book
         </p>
+        <input
+          type="text"
+          className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
+          placeholder="ISBN"
+          required
+          value={data.isbn}
+          onChange={(e) =>
+            setData((prevData) => ({ ...prevData, isbn: e.target.value }))
+          }
+        />
         <input
           type="text"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
@@ -78,16 +88,6 @@ function BookForm() {
         <input
           type="text"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
-          placeholder="ISBN"
-          required
-          value={data.isbn}
-          onChange={(e) =>
-            setData((prevData) => ({ ...prevData, isbn: e.target.value }))
-          }
-        />
-        <input
-          type="text"
-          className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
           placeholder="Quantity"
           required
           value={data.quantity}
@@ -106,14 +106,12 @@ function BookForm() {
           }
         />
         <input
-          type="text"
+          type="file"
+          name="image"
+          accept="image/*"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
-          placeholder="Image Link"
+          placeholder="Quantity"
           required
-          value={data.img}
-          onChange={(e) =>
-            setData((prevData) => ({ ...prevData, img: e.target.value }))
-          }
         />
         <br />
         <Button
