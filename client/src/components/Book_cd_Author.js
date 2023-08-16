@@ -1,8 +1,9 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
+import Button from "./Button";
 
-const BookCard = ({ book }) => {
-  const { title, image, price,  rating, author, number_of_ratings } = book;
+const Book_cd_Author = ({ book }) => {
+  const { title, image, rating, availability, number_of_ratings } = book;
 
   function BookRating({ rating, number_of_ratings }) {
     const stars = [];
@@ -20,7 +21,7 @@ const BookCard = ({ book }) => {
   }
 
   return (
-    <div className="flex h-[350px] bg-[#F5F5F5] shadow-md hover:shadow-lg transition mx-auto rounded-md max-w-[350px] max-h-[230px]">
+    <div className="flex h-[350px]  bg-[#F5F5F5] shadow-md hover:shadow-lg transition mx-auto rounded-md max-w-[350px] max-h-[230px]">
       <div className="p-3 w-full min-w-[150px]">
         <img
           src={image}
@@ -37,16 +38,19 @@ const BookCard = ({ book }) => {
           <p className="font-bold mb-2 w-full overflow-hidden text-md text-left text-[#4F6D7A]">
             {title}
           </p>
-          <p className="text-left text-sm mb-2 text-[#4F6D7A]">{author}</p>
+          <p className="text-left text-sm mb-2 text-[#4F6D7A]">{availability}</p>
         </div>
-        <div className=" absolute bottom-2">
-        <p className="text-left text-xl font-semibold text-[#BF5A36] mb-4">
-            Rs. <span>{price}</span>
-          </p>
+        <div className=" absolute bottom-[40px]">
+        <Button
+            className="bg-[#BF5A36] text-white text-[11px] mt-[6px] font-medium px-4"
+            type="submit"
+            >
+            About Book
+        </Button>
         </div>
       </div>
     </div>
   );
 };
 
-export default BookCard;
+export default Book_cd_Author;

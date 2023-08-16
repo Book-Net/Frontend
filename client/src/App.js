@@ -9,6 +9,8 @@ import Login from "./pages/Login";
 import { createContext, useState } from "react";
 import Add_book_for_sell from "./components/Add_book_for_sell";
 import Add_book_for_bid from "./components/Add_book_for_bid";
+import Unreg_home from "./pages/Unreg_home";
+import Author_profile from "./pages/Author_profile";
 
 function App() {
   const isLoggedIn = false; //change this after authentication done
@@ -19,18 +21,20 @@ function App() {
 
   return (
     <div className="App bg-[#F5F5F5]">
-      <div className="fixed top-0 w-full top"></div>
-      <header className="header">
+       <div className="fixed top-0 w-full top"></div> 
+       <header className="header">
         {isLoggedIn ? <Navbar_2 /> : <Navbar_1 />}
-      </header>
+      </header> */
       <main className="mt-[120px]">
         <Routes>
-          <Route path="/" element={<Add_book_for_bid />} />
+          {/* <Route path="/" element={<Add_book_for_bid />} /> */}
           <Route path="/login" element={<Login />} />
           {/* If you meant /signUp instead of /signup, change the path accordingly */}
           <Route path="/signup" element={<Signup />} />
+          <Route path="/Unreg_home" element={<Unreg_home/>}/>
+          <Route path="/" element={<Author_profile/>}/>
           {/* Redirect to home page if no matching route is found */}
-          <Route path="*" element={<Home />} />
+          {/* <Route path="*" element={<Home />} /> */}
         </Routes>
       </main>
     </div>
