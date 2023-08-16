@@ -13,6 +13,8 @@ import { createContext, useState } from "react";
 import Add_book_for_sell from "./components/Add_book_for_sell";
 import Add_book_for_bid from "./components/Add_book_for_bid";
 import Unreg_home from "./pages/Unreg_home";
+import Author_profile from "./pages/Author_profile";
+import PostView from "./pages/PostView";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
 
@@ -20,7 +22,7 @@ axios.defaults.baseURL = "http://localhost:9000";
 axios.defaults.withCredentials = true;
 
 function App() {
-  const isLoggedIn = false; //change this after authentication done
+  const isLoggedIn = true; //change this after authentication done
 
   const LoginContextProvider = ({ children }) => {
     const [logOrSignUp, setLogOrSignUp] = useState(true);
@@ -43,7 +45,6 @@ function App() {
           <Route path="/Author_profile" element={<Author_profile />} />
           <Route path="/" element={<PostView />} />
           {/* Redirect to home page if no matching route is found */}
-          <Route path="/" element={<Unreg_home />} />
         </Routes>
       </main>
     </div>
