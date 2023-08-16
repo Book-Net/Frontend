@@ -25,7 +25,7 @@ function SignupForm() {
           password,
           rePassword,
         },
-        { withCredentials: false }
+        { withCredentials: true }
       );
 
       const responseData = response.data;
@@ -53,6 +53,7 @@ function SignupForm() {
         <p className="font-roboto text-4xl text-[#4F6D7A] my-6 font-bold">
           SIGN UP
         </p>
+
         <input
           type="text"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
@@ -64,6 +65,7 @@ function SignupForm() {
           }
         />
         <br />
+
         <input
           type="email"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
@@ -75,6 +77,7 @@ function SignupForm() {
           }
         />
         <br />
+
         <input
           type="password"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
@@ -86,6 +89,7 @@ function SignupForm() {
           }
         />
         <br />
+
         <input
           type="password"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
@@ -100,6 +104,7 @@ function SignupForm() {
           }
         />
         <br />
+
         <Button
           className="bg-[#BF5A36] text-white mt-3 font-bold px-6"
           type="submit"

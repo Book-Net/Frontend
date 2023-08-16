@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import Navbar_1 from "./components/Navbar_1";
 import Navbar_2 from "./components/Navbar_2";
 import Signup from "./pages/Signup";
+import Profile_card from "./components/Profile_card";
+import Profile from "./pages/Profile";
+import Profile_navbar from "./components/Profile_navbar";
 import Reg_home from "./pages/Reg_home";
 import Login from "./pages/Login";
 import { createContext, useState } from "react";
@@ -13,6 +16,9 @@ import Unreg_home from "./pages/Unreg_home";
 import BookForm from './components/BookForm';
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
+
+///
+import Appk from "./components/test/imgt";
 import BookList from "./pages/BookList";
 
 axios.defaults.baseURL = "http://localhost:9000";
@@ -33,6 +39,13 @@ function App() {
       </header>
       <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
       <main className="mt-[120px]">
+        {/* <Main_image /> */}
+        {/* <Signup /> */}
+        {/* <Profile_card/> */}
+        {/* <Profile/> */}
+        {/* <Profile_navbar/> */}
+        <Add_book_for_sell/>
+        {/* <Appk/> */}
       <ul>
         
         <li><Link to="/add-book">Add Book</Link></li>
