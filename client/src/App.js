@@ -9,7 +9,6 @@ import Profile from "./pages/Profile";
 import Profile_navbar from "./components/Profile_navbar";
 import Reg_home from "./pages/Reg_home";
 import Login from "./pages/Login";
-import Booklist from "./pages/BookList";
 import { createContext, useState } from "react";
 import Sellbook from "./components/Add_book_for_sell";
 import BidSell from "./components/Bid_Sell";
@@ -20,8 +19,6 @@ import Author_profile from "./pages/Author_profile";
 import PostView from "./pages/PostView";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
-
-///
 import Appk from "./components/test/imgt";
 import BookList from "./pages/BookList";
 
