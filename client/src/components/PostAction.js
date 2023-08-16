@@ -2,20 +2,23 @@ import React, { useState } from 'react';
 import { AiOutlineLike, AiOutlineComment } from 'react-icons/ai';
 
 const PostActions = () => {
-  const [isLiked, setIsLiked] = useState(false);
-  const [showComments, setShowComments] = useState(false); // Track whether to show comments
-  const [commentCount, setCommentCount] = useState(3); // For demonstration purposes, start with 3 comments
-  const [comments, setComments] = useState([
-    "I have one!",
-    "Where are you from?",
-    "I have a new book",
-  ]);
-
-  const [newComment, setNewComment] = useState('');
-
-  const handleLike = () => {
-    setIsLiked(!isLiked);
-  };
+    const [isLiked, setIsLiked] = useState(false);
+    const [showComments, setShowComments] = useState(false); // Track whether to show comments
+    const [likeCount, setLikeCount] = useState(5); // For demonstration purposes, start with 7 likes
+    const [commentCount, setCommentCount] = useState(3); // For demonstration purposes, start with 3 comments
+    const [comments, setComments] = useState([
+      "I have one.",
+      "Where are you from?!",
+      "I have new book.",
+    ]);
+  
+    const [newComment, setNewComment] = useState('');
+  
+    const handleLike = () => {
+      setIsLiked(!isLiked);
+      setLikeCount(isLiked ? likeCount - 1 : likeCount + 1);
+      setCommentCount(isLiked ? commentCount - 1 : commentCount);
+    };
 
   const handleCommentIconClick = () => {
     setShowComments(!showComments);
@@ -44,7 +47,7 @@ const PostActions = () => {
           onClick={handleLike}
         >
           <AiOutlineLike className="mr-2 font-bold" />
-          Like
+          Like{likeCount > 0 && <span className="mr-1">({likeCount})</span>}
         </button>
         <button
           className={`flex items-center font-bold text-gray-500`}
@@ -60,6 +63,7 @@ const PostActions = () => {
             <p key={index}>{comment}</p>
           ))}
         </div>
+        
       )}
       <div className="flex space-x-2">
         <input
@@ -67,10 +71,10 @@ const PostActions = () => {
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="Add a comment..."
-          className="flex-1 p-2 border rounded-md focus:outline-none"
+          className="flex-1 p-2 border ml-2 rounded-md focus:outline-none"
         />
         <button
-          className="px-4 py-2 text-white font-bold bg-[#BF5A36] rounded-[4px] hover:bg-[#9e553b]"
+          className="px-4 py-[5px] text-white mr-2 font-bold bg-[#BF5A36] rounded-[4px] hover:bg-[#9e553b]"
           onClick={handleComment}
         >
           Send
