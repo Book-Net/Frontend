@@ -11,7 +11,8 @@ import Reg_home from "./pages/Reg_home";
 import Login from "./pages/Login";
 import Booklist from "./pages/BookList";
 import { createContext, useState } from "react";
-import Add_book_for_sell from "./components/Add_book_for_sell";
+import Sellbook from "./components/Add_book_for_sell";
+import BidSell from "./components/Bid_Sell";
 import Add_book_for_bid from "./components/Add_book_for_bid";
 import Unreg_home from "./pages/Unreg_home";
 import BookForm from "./components/BookForm";
@@ -54,6 +55,8 @@ function App() {
           <Route path="/" element={<Unreg_home />} />
           <Route path="/add-book" element={<BookForm />} />
           <Route path="/booklist" element={<BookList />} />
+          <Route path="/sell_book" element={<Sellbook />} />
+          <Route path="/BidSell" element={<BidSell />} />
         </Routes>
       </main>
     </div>

@@ -40,11 +40,11 @@ function Navbar_1() {
 
   return (
     <div
-      className={`navbar fixed top-[10px] left-[50%] translate-x-[-50%] right-0 max-w-[1400px] w-full z-[1000] `}
+      className={`navbar fixed top-[10px] left-[50%] translate-x-[-50%] right-0 w-full z-[1000] `}
     >
       <div
         className={`md:flex md:justify-between items-center h-[70px] pt-2 ${
-          scrolled ? "bg-[#F5F5F5] opacity-95" : "bg-[#F5F5F5]"
+          scrolled ? "bg-[#dddcdc] opacity-95" : "bg-[#F5F5F5]"
         }`}
       >
         <div className="md:h-[70px] min-w-280px md:ml-[30px] ">
