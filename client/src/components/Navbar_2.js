@@ -108,7 +108,7 @@ function Navbar_2() {
                 </Link>
               </li>
               <li className="my-2 pb-2 md:my-0">
-                <Link to="/" className="px-[15px] py-[8px] block ">
+                <Link to="/profile" className="px-[15px] py-[8px] block ">
                   <img
                     src={image1}
                     alt=""

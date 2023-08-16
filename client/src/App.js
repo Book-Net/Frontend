@@ -56,7 +56,8 @@ function App() {
           <Route path="/add-book" element={<BookForm />} />
           <Route path="/booklist" element={<BookList />} />
           <Route path="/sell_book" element={<Sellbook />} />
-          <Route path="/BidSell" element={<BidSell />} />
+          <Route path="/bid_sell" element={<BidSell />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </main>
     </div>

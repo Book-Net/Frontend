@@ -2,7 +2,8 @@ import React from "react";
 import { AiFillStar } from "react-icons/ai";
 
 const BookCard = ({ book }) => {
-  const { title, img, price, rating, number_of_ratings, author } = book;
+  const { title, img, price, rating, number_of_ratings, authors, condition } =
+    book;
 
   function BookRating({ rating, number_of_ratings }) {
     const stars = [];
@@ -15,7 +16,7 @@ const BookCard = ({ book }) => {
       <div className="flex items-center mb-2 text-yellow-500 ratings">
         {stars}
         <p className="ml-1 text-sm text-gray-600 font-roboto">
-          ({number_of_ratings})
+          {number_of_ratings}
         </p>
       </div>
     );
@@ -39,7 +40,10 @@ const BookCard = ({ book }) => {
           <p className="font-bold mb-2 w-full overflow-hidden text-md text-left text-[#4F6D7A]">
             {title}
           </p>
-          <p className="text-left text-sm mb-2 text-[#4F6D7A]">{author}</p>
+          <p className="text-left font-semibold text-sm mb-2 text-[#4F6D7A]">
+            {authors}
+          </p>
+          <p className="text-left text-sm mb-2 text-[#4F6D7A]">{condition}</p>
         </div>
         <div className=" absolute bottom-2">
           <p className="text-left text-xl font-semibold text-[#BF5A36] mb-4">
