@@ -30,8 +30,8 @@ const PostActions = () => {
   };
 
   return (
-    <div className="flex flex-col space-y-4">
-      <div className="flex items-center space-x-2">
+    <div className="flex flex-col justify-around space-y-4">
+      <div className="flex items-center justify-around space-x-2">
         <button
           className={`flex items-center font-bold ${
             isLiked ? 'text-[#BF5A36] font-bold' : 'text-gray-500'
