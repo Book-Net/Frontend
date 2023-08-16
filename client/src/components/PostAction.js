@@ -7,9 +7,9 @@ const PostActions = () => {
     const [likeCount, setLikeCount] = useState(5); // For demonstration purposes, start with 7 likes
     const [commentCount, setCommentCount] = useState(3); // For demonstration purposes, start with 3 comments
     const [comments, setComments] = useState([
-      "I have one.",
-      "Where are you from?!",
-      "I have new book.",
+        { user: 'Lahiru Sanjana', text: 'I have one' },
+        { user: 'Samitha Rathnayake', text: 'Where are you from?' },
+        { user: 'Naveendra', text: 'I have a new book' },
     ]);
   
     const [newComment, setNewComment] = useState('');
@@ -58,9 +58,12 @@ const PostActions = () => {
         </button>
       </div>
       {showComments && (
-        <div className="space-y-1 text-left text-gray-500 ml-12">
+        <div className="space-y-2 text-left ml-7 text-gray-500">
           {comments.map((comment, index) => (
-            <p key={index}>{comment}</p>
+            <p key={index}>
+              <span className="font-semibold">{comment.user}: </span>
+              {comment.text}
+            </p>
           ))}
         </div>
         
