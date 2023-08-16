@@ -8,17 +8,20 @@ function BookForm() {
   const navigate = useNavigate();
   const [data, setData] = useState({
     title: "",
-    author: "",
-    genre: "",
+    description: "",
+    isbn: "",
+    quantity: "",
+    price: "",
+    img: "",
   });
 
   const addBook = async (e) => {
     e.preventDefault();
-    const { title, author, genre } = data;
+    const { title, description, isbn, quantity, price, img} = data;
     try {
       const response = await axios.post(
         "http://localhost:9000/add_book", // Update the URL as needed
-        { title, author, genre }, 
+        { title, description, isbn, quantity, price, img }, 
         { withCredentials: false }
       );
 
@@ -28,10 +31,14 @@ function BookForm() {
       } else {
         setData({
           title: "",
-          author: "",
-          genre: "",
+          description: "",
+          isbn: "",
+          quantity: "",
+          price: "",
+          img: "",
         });
         toast.success("Book added successfully!");
+        navigate("/BookList")
         // Redirect logic or handle success as needed
       }
     } catch (error) {
@@ -60,22 +67,52 @@ function BookForm() {
         <input
           type="text"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
-          placeholder="Author"
+          placeholder="Description"
           required
-          value={data.author}
+          value={data.description}
           onChange={(e) =>
-            setData((prevData) => ({ ...prevData, author: e.target.value }))
+            setData((prevData) => ({ ...prevData, description: e.target.value }))
           }
         />
         <br />
         <input
           type="text"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
-          placeholder="Genre"
+          placeholder="ISBN"
           required
-          value={data.genre}
+          value={data.isbn}
           onChange={(e) =>
-            setData((prevData) => ({ ...prevData, genre: e.target.value }))
+            setData((prevData) => ({ ...prevData, isbn: e.target.value }))
+          }
+        />
+        <input
+          type="text"
+          className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
+          placeholder="Quantity"
+          required
+          value={data.quantity}
+          onChange={(e) =>
+            setData((prevData) => ({ ...prevData, quantity: e.target.value }))
+          }
+        />
+        <input
+          type="text"
+          className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
+          placeholder="Price"
+          required
+          value={data.price}
+          onChange={(e) =>
+            setData((prevData) => ({ ...prevData, price: e.target.value }))
+          }
+        />
+        <input
+          type="text"
+          className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
+          placeholder="Image Link"
+          required
+          value={data.img}
+          onChange={(e) =>
+            setData((prevData) => ({ ...prevData, img: e.target.value }))
           }
         />
         <br />

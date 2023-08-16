@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import BookCard from '../components/BookCard';
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
@@ -12,23 +13,24 @@ const BookList = () => {
         console.log("1")
       } catch (error) {
         console.error('Error fetching books:', error);
-        console.error("2");
+        console.error();
       }
     };
     fetchBooks();
   }, []);
 
   return (
-    <div>
-      <h2>Book List</h2>
-      <ul>
-        {books.map((book) => (
-          <li key={book._id}>
-            <strong>{book.title}</strong> by {book.author} (Genre: {book.genre})
-          </li>
-        ))}
-      </ul>
-    </div>
+    <section className="my-16 max-w-[1400px] mx-auto">
+      <div className="container mx-auto">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {books.map((book, index) => (
+           
+              <BookCard book={book} />
+            
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
