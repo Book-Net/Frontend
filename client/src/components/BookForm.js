@@ -56,16 +56,6 @@ function BookForm() {
         <input
           type="text"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
-          placeholder="ISBN"
-          required
-          value={data.isbn}
-          onChange={(e) =>
-            setData((prevData) => ({ ...prevData, isbn: e.target.value }))
-          }
-        />
-        <input
-          type="text"
-          className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
           placeholder="Title"
           required
           value={data.title}
@@ -88,6 +78,16 @@ function BookForm() {
         <input
           type="text"
           className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
+          placeholder="ISBN"
+          required
+          value={data.isbn}
+          onChange={(e) =>
+            setData((prevData) => ({ ...prevData, isbn: e.target.value }))
+          }
+        />
+        <input
+          type="text"
+          className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
           placeholder="Quantity"
           required
           value={data.quantity}
@@ -106,14 +106,18 @@ function BookForm() {
           }
         />
         <input
-          type="file"
-          name="image"
-          accept="image/*"
-          className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
-          placeholder="Quantity"
-          required
-        />
-        <br />
+  type="file"
+  accept="image/*"
+  className="my-3"
+  required
+  onChange={(e) =>
+    setData((prevData) => ({
+      ...prevData,
+      img: e.target.files[0],
+    }))
+  }
+/>
+        <br/> 
         <Button
           className="bg-[#BF5A36] text-white mt-3 font-bold px-6"
           type="submit"

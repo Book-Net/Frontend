@@ -1,6 +1,5 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
-import main_image from "../assets/main_image.png";
 
 const BookCard = ({ book }) => {
   const { title, img, price, rating, number_of_ratings, author } = book;
