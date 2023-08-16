@@ -13,6 +13,7 @@ import Unreg_home from "./pages/Unreg_home";
 import BookForm from './components/BookForm';
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
+import BookList from "./pages/BookList";
 
 axios.defaults.baseURL = "http://localhost:9000";
 axios.defaults.withCredentials = true;
@@ -42,7 +43,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           {/* Redirect to home page if no matching route is found */}
           <Route path="/" element={<Unreg_home />} />
-          <Route path="add-book" element={<BookForm />} />
+          <Route path="/add-book" element={<BookForm />} />
+          <Route path="/BookList" element={<BookList/>} />
         </Routes>
       </main>
     </div>
