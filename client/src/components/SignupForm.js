@@ -25,7 +25,7 @@ function SignupForm() {
           password,
           rePassword,
         },
-        { withCredentials: false }
+        { withCredentials: true }
       );
 
       const responseData = response.data;
