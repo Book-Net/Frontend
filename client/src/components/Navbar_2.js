@@ -9,6 +9,7 @@ import { BsBellFill } from "react-icons/bs";
 
 const navLinks = [
   { to: "/", text: "Home" },
+  { to: "/booklist", text: "Market place" },
   { to: "/", text: "About Us" },
   { to: "/", text: "Options" },
   { to: "/", text: "Contact Us" },

@@ -4,7 +4,7 @@ import main_image from "../assets/main_image.png";
 function Main_image() {
   return (
     <div className="max-w-[1200px] hidden md:flex w-full relative md:justify-between items-center mx-auto max-h-[50%] bg-[#F2CB9E] rounded-md">
-      <div className="flex-1 py-8 px-10">
+      <div className="flex-1 px-10 py-8">
         {" "}
         {/* Updated */}
         <p className="text-4xl lg:text-6xl font-mansalva">
