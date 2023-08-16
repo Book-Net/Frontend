@@ -16,6 +16,9 @@ import Unreg_home from "./pages/Unreg_home";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
 
+///
+import Appk from "./components/test/imgt";
+
 axios.defaults.baseURL = "http://localhost:9000";
 axios.defaults.withCredentials = true;
 
@@ -38,7 +41,9 @@ function App() {
         {/* <Signup /> */}
         {/* <Profile_card/> */}
         {/* <Profile/> */}
-        <Profile_navbar/>
+        {/* <Profile_navbar/> */}
+        {/* <Add_book_for_sell/> */}
+        <Appk/>
         <Routes>
           <Route path="*" element={<Add_book_for_bid />} />
           <Route path="/login" element={<Login />} />
