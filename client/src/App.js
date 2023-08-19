@@ -12,6 +12,7 @@ import Add_book_for_bid from "./components/Add_book_for_bid";
 import Unreg_home from "./pages/Unreg_home";
 import Author_profile from "./pages/Author_profile";
 import PostView from "./pages/PostView";
+import Have_ISBN from "./pages/Have_ISBN";
 
 function App() {
   const isLoggedIn = false; //change this after authentication done
@@ -34,7 +35,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/Unreg_home" element={<Unreg_home/>}/>
           <Route path="/Author_profile" element={<Author_profile/>}/>
-          <Route path="/" element={<PostView/>}/>
+          <Route path="/PostView" element={<PostView/>}/>
+          <Route path="/" element={<Have_ISBN/>}/>
+
           {/* Redirect to home page if no matching route is found */}
           {/* <Route path="*" element={<Home />} /> */}
         </Routes>
