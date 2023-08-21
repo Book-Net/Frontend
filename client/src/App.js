@@ -13,6 +13,8 @@ import Unreg_home from "./pages/Unreg_home";
 import Author_profile from "./pages/Author_profile";
 import PostView from "./pages/PostView";
 import Have_ISBN from "./pages/Have_ISBN";
+import AddBook_Main from "./pages/AddBook_Main";
+import AddBook_Main_2 from "./pages/AddBook_Main_2";
 
 function App() {
   const isLoggedIn = false; //change this after authentication done
@@ -36,7 +38,9 @@ function App() {
           <Route path="/Unreg_home" element={<Unreg_home/>}/>
           <Route path="/Author_profile" element={<Author_profile/>}/>
           <Route path="/PostView" element={<PostView/>}/>
-          <Route path="/" element={<Have_ISBN/>}/>
+          <Route path="/have_ISBN" element={<Have_ISBN/>}/>
+          <Route path="/AddBook_Main" element={<AddBook_Main/>}/>
+          <Route path="/" element={<AddBook_Main_2/>}/>
 
           {/* Redirect to home page if no matching route is found */}
           {/* <Route path="*" element={<Home />} /> */}
