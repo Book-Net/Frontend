@@ -5,8 +5,17 @@ import Swal from 'sweetalert2'
 
 function Add_book_for_sell() {
   const [ISBN,setISBN]=useState('');
+  const [description,set_decp]=useState('');
 
-  
+  const c = ()=>set_decp(
+    `1.Language: ${bookDetails.language}\n` +
+    `2.Publisher: ${bookDetails.publisher}\n` +
+    `3.Published Date: ${bookDetails.publishedDate}\n` +
+    `4.Author: ${bookDetails.author}\n` +
+    `5.Page Count: ${bookDetails.pageCount}\n` +
+    `6.Average Rating: ${bookDetails.averageRating}\n\n`
+) 
+
   const [bookDetails, setBookDetails] = useState({
     title: '',
     author: '',
@@ -18,27 +27,26 @@ function Add_book_for_sell() {
     
   });
 
+  
+
   const fetchBookDetails = async () => {
     try {
-      const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${ISBN}`);
-      const data = await response.json();
-
-      if (data.items && data.items.length > 0) {
-        const bookInfo = data.items[0].volumeInfo;
-        setBookDetails({
-          title: bookInfo.title || 'NO INFO',
-          author: bookInfo.authors ? bookInfo.authors.join(', ') : 'NO INFO',
-          // You can update other fields here based on the API response
-          // Extract and update additional book details
-          language: bookInfo.language || 'NO INFO',
-          publisher: bookInfo.publisher || 'NO INFO',
-          publishedDate: bookInfo.publishedDate || 'NO INFO',
-          pageCount: bookInfo.pageCount || 'NO INFO',
-          previewLink: bookInfo.previewLink || 'NO INFO',
-          averageRating: bookInfo.averageRating || 'NO INFO',
-          
-          
-        });
+          const response = await fetch(`https://www.googleapis.com/books/v1/volumes?q=isbn:${ISBN}`);
+          const data = await response.json();
+          if (data.items && data.items.length > 0) {
+            const bookInfo = data.items[0].volumeInfo;
+            setBookDetails({
+              title: bookInfo.title || 'NO INFO',
+              author: bookInfo.authors ? bookInfo.authors.join(', ') : 'NO INFO',
+              // You can update other fields here based on the API response
+              // Extract and update additional book details
+              language: bookInfo.language || 'NO INFO',
+              publisher: bookInfo.publisher || 'NO INFO',
+              publishedDate: bookInfo.publishedDate || 'NO INFO',
+              pageCount: bookInfo.pageCount || 'NO INFO',
+              previewLink: bookInfo.previewLink || 'NO INFO',
+              averageRating: bookInfo.averageRating || 'NO INFO',
+            });
       } else {
         Swal.fire('No book found for the given ISBN.');
       }
@@ -76,8 +84,6 @@ function Add_book_for_sell() {
         onClick={(e) => {
           e.preventDefault(); // Prevent form submission and page reload
           // Get the value of the ISBN input field
-          
-          
           const isbnInput = document.getElementById('isbn');
           // const isbnValue = isbnInput.value;
 
@@ -91,11 +97,7 @@ function Add_book_for_sell() {
         }}>
             Check!
         </button>
-        <br />
-      {/* </form> */}
-
-    
-      
+        <br />      
         <input
           name='title'
           type="text"
@@ -103,6 +105,9 @@ function Add_book_for_sell() {
           placeholder="Name of the Book"
           required
           value={bookDetails.title}
+          onChange={(e) => setBookDetails({
+            title:e.target.value
+          })}
         />
         <br />
         <input
@@ -112,17 +117,19 @@ function Add_book_for_sell() {
           placeholder="Author"
           required
           value={bookDetails.author}
+          onChange={(e) => setBookDetails({
+            author:e.target.value
+          })}
         />
         <br />
         <select
           className="pl-2 py-3 shadow-md my-3 rounded-md text-[#BF5A36] w-3/5"
           required
           name='condition'
+          defaultValue={"Used like New"}
         >
-          <option value="" disabled selected>
-            Condition
-          </option>
-          <option value="New">Used like New</option>
+          <option value="" disabled selected>Condition</option>
+          <option value="Used like New" selected>Used like New</option>
           <option value="Used">Used</option>
           <option value="Used">Damaged</option>
         </select>
@@ -135,13 +142,6 @@ function Add_book_for_sell() {
           required
         />
         <br />
-              {/* <input
-                type="number"
-                className="pl-2 py-3 text-[#BF5A36] shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
-                placeholder="Quantity"
-                required
-              />
-              <br /> */}
         <input
           type="file"
           name="file"
@@ -159,32 +159,10 @@ function Add_book_for_sell() {
           placeholder="Description"
           className="pl-2 py-3 text-[#BF5A36] shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
           minLength="600"
-          value={
-            `1.Language: ${bookDetails.language}\n` +
-            `2.Publisher: ${bookDetails.publisher}\n` +
-            `3.Published Date: ${bookDetails.publishedDate}\n` +
-            `4.Author: ${bookDetails.author}\n` +
-            `5.Page Count: ${bookDetails.pageCount}\n` +
-            `6.Average Rating: ${bookDetails.averageRating}\n\n`
-          }
-          readOnly={true}
+          value={description}
+          onChange={(e) => set_decp(e.target.value)}
+          readOnly={false}
         ></textarea>
-
-            {/* <textarea
-              name="user_description"
-              id=""
-              rows="5"
-              placeholder="Say Something..."
-              className="pl-2 py-3 text-[#BF5A36] shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
-              minLength="600"
-              readOnly={false}
-              onChange={(e) =>
-                setBookDetails({ ...bookDetails, description: e.target.value })
-              }
-            ></textarea> */}
-
-        {/* Display additional book details in the description field */}
-        
         <br />
         <br />
 

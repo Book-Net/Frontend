@@ -15,6 +15,7 @@ import Add_book_for_bid from "./components/Add_book_for_bid";
 import Unreg_home from "./pages/Unreg_home";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
+import BookForm from "./components/BookForm";
 
 ///
 import Appk from "./components/test/imgt";
@@ -44,6 +45,7 @@ function App() {
         {/* <Profile_navbar/> */}
         <Add_book_for_sell/>
         {/* <Appk/> */}
+        {/* <BookForm/> */}
         <Routes>
           <Route path="*" element={<Add_book_for_bid />} />
           <Route path="/login" element={<Login />} />
