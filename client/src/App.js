@@ -16,7 +16,7 @@ import Have_ISBN from "./pages/Have_ISBN";
 import AddBook_Main from "./pages/AddBook_Main";
 import AddBook_Main_2 from "./pages/AddBook_Main_2";
 import AddFor_Bid from "./pages/AddFor_Bid";
-
+import AddFor_Sell from "./pages/AddFor_Sell";
 function App() {
   const isLoggedIn = false; //change this after authentication done
 
@@ -42,7 +42,8 @@ function App() {
           <Route path="/have_ISBN" element={<Have_ISBN/>}/>
           <Route path="/AddBook_Main" element={<AddBook_Main/>}/>
           <Route path="/AddBook_Main_2" element={<AddBook_Main_2/>}/>
-          <Route path="/" element={<AddFor_Bid/>}/>
+          <Route path="/AddFor_Bid" element={<AddFor_Bid/>}/>
+          <Route path="/" element={<AddFor_Sell/>}/>
 
 
           {/* Redirect to home page if no matching route is found */}
