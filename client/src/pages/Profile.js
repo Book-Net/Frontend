@@ -20,7 +20,7 @@ const Profile = () => {
             alt=""
             className="w-32 h-32 rounded-full max-w-full border border-gray-300"
           />
-          </div>
+      </div>
 
         <div className="mt-10 w-full md:max-w-screen-lg flex justify-star">
           <Profile_details />

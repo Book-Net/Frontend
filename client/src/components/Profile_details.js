@@ -32,7 +32,7 @@ import { BsFillTelephoneFill } from "react-icons/bs";
             </div>
             <div className="ml-50">
               <p className="mb-1">No 18, Ganemulla, Gampaha</p>
-              <p>City</p>
+              <p>Sri Lanka</p>
             </div>
           </div>
 
