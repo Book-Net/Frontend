@@ -15,6 +15,7 @@ import PostView from "./pages/PostView";
 import Have_ISBN from "./pages/Have_ISBN";
 import AddBook_Main from "./pages/AddBook_Main";
 import AddBook_Main_2 from "./pages/AddBook_Main_2";
+import AddFor_Bid from "./pages/AddFor_Bid";
 
 function App() {
   const isLoggedIn = false; //change this after authentication done
@@ -36,11 +37,13 @@ function App() {
           {/* If you meant /signUp instead of /signup, change the path accordingly */}
           <Route path="/signup" element={<Signup />} />
           <Route path="/Unreg_home" element={<Unreg_home/>}/>
-          <Route path="/Author_profile" element={<Author_profile/>}/>
+          <Route path="/Author_Profile" element={<Author_profile/>}/>
           <Route path="/PostView" element={<PostView/>}/>
           <Route path="/have_ISBN" element={<Have_ISBN/>}/>
           <Route path="/AddBook_Main" element={<AddBook_Main/>}/>
-          <Route path="/" element={<AddBook_Main_2/>}/>
+          <Route path="/AddBook_Main_2" element={<AddBook_Main_2/>}/>
+          <Route path="/" element={<AddFor_Bid/>}/>
+
 
           {/* Redirect to home page if no matching route is found */}
           {/* <Route path="*" element={<Home />} /> */}
