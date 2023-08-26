@@ -33,13 +33,13 @@ function SignupForm() {
         toast.error(responseData.error);
       } else {
         setData({
-          name: "",
+          userName: "",
           email: "",
           password: "",
           rePassword: "",
         });
         toast.success("Registration successful. Welcome!");
-        navigate("/");
+        navigate("/login");
       }
     } catch (error) {
       console.log(error);

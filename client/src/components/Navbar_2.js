@@ -6,6 +6,7 @@ import { HiMenu } from "react-icons/hi";
 import { RiCloseFill } from "react-icons/ri";
 import { GrLogout } from "react-icons/gr";
 import { BsBellFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 const navLinks = [
   { to: "/", text: "Home" },
@@ -100,10 +101,7 @@ function Navbar_2() {
                 </Link>
               </li>{" "}
               <li className="my-2 md:my-0 md:mx-3 ">
-                <Link
-                  to="/"
-                  className="font-roboto px-[15px] py-[8px] text-2xl block md:inline"
-                >
+                <Link className="font-roboto px-[15px] py-[8px] text-2xl block md:inline">
                   <GrLogout />
                 </Link>
               </li>

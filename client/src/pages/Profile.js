@@ -3,6 +3,7 @@ import Profile_details from "../components/Profile_details";
 import book_bg_img from "../assets/book_bg_img.png";
 import image1 from "../assets/image1.png";
 import Profile_navbar from "../components/Profile_navbar";
+import Profile_card from "../components/Profile_card";
 
 const Profile = () => {
   return (
@@ -26,8 +27,17 @@ const Profile = () => {
           <Profile_details />
         </div>
 
-        <div className="mt-2 p-5 w-full md:max-w-screen-lg">
-          <Profile_navbar />
+        <div className="mt-5 p-5 w-full md:max-w-screen-lg md:flex justify-center gap-6 mx-auto">
+          {<Profile_card title="Sales" desc="Add book for sell" btn="Add" />}
+          {<Profile_card title="Bids" desc="Add book for bid" btn="Add" />}
+          {<Profile_card title="Swaps" desc="Add book for swap" btn="Add" />}
+          {
+            <Profile_card
+              title="Donates"
+              desc="Add book for donate"
+              btn="Add"
+            />
+          }
         </div>
       </div>
     </div>

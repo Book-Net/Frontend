@@ -1,67 +1,50 @@
-
 export const PublishedBooks = [
-    {
-      id: 1,
-      title: "The Enchanted Chronicles",
-      description:
-        "Join young adventurers on a quest through a mystical realm, where ancient spells and magical creatures breathe life into every page. Uncover hidden secrets and forge an unbreakable bond between the realms of magic and reality..",
-      rating: 5,
-      image: "assets/book1.jpg",
-      availability: "In Stock",
-      price: 19.99,
-      number_of_ratings: 124,
-    },
-    {
-      id: 2,
-      title: 
-      "Starlight Saga: The Lost Galaxy",
-     
-      description:
-        "Embark on an epic interstellar journey as you navigate through the uncharted territories of the Lost Galaxy. With space battles, cosmic mysteries, and unexpected alliances, the fate of the universe hangs in the balance.",
-      rating: 4,
-      image: "link-to-image-2",
-      availability: "Out of Stock",
-      price: 16.95,
-      number_of_ratings: 354,
-    },
-    {
-      id: 3,
-      title: 
-      "Whispers of the Crystal Oracle",
-      
-      description:
-        "Delve into the depths of a forgotten prophecy as the whispers of a powerful crystal oracle guide the fate of a kingdom on the brink of darkness. Unravel the enigmatic verses and decipher the code to salvation.",
-      rating: 5,
-      image: "link-to-image-3",
-      availability: "In Stock",
-      price: 14.99,
-      number_of_ratings: 557,
-    },
-    {
-      id: 4,
-      title: 
-      "Chronicles of the Midnight Phoenix",
-      description:
-        "As twilight falls, the Midnight Phoenix soars into action, safeguarding a realm shrouded in shadow. Follow the enthralling tales of courage and sacrifice as heroes rise to protect a world threatened by eternal night.",
-      rating: 5,
-      image: "link-to-image-4",
-      availability: "In Stock",
-      price: 12.49,
-      number_of_ratings: 87,
-    },
-    
-    {
-      id: 5,
-      title: 
-      "Echoes from the Eternity Realm",
-      description:
-        "Across the boundaries of time, echoes resonate from the Eternity Realm, where the past and future intertwine. Follow the captivating journey of souls seeking redemption, love, and a chance to rewrite their own histories.",
-      rating: 3,
-      image: "link-to-image-6",
-      availability: "In Stock",
-      price: 18.75,
-      number_of_ratings: 44,
-    },
-   
-  ];
-  
+  {
+    id: 1,
+    title: "The Great Gatsby",
+    description:
+      "A story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.",
+    rating: 5,
+    image:
+      "https://images.squarespace-cdn.com/content/v1/530e356ee4b0efe5178a2135/1654546262009-KSOWK640UNINY8DF1JE1/PXL_20220525_171925891.jpg ",
+    price: 19.99,
+    author: "F. Scott Fitzgerald",
+    number_of_ratings: 44,
+  },
+  {
+    id: 2,
+    title: "To Kill a Mockingbird",
+    description:
+      "The story of young girl Scout Finch and her father, lawyer Atticus Finch, as they navigate issues of race and morality.",
+    rating: 4,
+    image:
+      "https://prodimage.images-bn.com/pimages/9781541644939_p0_v2_s1200x630.jpg  ",
+    price: 16.95,
+    author: "Harper Lee",
+    number_of_ratings: 44,
+  },
+  {
+    id: 3,
+    title: "1984",
+    description:
+      "A dystopian social science fiction novel by George Orwell, depicting a totalitarian regime.",
+    rating: 5,
+    image:
+      "https://res.cloudinary.com/jerrick/image/upload/d_642250b563292b35f27461a7.png,f_jpg,fl_progressive,q_auto,w_1024/640db5c1a93664001d8e2953.jpg ",
+    price: 14.99,
+    author: "George Orwell",
+    number_of_ratings: 44,
+  },
+  {
+    id: 4,
+    title: "The Catcher in the Rye",
+    description:
+      "A novel by J.D. Salinger, following the experiences of a disenchanted teenager named Holden Caulfield.",
+    rating: 5,
+    image:
+      "https://www.booktopia.com.au/covers/big/9780316769532/0000/the-catcher-in-the-rye.jpg  ",
+    price: 12.49,
+    author: "J.D. Salinger",
+    number_of_ratings: 440,
+  },
+];

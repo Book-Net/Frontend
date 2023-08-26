@@ -46,7 +46,7 @@ function Profile_navbar() {
           Favorites
         </button>
       </div>
-      <div className="mt-12">
+      {/* <div className="mt-12">
         <div id="dashboard" className="main flex justify-center">
           <div className="flex flex-row justify-center space-x-8">
             <Profile_dashboard />
@@ -64,7 +64,7 @@ function Profile_navbar() {
             <Profile_favourites />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
