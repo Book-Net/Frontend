@@ -17,6 +17,8 @@ import AddBook_Main from "./pages/AddBook_Main";
 import AddBook_Main_2 from "./pages/AddBook_Main_2";
 import AddFor_Bid from "./pages/AddFor_Bid";
 import AddFor_Sell from "./pages/AddFor_Sell";
+import AddFor_Exchange from "./pages/AddFor_Exchange";
+import AddFor_Donate from "./pages/AddFor_Donate";
 function App() {
   const isLoggedIn = false; //change this after authentication done
 
@@ -39,11 +41,15 @@ function App() {
           <Route path="/Unreg_home" element={<Unreg_home/>}/>
           <Route path="/Author_Profile" element={<Author_profile/>}/>
           <Route path="/PostView" element={<PostView/>}/>
-          <Route path="/have_ISBN" element={<Have_ISBN/>}/>
+          <Route path="/" element={<Have_ISBN/>}/>
           <Route path="/AddBook_Main" element={<AddBook_Main/>}/>
           <Route path="/AddBook_Main_2" element={<AddBook_Main_2/>}/>
           <Route path="/AddFor_Bid" element={<AddFor_Bid/>}/>
-          <Route path="/" element={<AddFor_Sell/>}/>
+          <Route path="/AddFor_Sell" element={<AddFor_Sell/>}/>
+          <Route path="/AddFor_Exchange" element={<AddFor_Exchange/>}/>
+          <Route path="/AddFor_Donate" element={<AddFor_Donate/>}/>
+          
+
 
 
           {/* Redirect to home page if no matching route is found */}
