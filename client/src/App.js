@@ -23,6 +23,7 @@ import { Toaster } from "react-hot-toast";
 ///
 import Appk from "./components/test/imgt";
 import BookList from "./pages/BookList";
+import AuthorViewProfile from "./pages/AuthorViewProfile";
 
 axios.defaults.baseURL = "http://localhost:9000";
 axios.defaults.withCredentials = true;
@@ -54,6 +55,10 @@ function App() {
           <Route path="/" element={<Unreg_home />} />
           <Route path="/add-book" element={<BookForm />} />
           <Route path="/booklist" element={<BookList />} />
+
+          {/* Naveen */}
+          <Route path="/author_view_profile" element={<AuthorViewProfile/>} />
+          {/* Naveen */}
         </Routes>
       </main>
     </div>
