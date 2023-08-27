@@ -1,5 +1,12 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Routes,
+  Link,
+  Navigate,
+} from "react-router-dom";
 // import Main_image from "./components/Main_image";
 import Navbar_1 from "./components/Navbar_1";
 import Signup from "./pages/Signup";
@@ -17,37 +24,43 @@ import BookList from "./pages/BookList";
 import Logout from "./components/Logout";
 
 // context api
-import { AuthProvider } from "./context/AppContext";
+// import { AuthProvider } from "./context/AppContext";
+import { useAuth } from "./context/AppContext";
+// import { useNavigate } from "react-router-dom";
 
 axios.defaults.baseURL = "http://localhost:9000";
 axios.defaults.withCredentials = true;
 
 function App() {
+  // const navigate = useNavigate();
+
+  const { user } = useAuth();
   return (
-    <AuthProvider>
-      <div className="App bg-[#F5F5F5]">
-        <div className="fixed top-0 w-full top"></div>
-        <header className="header">
-          <Navbar_1 />
-        </header>
-        <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
-        <main className="mt-[120px]">
-          <Routes>
-            <Route path="*" element={<Signup />} />
-            <Route path="/" element={<PostView />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/Author_profile" element={<Author_profile />} />
-            <Route path="/add-book" element={<BookForm />} />
-            <Route path="/booklist" element={<BookList />} />
-            <Route path="/sell_book" element={<Sellbook />} />
-            <Route path="/bid_sell" element={<BidSell />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/logout" element={<Logout />} />
-          </Routes>
-        </main>
-      </div>
-    </AuthProvider>
+    <div className="App bg-[#F5F5F5]">
+      <div className="fixed top-0 w-full top"></div>
+      <header className="header">
+        <Navbar_1 />
+      </header>
+      <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
+      <main className="mt-[120px]">
+        <Routes>
+          <Route path="*" element={<Signup />} />
+          <Route path="/" element={<PostView />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/Author_profile" element={<Author_profile />} />
+          <Route
+            path="/add-book"
+            element={user ? <BookForm /> : <Navigate to="/login" />}
+          />
+          <Route path="/booklist" element={<BookList />} />
+          <Route path="/sell_book" element={<Sellbook />} />
+          <Route path="/bid_sell" element={<BidSell />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/logout" element={<Logout />} />
+        </Routes>
+      </main>
+    </div>
   );
 }
 
