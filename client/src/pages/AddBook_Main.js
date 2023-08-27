@@ -1,4 +1,5 @@
 import React from "react";
+import { FiSearch } from "react-icons/fi";
 
 
 
@@ -14,9 +15,17 @@ function AddBook_Main() {
 
                     <form action="#">
                         <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
-                            <div class="sm:col-span-2">
+                            <div class="sm:col-span-2 ">
                                 <label className="block mb-2 text-sm font-medium text-[#BF5A36]  text-left">ISBN Number</label>
+                            
+                                <div className="relative w-full mx-auto">
                                 <input className="bg-gray-50 border border-[#BF5A36] border-opacity-30 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Enter ISBN Number to Search" required="" />
+                                    <div className="absolute top-0 right-0 px-5 h-full flex items-center bg-[#BF5A36] rounded-md">
+                                        <FiSearch className="text-[#ffffff]" />
+                                    </div>
+                                </div>
+
+
                             </div>
                             <div class="w-full">
                                 <label className="block mb-2 text-sm font-medium text-[#BF5A36]  text-left">Name of the Book</label>
@@ -24,7 +33,7 @@ function AddBook_Main() {
                             </div>
                             <div class="w-full">
                                 <label className="block mb-2 text-sm font-medium text-[#BF5A36]   text-left">Author</label>
-                                <input className="bg-gray-50 border border-[#BF5A36] border-opacity-30 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Author's Name" required="" readOnly/>
+                                <input className="bg-gray-50 border border-[#BF5A36] border-opacity-30 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" placeholder="Author's Name" required="" readOnly />
                             </div>
                             <div>
                                 <label className="block mb-2 text-sm font-medium text-[#BF5A36]  text-left">Condition</label>
@@ -38,11 +47,11 @@ function AddBook_Main() {
                             </div>
                             <br />
                             <div className="sm:col-span-2">
-                               
+
                                 <label className="block mb-2 text-sm font-medium text-[#BF5A36] text-left">Upload Image</label>
-                                
+
                                 <input className="block w-full text-sm text-gray-900 border border-[#BF5A36] border-opacity-30 rounded-lg cursor-pointer bg-gray-50 p-2.5" type="file" />
-                                
+
 
                             </div>
                             <div className="sm:col-span-2">
@@ -52,18 +61,18 @@ function AddBook_Main() {
                         </div>
                         <div className="flex justify-between">
                             <button className=" items-center px-7 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 bg-[#4F6D7A]">
-                               Clear
+                                Clear
                             </button>
                             <button className="items-center px-7 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 bg-[#BF5A36]">
-                              Next
+                                Next
                             </button>
                         </div>
 
                     </form>
                 </div>
-            </section>
+            </section >
 
-        </div>
+        </div >
 
 
     );
