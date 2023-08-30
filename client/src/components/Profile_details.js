@@ -1,6 +1,7 @@
 import React from "react";
 import { HiMail } from "react-icons/hi";
 import { BsFillTelephoneFill } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
   const Profile_details = () => {
     return (
@@ -10,9 +11,9 @@ import { BsFillTelephoneFill } from "react-icons/bs";
             Priyasha Sathyangani
           </h2>
           <div className="text-[#65BCB5]">
-            <a href="#">
-              <i class="bx bxs-edit-alt"></i>Edit profile{" "}
-            </a>
+            <Link to="../editProfile">
+              <i class="bx bxs-edit-alt"></i>Edit profile
+            </Link>
           </div>
   
           <div className="flex flex-row ">

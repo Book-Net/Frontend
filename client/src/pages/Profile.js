@@ -3,6 +3,7 @@ import Profile_details from "../components/Profile_details";
 import book_bg_img from "../assets/book_bg_img.png";
 import image1 from "../assets/image1.png";
 import Profile_navbar from "../components/Profile_navbar";
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   return (
