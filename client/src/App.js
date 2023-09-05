@@ -12,6 +12,7 @@ import Book_sale_details from "./pages/Book_sale_details";
 import Book_bid_details from "./pages/Book_bid_details";
 import Profile from "./pages/Profile";
 import Edit_profile from "./pages/Edit_profile";
+import Place_bid from "./pages/Place_bid";
 
 function App() {
   const isLoggedIn = false; //change this after authentication done
@@ -33,6 +34,7 @@ function App() {
           <Route path="/bookBidDetails" element={<Book_bid_details/>}/>
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/editProfile" element={<Edit_profile/>}/>
+          <Route path="/placeBid" element={<Place_bid/>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
