@@ -16,32 +16,40 @@ const Place_bid = () => {
         </Link>
 
         <div className="flex">
-          <div className="w-1/3">
-            <img src={book} className="w-4/5 rounded-md" alt="" />
+          <div className="w-1/2  shadow-2xl shadow-gray-470 ">
+            <img src={book} className="rounded-md " alt="" />
           </div>
-          <div className="w-2/3 px-4">
+          <div className="w-1/3 ml-[70px]">
             <div className="pb-2">
               <Book_name_author />
             </div>
             
+            <div className=" pt-4">
+              <Bid_closing_description/>
+            </div>
             
-            <div className="mt-3 bg-gray-300 p-4 rounded-md shadow-md shadow-#9B9B9B w-3/4 ml-0">
+            <div className=" pt-5 text-[#4F6D7A] font-bold text-l text-left">
+              Not reserved yet
+            </div>
+
+            <div className="mt-2 bg-gray-100 p-4 rounded-md border-[#bf5a36] ml-0">
              
                 <p className="topic">Current Bid</p>
-                <p className="py-5 text-[#F61D0F]">Rs. 500.00</p>
+                <p className="py-4 text-[#F61D0F] text-[27px]">Rs. 500.00</p>
 
-                <input type="number" />
+                <input className="mt-2 py-[4px] bg-white border-gray-400 border-[1px] rounded-md" type="number" />
+                <br></br>
                 <Button
-                  className="bg-[#BF5A36] text-white my-4 mt-5 font-bold px-20 shadow-lg"
+                  className="bg-[#BF5A36] text-white my-4 mt-5 font-bold px-[53px] shadow-lg"
                   type="submit"
                 >
                   Place Bid
                 </Button>
-               
+             <br></br>
+              <Link to="" className="text-gray-600 ">
+                View History
+              </Link>
             </div>
-          </div>
-          <div>
-              <Bid_closing_description/>
           </div>
           
         </div>
