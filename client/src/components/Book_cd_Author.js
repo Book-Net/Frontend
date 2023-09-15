@@ -1,8 +1,9 @@
 import React from "react";
 import { AiFillStar } from "react-icons/ai";
+import Button from "./Button";
 
-const BookCard = ({ book }) => {
-  const { title, image, price,  rating, author, number_of_ratings } = book;
+const Book_cd_Author = ({ book }) => {
+  const { title, image, rating, availability, number_of_ratings } = book;
 
   function BookRating({ rating, number_of_ratings }) {
     const stars = [];
@@ -12,7 +13,7 @@ const BookCard = ({ book }) => {
     }
 
     return (
-      <div className="flex items-center mb-2 text-yellow-500 ratings">
+      <div className="ratings items-center flex text-yellow-500 mb-2">
         {stars}
         <p className="ml-1 text-sm text-gray-600 font-roboto">({number_of_ratings})</p>
       </div>
@@ -20,11 +21,11 @@ const BookCard = ({ book }) => {
   }
 
   return (
-    <div className="flex h-[350px] bg-[#F5F5F5] shadow-md hover:shadow-lg transition mx-auto rounded-md max-w-[350px] max-h-[230px]">
+    <div className="flex h-[350px]  bg-[#F5F5F5] shadow-md hover:shadow-lg transition mx-auto rounded-md max-w-[350px] max-h-[230px]">
       <div className="p-3 w-full min-w-[150px]">
         <img
-          src={`http://localhost:9000/give_file/${img}`}
-          className="object-cover w-full h-full rounded-md"
+          src={image}
+          className="h-full object-cover w-full rounded-md"
           alt=""
           srcSet=""
         />
@@ -37,16 +38,19 @@ const BookCard = ({ book }) => {
           <p className="font-bold mb-2 w-full overflow-hidden text-md text-left text-[#4F6D7A]">
             {title}
           </p>
-          <p className="text-left text-sm mb-2 text-[#4F6D7A]">{author}</p>
+          <p className="text-left text-sm mb-2 text-[#4F6D7A]">{availability}</p>
         </div>
-        <div className=" absolute bottom-2">
-        <p className="text-left text-xl font-semibold text-[#BF5A36] mb-4">
-            Rs. <span>{price}</span>
-          </p>
+        <div className=" absolute bottom-[40px]">
+        <Button
+            className="bg-[#BF5A36] text-white text-[11px] mt-[6px] font-medium px-4"
+            type="submit"
+            >
+            About Book
+        </Button>
         </div>
       </div>
     </div>
   );
 };
 
-export default BookCard;
+export default Book_cd_Author;

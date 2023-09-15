@@ -13,17 +13,15 @@ import { createContext, useState } from "react";
 import Add_book_for_sell from "./components/Add_book_for_sell";
 import Add_book_for_bid from "./components/Add_book_for_bid";
 import Unreg_home from "./pages/Unreg_home";
-import BookForm from './components/BookForm';
-import axios from "axios";
-import { Toaster } from "react-hot-toast";
-
-///
-import Appk from "./components/test/imgt";
-import BookList from "./pages/BookList";
-
-axios.defaults.baseURL = "http://localhost:9000";
-axios.defaults.withCredentials = true;
-
+import Author_profile from "./pages/Author_profile";
+import PostView from "./pages/PostView";
+import Have_ISBN from "./pages/Have_ISBN";
+import AddBook_Main from "./pages/AddBook_Main";
+import AddBook_Main_2 from "./pages/AddBook_Main_2";
+import AddFor_Bid from "./pages/AddFor_Bid";
+import AddFor_Sell from "./pages/AddFor_Sell";
+import AddFor_Exchange from "./pages/AddFor_Exchange";
+import AddFor_Donate from "./pages/AddFor_Donate";
 function App() {
   const isLoggedIn = false; //change this after authentication done
 
@@ -33,11 +31,10 @@ function App() {
 
   return (
     <div className="App bg-[#F5F5F5]">
-      <div className="fixed top-0 w-full top"></div>
-      <header className="header">
+       <div className="fixed top-0 w-full top"></div> 
+       <header className="header">
         {isLoggedIn ? <Navbar_2 /> : <Navbar_1 />}
-      </header>
-      <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
+      </header> */
       <main className="mt-[120px]">
         {/* <Main_image /> */}
         {/* <Signup /> */}
@@ -48,14 +45,26 @@ function App() {
         {/* <Appk/> */}
         {/* <BookForm/> */}
         <Routes>
-          <Route path="kk" element={<Add_book_for_bid />} />
+          {/* <Route path="/" element={<Add_book_for_bid />} /> */}
           <Route path="/login" element={<Login />} />
           {/* If you meant /signUp instead of /signup, change the path accordingly */}
           <Route path="/signup" element={<Signup />} />
+          <Route path="/Unreg_home" element={<Unreg_home/>}/>
+          <Route path="/Author_Profile" element={<Author_profile/>}/>
+          <Route path="/PostView" element={<PostView/>}/>
+          <Route path="/" element={<Have_ISBN/>}/>
+          <Route path="/AddBook_Main" element={<AddBook_Main/>}/>
+          <Route path="/AddBook_Main_2" element={<AddBook_Main_2/>}/>
+          <Route path="/AddFor_Bid" element={<AddFor_Bid/>}/>
+          <Route path="/AddFor_Sell" element={<AddFor_Sell/>}/>
+          <Route path="/AddFor_Exchange" element={<AddFor_Exchange/>}/>
+          <Route path="/AddFor_Donate" element={<AddFor_Donate/>}/>
+          
+
+
+
           {/* Redirect to home page if no matching route is found */}
-          <Route path="/k" element={<Unreg_home />} />
-          <Route path="/add-book" element={<BookForm />} />
-          <Route path="/BookList" element={<BookList/>} />
+          {/* <Route path="*" element={<Home />} /> */}
         </Routes>
       </main>
     </div>
