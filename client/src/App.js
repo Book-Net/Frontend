@@ -16,7 +16,6 @@ import Unreg_home from "./pages/Unreg_home";
 import BookForm from './components/BookForm';
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
-import BookForm from "./components/BookForm";
 
 ///
 import Appk from "./components/test/imgt";
@@ -48,17 +47,13 @@ function App() {
         <Add_book_for_sell/>
         {/* <Appk/> */}
         {/* <BookForm/> */}
-      <ul>
-        
-        <li><Link to="/add-book">Add Book</Link></li>
-        </ul>
         <Routes>
-          <Route path="*" element={<Add_book_for_bid />} />
+          <Route path="kk" element={<Add_book_for_bid />} />
           <Route path="/login" element={<Login />} />
           {/* If you meant /signUp instead of /signup, change the path accordingly */}
           <Route path="/signup" element={<Signup />} />
           {/* Redirect to home page if no matching route is found */}
-          <Route path="/" element={<Unreg_home />} />
+          <Route path="/k" element={<Unreg_home />} />
           <Route path="/add-book" element={<BookForm />} />
           <Route path="/BookList" element={<BookList/>} />
         </Routes>
