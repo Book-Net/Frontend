@@ -41,7 +41,7 @@ function App() {
         {/* <Profile_card/> */}
         {/* <Profile/> */}
         {/* <Profile_navbar/> */}
-        <Add_book_for_sell/>
+        {/* <Add_book_for_sell/> */}
         {/* <Appk/> */}
         {/* <BookForm/> */}
         <Routes>

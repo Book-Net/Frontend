@@ -9,6 +9,9 @@ function Add_book_for_sell() {
   const [ISBN,setISBN]=useState('');
   const [des,setdes] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
+  
+
+
 
 
   const generateBookDetailsString = (bookDetails) => {
@@ -83,6 +86,9 @@ function Add_book_for_sell() {
     });
   };
 
+
+
+  
   return (
     <div className="w-2/3 mx-auto shadow bg-[#FFFFFF] p-5 mb-5 rounded-md">
       <form action="http://localhost:9000/add_book_detail_sell" encType="multipart/form-data">
@@ -178,10 +184,10 @@ function Add_book_for_sell() {
         <textarea
           name="description"
           id=""
-          rows="5"
+          rows="6"
           placeholder="Description"
           className="pl-2 py-3 text-[#BF5A36] shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
-          minLength="600"
+          minLength="200"
           value={
             des
           }
