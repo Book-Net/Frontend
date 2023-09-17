@@ -18,7 +18,7 @@ function PlaceBidCard() {
             Place Bid
           </Button>
         </Link>
-        <a className="historyLink" href="#">View history</a>
+        
     </div>
     </>
   );
