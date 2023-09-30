@@ -9,6 +9,8 @@ import Exchange_book from "../components/Exchange_book";
 
 
 function AddBook_Main() {
+
+
     const clearForm = () => {
         setISBN('');
         setSelectedOption('');
@@ -34,6 +36,13 @@ function AddBook_Main() {
     const [selectedOption,setSelectedOption] = useState('');
     const [Option, setOption] = useState('');
     const [file, setFile] = useState(null);
+    const [isNextButtonDisabled, setIsNextButtonDisabled] = useState(true);
+    const [selectedComponent, setselectedComponent] = useState(null);
+    const [priceInput, setPriceInput] = useState('');
+    const [minbid, setMinbid] = useState('');
+    const [needs, setNeeds] = useState('');
+    const [starts, setStarts] = useState('');
+    const [ends, setEnds] = useState('');
 
     const handleFileChange = (e) => {
       setFile(e.target.files[0]);
@@ -59,35 +68,42 @@ function AddBook_Main() {
 
     //functions
 
-    let selectedComponent;
-    let priceInput;
-    let minbid;
-    let needs;
-    let starts;
-    let ends;
 
-  switch (Option) {
-    case "Sell":
-      selectedComponent = <Sell_book />
-      priceInput = document.getElementById('price');
-      break;
-    case "Bid":
-      selectedComponent = <Bid_book />;
-      starts = document.getElementById('starttime');
-      ends = document.getElementById('endtime');
-      minbid = document.getElementById('minbid');
-      break;
-    case "Donate":
-      selectedComponent = null;
-      break;
-    case "Exchange":
-      selectedComponent = <Exchange_book />;
-      needs = document.getElementById('needs');
-      break;
-    default:
-      selectedComponent = null; // You can set a default component or handle this case as needed
-      break;
-  }
+    function option_check(opt){
+      switch (opt) {
+        case "Sell":
+          setselectedComponent(<Sell_book />)
+          setPriceInput(document.getElementById("price"));
+          setIsNextButtonDisabled(false);
+          console.log(document.getElementById("price"))
+          setOption(opt);
+          break;
+        case "Bid":
+          setselectedComponent(<Bid_book />);
+          setStarts(document.getElementById('starttime'));
+          setEnds(document.getElementById('endtime'));
+          setMinbid(document.getElementById('minbid'));
+          setIsNextButtonDisabled(false);
+          setOption(opt);
+          break;
+        case "Donate":
+          setOption(opt);
+          setIsNextButtonDisabled(false);
+          setselectedComponent(null);
+          break;
+        case "Exchange":
+          setselectedComponent(<Exchange_book />);
+          setNeeds(document.getElementById('needs'));
+          setIsNextButtonDisabled(false);
+          setOption(opt);
+          break;
+        default:
+          setselectedComponent(null);
+          setIsNextButtonDisabled(true);
+          setOption(opt);
+          break;
+      }
+    }
  
 
     const fetchBookDetails = async () => {
@@ -155,7 +171,7 @@ function AddBook_Main() {
             formData.append('needs', needs.value);
             break;
           default:
-            selectedComponent = null; // You can set a default component or handle this case as needed
+            selectedComponent = null; 
             break;
         }
         const config = {
@@ -171,7 +187,12 @@ function AddBook_Main() {
           // Handle the response here (e.g., show success message)
           console.log('Form submitted successfully:', response.data);
           if (response.status === 200) {
-            Swal.fire('The Book Added Successfully');
+            Swal.fire('The Book Added Successfully').then((result) => {
+              if (result.isConfirmed) {
+                // Navigate to the home page
+                window.location.href = 'http://localhost:3000/';
+              }
+            });
           }
       
           // Redirect to the next page or perform any other necessary actions
@@ -209,7 +230,7 @@ function AddBook_Main() {
                                             // Get the value of the ISBN input field
                                             const isbnInput = document.getElementById('isbn');
                                             // const isbnValue = isbnInput.value;
-                                            if (ISBN == '') {
+                                            if (ISBN === '') {
                                             Swal.fire('Enter ISBN to continue');
                                             // console.log('gI');
                                             } else {
@@ -270,7 +291,7 @@ function AddBook_Main() {
                                     value={Option}
                                     required
                                     name='option'
-                                    onChange={(e) => {setOption(e.target.value)}}
+                                    onChange={(e) => {option_check(e.target.value)}}
                                 >
                                     <option selected="">Select selling option</option>
                                     <option value="Sell">Sell</option>
@@ -329,11 +350,14 @@ function AddBook_Main() {
                                 Clear
                             </button>
                             
-                            <button className="items-center px-7 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 bg-[#BF5A36]"
+                            <button 
+                                className="items-center px-7 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 bg-[#BF5A36] disabled:bg-gray-500 disabled:opacity-50"
                                 type="submit"
+                                disabled={isNextButtonDisabled}
                             >
-                                Next
+                                Add Book
                             </button>
+
                         </div>
 
                     </form>

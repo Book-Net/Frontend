@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
-function Sell_book() {
-
+const Sell_book = () => {
     return (
         <div className="sm:col-span-2">
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
@@ -11,6 +10,11 @@ function Sell_book() {
                     placeholder="Rs.00.00" 
                     required
                     id="price"
+                    onChange={(e) => setBookDetails({
+                        ...bookDetails,
+                        price:e.target.value
+                        })}
+                    value={bookDetails.price}
                     />
                 </div>
             </div>
