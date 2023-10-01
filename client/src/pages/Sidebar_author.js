@@ -26,59 +26,56 @@ function Sidebar_author() {
 
   return (
 
-<div>
-<div class="font-roboto text-xl text-[#000000] mx-auto font-semibold block md:w-[1400px] md:flex">
-  <button onClick={(evt) => openCity(evt, 'authors')} id="defaultOpen"  className=" tablinks my-1 min-w-[300px] bg-[#D9D9D9] hover:bg-[#BF5A36] text-[#ffffff] hover:transition hover:duration-200 rounded-tr-lg px-4 py-2 border-b-2 border-[#BF5A36]">
-     Authors
-  </button>
-  <button
-    onClick={(evt) => openCity(evt, "transactions")}
-    className="tablinks my-1 min-w-[300px] bg-[#D9D9D9] hover:bg-[#BF5A36] text-[#ffffff] hover:transition hover:duration-200 rounded-tr-lg rounded-tl-lg px-4 py-2 border-b-2 border-[#BF5A36]"
-  >
-    Transactions
-  </button>
-  <button
-    onClick={(evt) => openCity(evt, "complaints")}
-    className="tablinks my-1 min-w-[300px] bg-[#D9D9D9] hover:bg-[#BF5A36] text-[#ffffff] hover:transition hover:duration-200 rounded-t-lg px-4 py-2 border-b-2 border-[#BF5A36]"
-  >
-    Complaints
-  </button>
-  <button
-    onClick={(evt) => openCity(evt, "logout")}
-    className="tablinks my-1 min-w-[300px] bg-[#D9D9D9] hover:bg-[#BF5A36] text-[#ffffff] hover:transition hover:duration-200 rounded-t-lg px-4 py-2 border-b-2 border-[#BF5A36]"
-  >
-    Logout
-  </button>
+    <div className="flex">
+      <div className="w-1/5 bg-gray-200 mt-10 m-7">
+        <ul class="font-roboto text-xl text-[#000000] mx-auto font-semibold block md:w-[1400px];">
+          <li>
+           <button onClick={(evt) => openCity(evt, 'authors')} id="defaultOpen"  className=" tablinks min-w-[300px] hover:bg-[#BF5A36] hover:text-[#ffffff] hover:transition hover:duration-200 px-4 py-2 border-2 border-[#ffffff]">
+              Authors
+           </button>
+          </li>
+          <li>
+           <button
+             onClick={(evt) => openCity(evt, "transactions")}
+             className="tablinks min-w-[300px] hover:bg-[#BF5A36] hover:text-[#ffffff] hover:transition hover:duration-200 px-4 py-2 border-2 border-[#ffffff]"
+           >
+             Transactions
+           </button>
+          </li>
+          <li>
+           <button
+             onClick={(evt) => openCity(evt, "complaints")}
+             className="tablinks min-w-[300px] hover:bg-[#BF5A36] hover:text-[#ffffff] hover:transition hover:duration-200 px-4 py-2 border-2 border-[#ffffff]"
+           >
+             Complaints
+           </button>
+          </li>
+        </ul>
+      </div>
+      
 
-</div>
-<div className="mt-12">
+      <div className="w-4/5 p-10 bg-white">
+        <div className="mt-12">
 
-  <div id="authors" className="main flex justify-center">
-    <div className="flex flex-row justify-center space-x-8">
-      <Authors_author />
+          <div id="authors" className="main flex justify-center ">
+              <Authors_author />
+          </div>
+
+          <div id="transactions" className="main flex justify-center px-15">
+            <div className="flex flex-row justify-left space-x-10">
+              <Transactions_author />
+            </div>
+          </div>
+
+          <div id="complaints" className="main flex justify-center px-15">
+            <div className="flex flex-row justify-left space-x-10">
+              <Complaints_author />
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div id="transactions" className="main flex justify-center">
-    <div className="flex flex-row justify-center space-x-8">
-      <Transactions_author />
-    </div>
-  </div>
-
-  <div id="complaints" className="main flex justify-center">
-    <div className="flex flex-row justify-center space-x-8">
-      <Complaints_author />
-    </div>
-  </div>
-
-  <div id="logout" className="main flex justify-center">
-    <div className="flex flex-row justify-center space-x-8">
-      <Logout />
-    </div>
-  </div>
-
-</div>
-</div>
   );
 }
 

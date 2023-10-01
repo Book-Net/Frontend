@@ -4,28 +4,26 @@ import Button from "./Button";
 
 function Authors_author() {
   return (
-    <div className='border-2 border-[#F1E6D9] w-[180px] h-[270px] p-0 min-w-[200px] '>
-        <div className='bg-[#F2CB9E]'>
-            <div className='flex justify-start'><p className='font-roboto text-2xl text-[#BF5A36] font-bold pl-3 pt-4 pb-0 '>Sales</p></div>
-            <div>
-                <p className='font-roboto text-3xl text-[#555555] pt-0'>10</p>
-                <div className='pt-2'>
-                    <p className='font-roboto text-1xl text-[#555555] underline pt-0'><Link to='/#'>View</Link></p>
-                </div>
-            </div>
+    <div >
+        <div className='border-2 border-[#F1E6D9] bg-[#F2CB9E] w-4/5 h-[auto] p-4 justify-center'>
+          <div className='font-roboto text-3xl flex justify-center'>
+              <p className='text-[#BF5A36] font-bold pr-5'>Sales</p>
+              <p className='text-[#555555] pl-5'>1000</p>
+          </div>        
         </div>
         
         <div>
             <div>
-                <p className='font-roboto text-base pt-7'>Add a book for Sale</p>
+                <p className='font-roboto text-2xl text-center text-[#555555] m-7 mr-20 justify-center'>New Requests</p>
             </div>
-            <div className='pt-2'>
-            <Button
-            className="bg-[#BF5A36] text-white mt-3 font-bold px-6"
-            type="submit"
-            >
-            Add
-            </Button>
+            <div className="w-4/5 bg-gray-200 my-7 justify-center items-center h-auto grid grid-cols-3 gap-4 rounded-md shadow-md">
+              <label class="col-span-2 p-5 text-xl text-left self-center">Author1</label>
+              <Button
+              className="bg-[#BF5A36] col-span-1 text-white mt-3 font-bold mr-4 p-0"
+              type="submit"
+              >
+              View
+              </Button>
             </div>
         </div>
     </div>
