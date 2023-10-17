@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Button from "./Button";
 
-function Authors_author() {
+function Authors_admin() {
   return (
     <div >
         <div className='border-2 border-[#F1E6D9] bg-[#F2CB9E] w-4/5 h-[auto] p-4 justify-center'>
@@ -41,4 +41,4 @@ function Authors_author() {
   )
 }
 
-export default Authors_author;
+export default Authors_admin;
