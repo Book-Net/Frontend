@@ -64,29 +64,23 @@ function Sidebar_admin() {
       </div>
       
 
-      <div className="w-4/5 p-10 h-auto bg-white">
+      <div className="w-screen p-10 h-auto bg-white">
         <div className="mt-12">
 
-          <div id="dashboard" className="main flex justify-center px-15">
-            <div className="flex flex-row justify-left space-x-10">
+          <div id="dashboard" className="main flex flex-row justify-center px-15">
               <Dashboard_admin />
-            </div>
           </div>
 
           <div id="authors" className="main flex justify-center ">
               <Authors_admin />
           </div>
 
-          <div id="transactions" className="main flex justify-center px-15">
-            <div className="flex flex-row justify-left space-x-10">
+          <div id="transactions" className="main flex flex-row space-x-10 justify-center px-15">
               <Transactions_admin />
-            </div>
           </div>
 
-          <div id="complaints" className="main flex justify-center px-15">
-            <div className="flex flex-row justify-left space-x-10">
+          <div id="complaints" className="main flex flex-row justify-left space-x-10 px-15">
               <Complaints_admin />
-            </div>
           </div>
 
         </div>
