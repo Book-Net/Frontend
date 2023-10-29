@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
+import { useAuth } from "../context/AppContext";
+
 function LoginForm() {
+  const { setUser, user } = useAuth();
   const navigate = useNavigate();
   const [data, setData] = useState({
     email: "",
@@ -16,7 +19,7 @@ function LoginForm() {
     e.preventDefault();
     const { email, password } = data;
     try {
-      const { data } = await axios.post(
+      const response = await axios.post(
         "/login",
         {
           email,
@@ -24,12 +27,19 @@ function LoginForm() {
         },
         { withCredentials: true }
       );
-      if (data.error) {
-        toast.error(data.error);
+
+      if (response.data.error) {
+        toast.error(response.data.error);
       } else {
-        setData({});
-        navigate("/");
-        toast.success("Login successful. Welcome!");
+        setUser(data.email);
+        console.log(user);
+        setData({
+          email: "",
+          password: "",
+        });
+        // Redirect or perform other actions based on login success
+        navigate("/", { replace: true });
+        toast.success(`Welcome! Login successful.`);
       }
     } catch (error) {
       toast.error("Error occurred. Try again later");
@@ -39,7 +49,7 @@ function LoginForm() {
   return (
     <div className="w-full">
       <form action="" onSubmit={loginUser}>
-        <p className=" font-roboto text-4xl text-[#4F6D7A] my-6 font-bold">
+        <p className="font-roboto text-4xl text-[#4F6D7A] my-6 font-bold">
           LOG IN
         </p>
         <br />
@@ -64,7 +74,7 @@ function LoginForm() {
         <p className="my-2">
           Don’t have an account?
           <span>
-            <Link to="/signup" className=" underline text-[#BF5A36] font-bold">
+            <Link to="/signup" className="underline text-[#BF5A36] font-bold">
               {" "}
               Register{" "}
             </Link>
