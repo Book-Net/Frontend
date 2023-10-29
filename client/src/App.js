@@ -50,7 +50,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/Unreg_home" element={<Unreg_home />} />
           <Route path="/Author_profile" element={<Author_profile />} />
-          <Route path="/" element={<PostView />} />
+          {/* <Route path="/" element={<PostView />} /> */}
           {/* Redirect to home page if no matching route is found */}
           <Route path="/" element={<Unreg_home />} />
           <Route path="/add-book" element={<BookForm />} />
@@ -66,3 +66,4 @@ function App() {
 }
 
 export default App;
+
