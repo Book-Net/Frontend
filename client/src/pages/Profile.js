@@ -46,4 +46,4 @@ const Profile = () => {
 };
 
 export default Profile;
->>>>>>>>> Temporary merge branch 2
+// >>>>>>>>> Temporary merge branch 2
