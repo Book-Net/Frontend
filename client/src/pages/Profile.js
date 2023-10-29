@@ -1,21 +1,38 @@
-import React from 'react';
-import Cover_pic from '../assets/Cover_pic.jpg';
-import profile_pic from '../assets/image1.png';
+import React from "react";
+import Profile_details from "../components/Profile_details";
+import book_bg_img from "../assets/book_bg_img.png";
+import image1 from "../assets/image1.png";
+import Profile_navbar from "../components/Profile_navbar";
+import { Link } from 'react-router-dom';
 
-function Profile() {
+const Profile = () => {
   return (
-    <div>
-      <div className=''>
-
-      <div className='w-screen h-[200px] md:px-[100px] max-h-[300px] '>
-          <img className='max-h-[20res] w-screen h-[150px]' src={Cover_pic}></img>
-          <img className='rounded-full border border-gray-100 shadow-sm w-[150px] h-[150px]' src={profile_pic}></img>
+    <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
+      <div className="bg-[#F3DEC9] shadow-lg shadow-[#F3DEC9] ">
+        <img src={book_bg_img} alt="" />
       </div>
-      </div> 
+      <div className="p-5 w-full md:max-w-screen-lg">
+      <div
+          className="absolute top-1/2 left-25 transform -translate-x-1/8 -translate-y-1/6"
+          style={{ zIndex: 1 }}
+        >
+          <img
+            src={image1}
+            alt=""
+            className="w-32 h-32 rounded-full max-w-full border border-gray-300"
+          />
+      </div>
 
+        <div className="mt-10 w-full md:max-w-screen-lg flex justify-star">
+          <Profile_details />
+        </div>
 
+        <div className="mt-2 p-5 w-full md:max-w-screen-lg">
+          <Profile_navbar />
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

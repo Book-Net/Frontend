@@ -13,15 +13,13 @@ import { createContext, useState } from "react";
 import Add_book_for_sell from "./components/Add_book_for_sell";
 import Add_book_for_bid from "./components/Add_book_for_bid";
 import Unreg_home from "./pages/Unreg_home";
-import Author_profile from "./pages/Author_profile";
-import PostView from "./pages/PostView";
-import Have_ISBN from "./pages/Have_ISBN";
-import AddBook_Main from "./pages/AddBook_Main";
-import AddBook_Main_2 from "./pages/AddBook_Main_2";
-import AddFor_Bid from "./pages/AddFor_Bid";
-import AddFor_Sell from "./pages/AddFor_Sell";
-import AddFor_Exchange from "./pages/AddFor_Exchange";
-import AddFor_Donate from "./pages/AddFor_Donate";
+import Book_sale_details from "./pages/Book_sale_details";
+import Book_bid_details from "./pages/Book_bid_details";
+import Profile from "./pages/Profile";
+import Edit_profile from "./pages/Edit_profile";
+import Place_bid from "./pages/Place_bid";
+import Sidebar_admin from "./pages/Sidebar_admin";
+
 function App() {
   const isLoggedIn = false; //change this after authentication done
 
@@ -45,26 +43,16 @@ function App() {
         {/* <Appk/> */}
         {/* <BookForm/> */}
         <Routes>
-          {/* <Route path="/" element={<Add_book_for_bid />} /> */}
+          <Route path="/" element={<Unreg_home />} />
+          <Route path="/bookSaleDetails" element={<Book_sale_details/>}/>
+          <Route path="/bookBidDetails" element={<Book_bid_details/>}/>
+          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/editProfile" element={<Edit_profile/>}/>
+          <Route path="/placeBid" element={<Place_bid/>}/>
+          <Route path="/sidebar_admin" element={<Sidebar_admin />} />
           <Route path="/login" element={<Login />} />
-          {/* If you meant /signUp instead of /signup, change the path accordingly */}
           <Route path="/signup" element={<Signup />} />
-          <Route path="/Unreg_home" element={<Unreg_home/>}/>
-          <Route path="/Author_Profile" element={<Author_profile/>}/>
-          <Route path="/PostView" element={<PostView/>}/>
-          <Route path="/" element={<Have_ISBN/>}/>
-          <Route path="/AddBook_Main" element={<AddBook_Main/>}/>
-          <Route path="/AddBook_Main_2" element={<AddBook_Main_2/>}/>
-          <Route path="/AddFor_Bid" element={<AddFor_Bid/>}/>
-          <Route path="/AddFor_Sell" element={<AddFor_Sell/>}/>
-          <Route path="/AddFor_Exchange" element={<AddFor_Exchange/>}/>
-          <Route path="/AddFor_Donate" element={<AddFor_Donate/>}/>
           
-
-
-
-          {/* Redirect to home page if no matching route is found */}
-          {/* <Route path="*" element={<Home />} /> */}
         </Routes>
       </main>
     </div>
