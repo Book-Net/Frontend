@@ -22,8 +22,8 @@ function AuthorViewProfile() {
        <p className="topics text-[#BF5A36] text-[18px] font-normal text-left  ml-8 mt-8">Qualifications and Awards <p> Master of Fine Arts in Creative Writing: University of Literature<br></br>Fictional Excellence Award</p></p>
       <p className="topics text-[#4F6D7A] text-2xl text-left font-medium ml-8 mt-8">Published Books</p>
        <Published_Book_List />
-       <StarRating />
-       <Msg_Author />
+       {/* <StarRating />
+       <Msg_Author /> */}
        
       </div>
     </div>
