@@ -11,7 +11,7 @@ function EditPopup() {
   return (
     <>
 
-      <button onClick={handleShow} >Edit</button>
+      <button onClick={handleShow} className="text-xl font-normal text-yellow-500">Edit</button>
 
       <Modal
         show={show}
@@ -38,7 +38,7 @@ function EditPopup() {
         </Modal.Body>
         <Modal.Footer>
           <button className="px-4 py-2 font-bold text-white rounded bg-slate-400 hover:bg-slate-500" onClick={handleClose}>Close</button>
-          <button className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700" form="editmodal">Confirm</button>
+          <button className="px-4 py-2 font-bold text-white bg-[#BF5A36] rounded hover:bg-yellow-800" form="editmodal">Confirm</button>
         </Modal.Footer>
       </Modal>
     </>
