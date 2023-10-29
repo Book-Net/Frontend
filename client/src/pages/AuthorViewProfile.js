@@ -15,7 +15,7 @@ function AuthorViewProfile() {
       {/* <Author_description /> */}
       <AuthorView_description/>
       <div className="flex items-center mt-8 ml-8 text-2xl font-medium text-left topics">
-        <p className="text-[#4F6D7A] mr-4">About Author</p>
+        <p className="text-[#4F6D7A] mt-4 mr-4">About Author</p>
         <EditAboutAuthorPopup/>
       </div>
        <p className="topics text-[#BF5A36] text-[18px] text-left font-normal ml-8 mt-8">Step into the captivating world of celebrated author Samuel Hartman, a luminary in the realm of fiction. Samuel Hartman's literary journey is adorned with an array of prestigious awards and accolades, testaments to his exceptional storytelling prowess and profound impact on the literary landscape. </p>
