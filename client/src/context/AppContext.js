@@ -4,11 +4,11 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const storedUser = localStorage.getItem("user"); // Retrieve user from local storage
-  const [user, setUser] = useState(storedUser ? JSON.parse(storedUser) : null);
+  const [user, setUser] = useState(storedUser ? storedUser : null);
 
   useEffect(() => {
     if (user) {
-      localStorage.setItem("user", JSON.stringify(user)); // Store user in local storage
+      localStorage.setItem("user", user); // Store user in local storage
     } else {
       localStorage.removeItem("user"); // Clear user from local storage
     }
