@@ -45,7 +45,7 @@ function App() {
       <main className="mt-[120px]">
         <Routes>
           <Route path="*" element={<Signup />} />
-          <Route path="/" element={<PostView />} />
+          {/* <Route path="/" element={<PostView />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/Author_profile" element={<Author_profile />} />
@@ -53,7 +53,7 @@ function App() {
             path="/add-book"
             element={user ? <BookForm /> : <Navigate to="/login" />}
           />
-          <Route path="/booklist" element={<BookList />} />
+          <Route path="/" element={<BookList />} />
           <Route path="/sell_book" element={<Sellbook />} />
           <Route path="/bid_sell" element={<BidSell />} />
           <Route path="/profile" element={<Profile />} />

@@ -26,7 +26,7 @@ const BookCard = ({ book }) => {
     <div className="flex h-[350px] bg-[#F5F5F5] shadow-md hover:shadow-lg transition mx-auto rounded-md min-w-[350px] max-h-[230px]">
       <div className="p-3 w-full max-w-[150px]">
         <img
-          src={`http://localhost:9000/give_file/${image}`}
+          src={`http://localhost:9000/give_file/${img}`}
           className="object-cover w-full h-full rounded-md"
           alt=""
           srcSet=""

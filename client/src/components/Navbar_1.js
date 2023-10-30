@@ -10,7 +10,8 @@ import image1 from "../assets/image1.png";
 import { useAuth } from "../context/AppContext";
 
 const navLinks = [
-  { to: "/", text: "Home" },
+  // { to: "/", text: "Home" },
+  { to: "/", text: "Market Place" },
   { to: "/", text: "About Us" },
   { to: "/", text: "Options" },
   { to: "/", text: "Contact Us" },
