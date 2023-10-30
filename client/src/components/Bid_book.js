@@ -1,6 +1,6 @@
 import React from "react";
 
-function Bid_book() {
+function Bid_book({onChange_s, onChange_e, onChange_b} ) {
     return (
             <div className="sm:col-span-2">
                 <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
@@ -11,7 +11,7 @@ function Bid_book() {
                         placeholder="00.00.00" 
                         type="datetime-local"
                         required
-                        id="starttime"
+                        onChange={onChange_s}
                         />
                     </div>
                     <div className="w-full">
@@ -20,7 +20,7 @@ function Bid_book() {
                         placeholder="00.00.00" 
                         required
                         type="datetime-local"
-                        id="endtime"
+                        onChange={onChange_e}
                         />
                     </div>
                     
@@ -29,7 +29,7 @@ function Bid_book() {
                         <input className="bg-gray-50 border border-[#BF5A36] border-opacity-30 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5" 
                         placeholder="Rs.00.00" 
                         required 
-                        id="minbid"
+                        onChange={onChange_b}
                         />
                     </div>
                 </div>

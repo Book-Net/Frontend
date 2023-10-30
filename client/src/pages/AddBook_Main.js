@@ -3,9 +3,9 @@ import { FiSearch } from "react-icons/fi";
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import Swal from 'sweetalert2';
-import Sell_book from "../components/Sell_book";
 import Bid_book from "../components/Bid_book";
 import Exchange_book from "../components/Exchange_book";
+import ReusableInputField from "../components/ReusableInputField";
 
 
 function AddBook_Main() {
@@ -68,21 +68,26 @@ function AddBook_Main() {
 
     //functions
 
-
     function option_check(opt){
       switch (opt) {
         case "Sell":
-          setselectedComponent(<Sell_book />)
-          setPriceInput(document.getElementById("price"));
+          // setselectedComponent(<Sell_book priceInput={priceInput} setPriceInput={setPriceInput} />)
+          // setPriceInput(document.getElementById("price"));
+          setselectedComponent(<ReusableInputField
+            label="Price"
+            onChange={(e) => {setPriceInput(e.target.value);}}
+            placeholder="Rs.00.00"
+            type="number" // You can specify the input type if needed
+            />)
           setIsNextButtonDisabled(false);
-          console.log(document.getElementById("price"))
           setOption(opt);
           break;
         case "Bid":
-          setselectedComponent(<Bid_book />);
-          setStarts(document.getElementById('starttime'));
-          setEnds(document.getElementById('endtime'));
-          setMinbid(document.getElementById('minbid'));
+          setselectedComponent(<Bid_book 
+            onChange_s={(e) => {setStarts(e.target.value);}}
+            onChange_e={(e) => {setEnds(e.target.value);}}
+            onChange_b={(e) => {setMinbid(e.target.value);}}
+            />);
           setIsNextButtonDisabled(false);
           setOption(opt);
           break;
@@ -92,8 +97,9 @@ function AddBook_Main() {
           setselectedComponent(null);
           break;
         case "Exchange":
-          setselectedComponent(<Exchange_book />);
-          setNeeds(document.getElementById('needs'));
+          setselectedComponent(<Exchange_book 
+            onChange={(e) => {setNeeds(e.target.value);}}
+            />);
           setIsNextButtonDisabled(false);
           setOption(opt);
           break;
@@ -158,17 +164,22 @@ function AddBook_Main() {
 
         switch (Option) {
           case "Sell":
-            formData.append('price', priceInput.value);
+            try {
+              formData.append('price', priceInput);
+            } catch (error) {
+              console.log("Err here")
+              console.log(error)
+            }
             break;
           case "Bid":
-            formData.append('minbid', minbid.value);
-            formData.append('starts', starts.value);
-            formData.append('ends', ends.value);
+            formData.append('minbid', minbid);
+            formData.append('starts', starts);
+            formData.append('ends', ends);
             break;
           case "Donate":
             break;
           case "Exchange":
-            formData.append('needs', needs.value);
+            formData.append('needs', needs);
             break;
           default:
             selectedComponent = null; 
