@@ -11,6 +11,9 @@ import {
 import Navbar_1 from "./components/Navbar_1";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
+import Edit_profile from "./pages/Edit_profile";
+import Place_bid from "./pages/Place_bid";
+import Sidebar_admin from "./pages/Sidebar_admin";
 import Login from "./pages/Login";
 import Sellbook from "./components/Add_book_for_sell";
 import BidSell from "./components/Bid_Sell";
@@ -46,8 +49,12 @@ function App() {
         <Routes>
           <Route path="*" element={<Signup />} />
           {/* <Route path="/" element={<PostView />} /> */}
+          <Route path="/editProfile" element={<Edit_profile/>}/>
+          <Route path="/placeBid" element={<Place_bid/>}/>
+          <Route path="/sidebar_admin" element={<Sidebar_admin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          
           <Route path="/Author_profile" element={<Author_profile />} />
           <Route
             path="/add-book"

@@ -21,10 +21,10 @@ const Book_bid_details = () => {
       </div>
       <div className="bg-white p-20 rounded-lg shadow-md w-full md:max-w-screen-lg">
         <div className="flex">
-          <div className="w-1/3">
+          <div className="w-1/2">
             <img src={book} className="w-3/5 rounded-md" alt="" />
           </div>
-          <div className="w-2/3 px-4">
+          <div className="w-1/2 px-4">
             <div className="pb-2">
               <Book_name_author />
             </div>
@@ -32,7 +32,7 @@ const Book_bid_details = () => {
             <div>
               <Bid_closing_description/>
             </div>
-            <div className="mt-4 bg-gray-100 p-4 rounded-md shadow-md shadow-#9B9B9B w-1/2 ml-0">
+            <div className="mt-4 bg-gray-100 p-4 rounded-md shadow-md shadow-#9B9B9B w-2/3 ml-0">
               <PlaceBidCard/>
             </div>
           </div>
@@ -43,14 +43,14 @@ const Book_bid_details = () => {
           <Book_sale_description />
         </div>
 
-        <Button
+        {/* <Button
           className="mt-4 bg-gray-100 border border-red-500 hover:bg-gray-300 text-red-700 py-2 px-4 rounded shadow-md"
           type="submit"
         >
           Ask a question
-        </Button>
+        </Button> */}
 
-        <div className="mt-2 bg-gray-100 p-5 rounded-lg shadow-md w-full md:max-w-screen-lg">
+        <div className="mt-8 bg-gray-100 p-5 rounded-lg shadow-md w-full md:max-w-screen-lg">
           <Seller_description />
         </div>
       </div>

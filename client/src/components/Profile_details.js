@@ -11,8 +11,8 @@ const Profile_details = () => {
           Priyasha Sathyangani
         </h2>
         <div className="text-[#65BCB5]">
-          <Link to="">
-            <i class="bx bxs-edit-alt"></i>Edit profile{" "}
+          <Link to="../editProfile">
+            <i class="bx bxs-edit-alt"></i>Edit profile
           </Link>
         </div>
 
@@ -33,7 +33,7 @@ const Profile_details = () => {
           </div>
           <div className="ml-50">
             <p className="mb-1">No 18, Ganemulla, Gampaha</p>
-            <p>City</p>
+            <p>Sri Lanka</p>
           </div>
         </div>
       </div>

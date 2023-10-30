@@ -3,7 +3,7 @@ import Profile_details from "../components/Profile_details";
 import book_bg_img from "../assets/book_bg_img.png";
 import image1 from "../assets/image1.png";
 import Profile_navbar from "../components/Profile_navbar";
-import Profile_card from "../components/Profile_card";
+import { Link } from 'react-router-dom';
 
 const Profile = () => {
   return (
@@ -21,7 +21,7 @@ const Profile = () => {
             alt=""
             className="w-32 h-32 rounded-full max-w-full border border-gray-300"
           />
-        </div>
+      </div>
 
         <div className="mt-10 w-full md:max-w-screen-lg flex justify-star">
           <Profile_details />
