@@ -24,6 +24,7 @@ import { Toaster } from "react-hot-toast";
 import Appk from "./components/test/imgt";
 import BookList from "./pages/BookList";
 import AuthorViewProfile from "./pages/AuthorViewProfile";
+import AuthorEditBook from "./pages/AuthorEditBook";
 
 axios.defaults.baseURL = "http://localhost:9000";
 axios.defaults.withCredentials = true;
@@ -58,6 +59,7 @@ function App() {
 
           {/* Naveen */}
           <Route path="/author_view_profile" element={<AuthorViewProfile/>} />
+          <Route path="/author_edit_book/*" element={<AuthorEditBook/>}></Route>
           {/* Naveen */}
         </Routes>
       </main>
