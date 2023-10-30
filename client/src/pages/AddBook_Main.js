@@ -35,6 +35,7 @@ function AddBook_Main() {
     const [ISBN,setISBN]=useState('');
     const [selectedOption,setSelectedOption] = useState('');
     const [Option, setOption] = useState('');
+    const [cat, setCat] = useState('');
     const [file, setFile] = useState(null);
     const [isNextButtonDisabled, setIsNextButtonDisabled] = useState(true);
     const [selectedComponent, setselectedComponent] = useState(null);
@@ -161,6 +162,7 @@ function AddBook_Main() {
         formData.append('file', file);
         formData.append('location', bookDetails.location);
         formData.append('option', Option);
+        formData.append('category',cat);
 
         switch (Option) {
           case "Sell":
@@ -311,7 +313,7 @@ function AddBook_Main() {
                                     <option value="Exchange">Exchange</option>
                                 </select>
                             </div>
-                            <div className="sm:col-span-2">
+                            <div className="w-full">
                                 <label className="block mb-2 text-sm font-medium text-[#BF5A36] text-left">Upload Image</label>
                                 <input className="block w-full text-sm text-gray-900 border border-[#BF5A36] border-opacity-30 rounded-lg cursor-pointer bg-gray-50 p-2.5"
                                     type="file"
@@ -321,6 +323,21 @@ function AddBook_Main() {
                                     multiple
                                     onChange={handleFileChange}
                                 />
+                            </div>
+                            <div className="w-full">
+                                <label className="block mb-2 text-sm font-medium text-[#BF5A36]  text-left">category</label>
+                                <select className="bg-gray-50 border border-[#BF5A36] border-opacity-30 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5"
+                                    required
+                                    name='category'
+                                    onChange={(e) => {setCat(e.target.value)}}
+                                >
+                                    <option selected="">Select book category</option>
+                                    <option value="Fiction">Fiction</option>
+                                    <option value="Non-Fiction">Non-Fiction</option>
+                                    <option value="Mystery">Mystery</option>
+                                    <option value="Fantasy">Fantasy</option>
+                                    <option value="Educational">Educational</option>
+                                </select>
                             </div>
                             <div className="sm:col-span-2">
                                 <label className="block mb-2 text-sm font-medium text-[#BF5A36] text-left">Description</label>
