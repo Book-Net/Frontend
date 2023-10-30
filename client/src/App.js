@@ -25,6 +25,7 @@ import Appk from "./components/test/imgt";
 import BookList from "./pages/BookList";
 import AuthorViewProfile from "./pages/AuthorViewProfile";
 import AuthorEditBook from "./pages/AuthorEditBook";
+import CreatePost from "./pages/CreatePost";
 
 axios.defaults.baseURL = "http://localhost:9000";
 axios.defaults.withCredentials = true;
@@ -60,6 +61,7 @@ function App() {
           {/* Naveen */}
           <Route path="/author_view_profile" element={<AuthorViewProfile/>} />
           <Route path="/author_edit_book/*" element={<AuthorEditBook/>}></Route>
+          <Route path="/create_post" element={<CreatePost/>}></Route>
           {/* Naveen */}
         </Routes>
       </main>
