@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import Profile_navbar from "./components/Profile_navbar";
 import Reg_home from "./pages/Reg_home";
 import Login from "./pages/Login";
+import Booklist from "./pages/BookList";
 import { createContext, useState } from "react";
 import Add_book_for_sell from "./components/Add_book_for_sell";
 import Add_book_for_bid from "./components/Add_book_for_bid";
@@ -22,8 +23,10 @@ import AddFor_Bid from "./pages/AddFor_Bid";
 import AddFor_Sell from "./pages/AddFor_Sell";
 import AddFor_Exchange from "./pages/AddFor_Exchange";
 import AddFor_Donate from "./pages/AddFor_Donate";
+import CreatePost from "./pages/CreatePost";
+ 
 function App() {
-  const isLoggedIn = false; //change this after authentication done
+  const isLoggedIn = true; //change this after authentication done
 
   const LoginContextProvider = ({ children }) => {
     const [logOrSignUp, setLogOrSignUp] = useState(true);
@@ -31,10 +34,10 @@ function App() {
 
   return (
     <div className="App bg-[#F5F5F5]">
-       <div className="fixed top-0 w-full top"></div> 
-       <header className="header">
+      <div className="fixed top-0 w-full top"></div>
+      <header className="header">
         {isLoggedIn ? <Navbar_2 /> : <Navbar_1 />}
-      </header> */
+      </header> 
       <main className="mt-[120px]">
         {/* <Main_image /> */}
         {/* <Signup /> */}
@@ -44,6 +47,7 @@ function App() {
         {/* <Add_book_for_sell/> */}
         {/* <Appk/> */}
         {/* <BookForm/> */}
+        {/* {CreatePost} */}
         <Routes>
           {/* <Route path="/" element={<Add_book_for_bid />} /> */}
           <Route path="/login" element={<Login />} />
@@ -72,3 +76,4 @@ function App() {
 }
 
 export default App;
+

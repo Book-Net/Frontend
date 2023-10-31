@@ -14,7 +14,9 @@ const BookCard = ({ book }) => {
     return (
       <div className="flex items-center mb-2 text-yellow-500 ratings">
         {stars}
-        <p className="ml-1 text-sm text-gray-600 font-roboto">({number_of_ratings})</p>
+        <p className="ml-1 text-sm text-gray-600 font-roboto">
+          ({number_of_ratings})
+        </p>
       </div>
     );
   }
