@@ -1,7 +1,7 @@
 import React from 'react'
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+// import Slider from 'react-slick';
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
 
 import imageAU from "../assets/auImage.png";
 import vision from "../assets/vision.png";
@@ -66,13 +66,14 @@ function About_us() {
                 </div>
                 
                 <div class="grid grid-cols-3 my-10 align-middle bg-[#F5f5f5]">
-                <Slider {...settings}>
+                {/* <Slider {...settings}> */}
                     <div className='col-span-2'><img
                         className="h-[600px] px-5 mx-6 md:flex  rounded-lg'>"
                         src={aboutimage}
                         alt=""
                     />
                     </div>
+                    
                     <div className='col-span-2'><img
                         className="h-[600px] px-5 mx-6 md:flex  rounded-lg'>"
                         src={mission}
@@ -80,7 +81,7 @@ function About_us() {
                     />
                      
                     </div>
-                    </Slider>
+                    {/* </Slider> */}
                     <div className='col-span-2'>
                     
                     </div>
