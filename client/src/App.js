@@ -22,6 +22,7 @@ import BookSellDetails from "./pages/Book_sale_details";
 import AddBook_Main from "./pages/AddBook_Main";
 import AddBook_Main_2 from "./pages/AddBook_Main_2";
 import Add_book_for_bid from "./components/Add_book_for_bid";
+import CreatePost from "./pages/CreatePost"
 
 // import Logout from "./components/Logout";
 
@@ -73,6 +74,7 @@ function App() {
           <Route path="/AddBook_Main" element={<AddBook_Main/>}/>
           <Route path="/AddBook_Main_2" element={<AddBook_Main_2/>}/>
           <Route path="/booksell_detail" element={<Book_sale_details/>}/>
+          <Route path="/postAdd" element={<CreatePost/>}/>
           
 
 

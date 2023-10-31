@@ -8,7 +8,7 @@ import axios from 'axios'
 import CheckoutBtn from "../components/CheckoutBtn";
 
 
-function BuyNowCard({price}) {
+function BuyNowCard({price , name}) {
 
 // const user = useSelector((state) => state.auth)
 
@@ -32,8 +32,8 @@ function BuyNowCard({price}) {
         >
           Buy Now
         </Button> */}
-        <CheckoutBtn cartItems="Book1"
-        >Checkout</CheckoutBtn>
+        <CheckoutBtn cartItems={name} price={price}
+        ></CheckoutBtn>
         {/* <checkoutBtn/> */}
     </div>
     </>

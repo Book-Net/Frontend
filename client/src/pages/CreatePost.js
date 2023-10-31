@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 function CreatePost() {
@@ -22,6 +23,9 @@ function CreatePost() {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Add validation logic here
+    console.log("Title : ",title)
+    console.log("Description : ",description)
+
     const newErrors = {};
 
     if (!title) {

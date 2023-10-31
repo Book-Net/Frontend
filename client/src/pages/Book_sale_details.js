@@ -75,7 +75,7 @@ const Book_sale_details = () => {
               <Book_name_author title={book.title} author={book.authors}/>
             </div>
             <div className="mt-4 bg-gray-100 p-4 rounded-md shadow-md shadow-#9B9B9B w-1/2 ml-0">
-              <BuyNowCard price={book.price} cartItems={['book1']}/>
+              <BuyNowCard price={book.price} name={book.title}/>
               {/* <checkoutBtn/> */}
             </div>
           </div>
@@ -83,13 +83,13 @@ const Book_sale_details = () => {
         <div className="flex justify-center w-full p-20 mt-10 bg-gray-100 rounded-lg shadow-md md:max-w-screen-lg">
         <div className="flex flex-row">
               <div className="flex flex-col justify-start space-x-8 ">
-                <div className="text-red-700 font-bold">
+                <div className="font-bold text-red-700">
                   <h3>Condition</h3>
                   <h3>Author</h3>
                   <h3>Description</h3>
                 </div>
                 </div>
-                <div className="flex flex-col justify-start space-x-8 text-left ml-10">
+                <div className="flex flex-col justify-start ml-10 space-x-8 text-left">
                 <div className="flex flex-col text-left">
                 <p className="text-[#4F6D7A] font-bold">
                   <p>
