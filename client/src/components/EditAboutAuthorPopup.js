@@ -16,7 +16,7 @@ function EditAboutAuthorPopup() {
           <div className="z-10 w-full max-w-lg p-4 mx-auto bg-white rounded-lg shadow-inherit">
             <form id="editmodal" className="w-full">
               <div className="flex flex-col items-center mb-6">
-                <label className="block mb-1 text-lg font-bold text-gray-500" htmlFor="about_author">
+                <label className="block mb-4 text-lg font-bold text-gray-500" htmlFor="about_author">
                   About Author
                 </label>
                 <textarea
