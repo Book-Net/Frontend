@@ -79,7 +79,7 @@ function Sidebar_admin() {
               <Authors_admin />
           </div>
 
-          <div id="transactions" className="main flex flex-row space-x-10 justify-center px-15">
+          <div id="transactions" className="main flex flex-row space-x-10 justify-left px-15">
               <Transactions_admin />
           </div>
 
