@@ -27,12 +27,36 @@ function LoginForm() {
       if (data.error) {
         toast.error(data.error);
       } else {
-        setData({});
-        navigate("/");
-        toast.success("Login successful. Welcome!");
+        setUser(response.data.token);
+        console.log(localStorage.getItem("user"));
+        setData({
+          email: "",
+          password: "",
+        });
+        // Redirect or perform other actions based on login success
+        navigate("/", { replace: true });
+        toast.success(`Welcome! Login successful.`);
       }
     } catch (error) {
       toast.error("Error occurred. Try again later");
+    }
+  };
+
+  const Test = async (e) => {
+    e.preventDefault();
+    // console.log(user);
+    const token = localStorage.getItem("user");
+    const config = {
+      headers: { "x-access-token": token, withCredentials: true },
+    };
+
+    try {
+      const response = await axios.post("/test", null, config);
+      // Handle the response here
+    } catch (error) {
+      // Handle any errors that occur during the request
+      console.error(error);
+      toast.error("Error occurred while testing.");
     }
   };
 
@@ -76,6 +100,14 @@ function LoginForm() {
           type="submit"
         >
           LOG IN
+        </Button>
+
+        <Button
+          className="bg-[#BF5A36] text-white mt-3 font-bold px-6"
+          type=""
+          onClick={Test}
+        >
+          hi
         </Button>
       </form>
     </div>
