@@ -12,7 +12,6 @@ import Book_name_author from "../components/Book_name_author";
 import Button from "../components/Button";
 import { AiOutlineHeart } from "react-icons/ai";
 import checkoutBtn from "../components/CheckoutBtn";
-import axios from 'axios';
 import { Link } from "react-router-dom";
 
 
@@ -48,7 +47,7 @@ const Book_sale_details = () => {
   const des = book.description;
 
   async function getme(){
-      res = `http://localhost:9000/me`
+      // res = `http://localhost:9000/me`
   }
 
   return (
