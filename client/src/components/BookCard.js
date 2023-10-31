@@ -3,7 +3,7 @@ import { AiFillStar } from "react-icons/ai";
 
 
 const BookCard = ({ book }) => {
-  const { title, img, price, rating, number_of_ratings, authors, condition } =
+  const { title, img, price, rating, number_of_ratings, author, condition } =
     book;
 
     const [clicked, setClicked] = useState(false);
