@@ -17,15 +17,23 @@ import Add_book_for_bid from "./components/Add_book_for_bid";
 import Unreg_home from "./pages/Unreg_home";
 import Author_profile from "./pages/Author_profile";
 import PostView from "./pages/PostView";
-import Have_ISBN from "./pages/Have_ISBN";
-import AddBook_Main from "./pages/AddBook_Main";
-import AddBook_Main_2 from "./pages/AddBook_Main_2";
-import AddFor_Bid from "./pages/AddFor_Bid";
-import AddFor_Sell from "./pages/AddFor_Sell";
-import AddFor_Exchange from "./pages/AddFor_Exchange";
-import AddFor_Donate from "./pages/AddFor_Donate";
-import CreatePost from "./pages/CreatePost";
- 
+import axios from "axios";
+import { Toaster } from "react-hot-toast";
+import BookList from "./pages/BookList";
+import BookSellDetails from "./pages/Book_sale_details";
+import Logout from "./components/Logout";
+
+
+
+// context api
+// import { AuthProvider } from "./context/AppContext";
+import { useAuth } from "./context/AppContext";
+import checkout_success from "./components/Checkout_success";
+// import { useNavigate } from "react-router-dom";
+
+axios.defaults.baseURL = "http://localhost:9000";
+axios.defaults.withCredentials = true;
+
 function App() {
   const isLoggedIn = true; //change this after authentication done
 
@@ -50,6 +58,8 @@ function App() {
         {/* <BookForm/> */}
         {/* {<Booklist/>} */}
         <Routes>
+          {/* <Route path="*" element={<Signup />} /> */}
+          <Route path="/" element={<PostView />} />
           {/* <Route path="/" element={<Add_book_for_bid />} /> */}
           <Route path="/login" element={<Login />} />
           {/* If you meant /signUp instead of /signup, change the path accordingly */}
@@ -71,7 +81,10 @@ function App() {
 
           {/* Redirect to home page if no matching route is found */}
           {/* <Route path="*" element={<Home />} /> */}
-        </Routes>
+          <Route path="/booksell_detail/:id" element={<BookSellDetails />} />
+          <Route path="/checkout-success" element={<checkout_success />} />
+          
+        </Routes>-
       </main>
     </div>
   );

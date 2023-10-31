@@ -4,35 +4,35 @@ import { Link } from "react-router-dom";
 import Button from "./Button";
 import Swal from 'sweetalert2'
 
-function Add_book_for_sell() {
-  // {console.log("yes")}
-  const [ISBN,setISBN]=useState('');
-  const [des,setdes] = useState('');
-  const [selectedOption, setSelectedOption] = useState('');
+// function Add_book_for_sell() {
+//   // {console.log("yes")}
+//   const [ISBN,setISBN]=useState('');
+//   const [des,setdes] = useState('');
+//   const [selectedOption, setSelectedOption] = useState('');
   
 
 
 
 
-  const generateBookDetailsString = (bookDetails) => {
-    if (bookDetails && bookDetails.author) {
-      return (
-        `1. Language: ${bookDetails.language}\n` +
-        `2. Publisher: ${bookDetails.publisher}\n` +
-        `3. Published Date: ${bookDetails.publishedDate}\n` +
-        `4. Author: ${bookDetails.author}\n` +
-        `5. Page Count: ${bookDetails.pageCount}\n` +
-        `6. Average Rating: ${bookDetails.averageRating}\n\n`
-      );
-    } else {
-      return '';
-    }
-  };
+//   const generateBookDetailsString = (bookDetails) => {
+//     if (bookDetails && bookDetails.author) {
+//       return (
+//         `1. Language: ${bookDetails.language}\n` +
+//         `2. Publisher: ${bookDetails.publisher}\n` +
+//         `3. Published Date: ${bookDetails.publishedDate}\n` +
+//         `4. Author: ${bookDetails.author}\n` +
+//         `5. Page Count: ${bookDetails.pageCount}\n` +
+//         `6. Average Rating: ${bookDetails.averageRating}\n\n`
+//       );
+//     } else {
+//       return '';
+//     }
+//   };
 
-  const handleDescriptionChange = (e) => {
-    const newValue = e.target.value;
-    setdes(newValue); // Update the state with the new value from the textarea
-  };
+//   const handleDescriptionChange = (e) => {
+//     const newValue = e.target.value;
+//     setdes(newValue); // Update the state with the new value from the textarea
+//   };
 
   
 
@@ -78,13 +78,13 @@ function Add_book_for_sell() {
     }
   };
 
-  const handleImageChange = (e) => {
-    // Update the images array with the selected files
-    setBookDetails({
-      ...bookDetails,
-      images: Array.from(e.target.files),
-    });
-  };
+//   const handleImageChange = (e) => {
+//     // Update the images array with the selected files
+//     setBookDetails({
+//       ...bookDetails,
+//       images: Array.from(e.target.files),
+//     });
+//   };
 
 
 
@@ -207,4 +207,4 @@ function Add_book_for_sell() {
   );
 }
 
-export default Add_book_for_sell;
+// export default Add_book_for_sell;
