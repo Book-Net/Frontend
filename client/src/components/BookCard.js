@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { AiFillStar } from "react-icons/ai";
+
 
 const BookCard = ({ book }) => {
   const { title, img, price, rating, number_of_ratings, authors, condition } =
     book;
 
+    const [clicked, setClicked] = useState(false);
+
   function BookRating({ rating, number_of_ratings }) {
     const stars = [];
-
+    
     for (let i = 0; i < rating; i++) {
       stars.push(<AiFillStar key={i} className="text-yellow-500" />);
     }
@@ -23,10 +26,10 @@ const BookCard = ({ book }) => {
   }
 
   return (
-    <div className="flex h-[350px] bg-[#F5F5F5] shadow-md hover:shadow-lg transition mx-auto rounded-md min-w-[350px] max-h-[230px]">
+    <div className="flex h-[350px] bg-[#F5F5F5] shadow-md hover:shadow-lg transition mx-auto rounded-md min-w-[350px] max-h-[230px]" onClick={() => setClicked(!clicked)}>
       <div className="p-3 w-full max-w-[150px]">
         <img
-          src={`http://localhost:9000/give_file/${image}`}
+          src={`http://localhost:9000/give_file/${img}`}
           className="object-cover w-full h-full rounded-md"
           alt=""
           srcSet=""
@@ -37,7 +40,7 @@ const BookCard = ({ book }) => {
           <BookRating rating={rating} number_of_ratings={number_of_ratings} />
         </div>
         <div>
-          <p className="font-bold mb-2 w-full overflow-hidden text-md text-left text-[#4F6D7A]">
+          <p className="font-bold mb-2 w-full overflow-hidden text-md text-left text-[#4F6D7A]" >
             {title}
           </p>
           <p className="text-left font-semibold text-sm mb-2 text-[#4F6D7A]">
@@ -45,7 +48,7 @@ const BookCard = ({ book }) => {
           </p>
           <p className="text-left text-sm mb-2 text-[#4F6D7A]">{condition}</p>
         </div>
-        <div className=" absolute bottom-2">
+        <div className="absolute bottom-2">
           <p className="text-left text-xl font-semibold text-[#BF5A36] mb-4">
             Rs. <span>{price}</span>
           </p>
@@ -55,4 +58,4 @@ const BookCard = ({ book }) => {
   );
 };
 
-export default BookCard;
+export default BookCard
