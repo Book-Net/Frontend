@@ -21,11 +21,15 @@ import PostView from "./pages/PostView";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
 import BookList from "./pages/BookList";
+import BookSellDetails from "./pages/Book_sale_details";
 import Logout from "./components/Logout";
+
+
 
 // context api
 // import { AuthProvider } from "./context/AppContext";
 import { useAuth } from "./context/AppContext";
+import checkout_success from "./components/Checkout_success";
 // import { useNavigate } from "react-router-dom";
 
 axios.defaults.baseURL = "http://localhost:9000";
@@ -33,6 +37,11 @@ axios.defaults.withCredentials = true;
 
 function App() {
   // const navigate = useNavigate();
+
+  function ScrollToTop() {
+    window.scrollTo(0, 0);
+    return null;
+  }
 
   const { user } = useAuth();
   return (
@@ -43,8 +52,9 @@ function App() {
       </header>
       <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
       <main className="mt-[120px]">
+      <ScrollToTop />
         <Routes>
-          <Route path="*" element={<Signup />} />
+          {/* <Route path="*" element={<Signup />} /> */}
           <Route path="/" element={<PostView />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -58,7 +68,10 @@ function App() {
           <Route path="/bid_sell" element={<BidSell />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/logout" element={<Logout />} />
-        </Routes>
+          <Route path="/booksell_detail/:id" element={<BookSellDetails />} />
+          <Route path="/checkout-success" element={<checkout_success />} />
+          
+        </Routes>-
       </main>
     </div>
   );
