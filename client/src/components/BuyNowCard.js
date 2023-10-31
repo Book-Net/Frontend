@@ -23,8 +23,8 @@ function BuyNowCard({price}) {
 
   return (
     <>
-    <div className="bidCardContainer">
-        <p className="price">{price}</p>
+    <div className="" >
+        <p className="price">RS : {price}</p>
         {/* <Button
           className="bg-[#BF5A36] text-white my-6 font-bold px-6 shadow-lg"
           type="submit"

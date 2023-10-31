@@ -12,11 +12,20 @@ import Book_name_author from "../components/Book_name_author";
 import Button from "../components/Button";
 import { AiOutlineHeart } from "react-icons/ai";
 import checkoutBtn from "../components/CheckoutBtn";
+import axios from 'axios';
+import { Link } from "react-router-dom";
 
 
 const Book_sale_details = () => {
   const [book, setBook] = useState("");
   const bookId = useParams();
+  
+  const [me, setme] = useState({
+    name: '',
+    img: '',
+  });
+
+
   console.log( bookId);
   useEffect(() => {
     const fetchBooks = async () => {
@@ -36,6 +45,11 @@ const Book_sale_details = () => {
     fetchBooks();
   }, []);
 
+  const des = book.description;
+
+  async function getme(){
+      res = `http://localhost:9000/me`
+  }
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
@@ -48,7 +62,11 @@ const Book_sale_details = () => {
       <div className="w-full p-20 bg-white rounded-lg shadow-md md:max-w-screen-lg">
         <div className="flex">
           <div className="w-1/3">
-            <img src={book} className="w-3/5 rounded-md" alt="" />
+            <img
+              src={`http://localhost:9000/give_file/${book.img}`}
+              className="w-4/5 rounded-md" alt=""
+              srcSet=""
+            />
           </div>
           <div className="mt-2 ml-0 mr-4">
             <AiOutlineHeart className="text-red-400 w-7 h-7" />
@@ -63,8 +81,36 @@ const Book_sale_details = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-end w-full p-20 mt-10 bg-gray-100 rounded-lg shadow-md md:max-w-screen-lg">
-          <Book_sale_description />
+        <div className="flex justify-center w-full p-20 mt-10 bg-gray-100 rounded-lg shadow-md md:max-w-screen-lg">
+        <div className="flex flex-row">
+              <div className="flex flex-col justify-start space-x-8 ">
+                <div className="text-red-700 font-bold">
+                  <h3>Condition</h3>
+                  <h3>Author</h3>
+                  <h3>Description</h3>
+                </div>
+                </div>
+                <div className="flex flex-col justify-start space-x-8 text-left ml-10">
+                <div className="flex flex-col text-left">
+                <p className="text-[#4F6D7A] font-bold">
+                  <p>
+                    {book.condition}
+                  </p>
+                  <p>
+                    {book.authors}
+                  </p>
+                  <p className="text-[#4F6D7A] font-bold">
+                  {/* {des.map((item, index) => (
+                      <div key={index} className="row">
+                        {item}
+                      </div>
+                    ))} */
+                    des}
+                  </p>
+                </p>
+                </div>
+              </div>
+            </div>
         </div>
 
         {/* <Button
@@ -75,7 +121,9 @@ const Book_sale_details = () => {
         </Button> */}
 
         <div className="w-full p-5 mt-8 bg-gray-100 rounded-lg shadow-md md:max-w-screen-lg">
-          <Seller_description />
+          <div>
+            
+          </div>
         </div>
       </div>
     </div>

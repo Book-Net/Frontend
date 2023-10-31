@@ -61,7 +61,7 @@ function App() {
         {/* {<Booklist/>} */}
         <Routes>
           {/* <Route path="*" element={<Signup />} /> */}
-          <Route path="/" element={<PostView />} />
+          <Route path="/postview" element={<PostView />} />
           {/* <Route path="/" element={<Add_book_for_bid />} /> */}
           <Route path="/login" element={<Login />} />
           {/* If you meant /signUp instead of /signup, change the path accordingly */}

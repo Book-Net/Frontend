@@ -21,7 +21,7 @@ const CheckoutBtn = (props) => {
   
   return (
     <div>
-      <button className="bg-[#BF5A36] text-white my-6 font-bold px-6 shadow-lg"
+      <button className="bg-[#BF5A36] text-white font-bold px-6 py-2 rounded-lg shadow-lg"
       onClick={()=>{handleCheckout("Book1")}}>{props.children}</button>
       
     </div>
