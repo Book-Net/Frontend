@@ -1,7 +1,7 @@
 import React from "react";
 import { FiSearch } from "react-icons/fi";
 
-function Searchbar() {
+function Searchbar(props) {
   return (
     <div className="flex justify-center mt-9">
       <div className="md:flex md:justify-between items-center space-x-2 mx-auto w-3/5 max-w-[1400px]">
@@ -21,7 +21,7 @@ function Searchbar() {
         <div className="my-3 justify-center flex gap-2">
           <select className="border-none outline-none rounded-lg py-2 px-3 text-[#BF5A36] bg-transparent font-semibold">
             <option defaultValue="category" selected disabled>
-              Category
+              {props.name}
             </option>
             <option value="category">Category1</option>
             <option value="category">Category2</option>
