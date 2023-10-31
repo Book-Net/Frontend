@@ -51,8 +51,7 @@ function LoginForm() {
     // console.log(user);
     const token = localStorage.getItem("user");
     const config = {
-      headers: { "x-access-token": token },
-      withCredentials: true,
+      headers: { "x-access-token": token, withCredentials: true },
     };
 
     try {

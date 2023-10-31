@@ -15,8 +15,13 @@ function Test() {
     e.preventDefault();
 
     const response = await axios.post(
-      "/test",
-      { headers: { "x-access-token": user } },
+      "http://localhost:9000/add_book_detail_sell",
+      {
+        headers: {
+          "x-access-token": user,
+          "content-type": "multipart/form-data",
+        },
+      },
 
       {
         email,

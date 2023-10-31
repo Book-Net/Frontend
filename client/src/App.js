@@ -24,7 +24,10 @@ import PostView from "./pages/PostView";
 import axios from "axios";
 import { Toaster } from "react-hot-toast";
 import BookList from "./pages/BookList";
+import AddBook_Main from "./pages/AddBook_Main";
+import AddBook_Main_2 from "./pages/AddBook_Main_2";
 import Logout from "./components/Logout";
+import Have_ISBN from "./pages/Have_ISBN";
 
 // context api
 // import { AuthProvider } from "./context/AppContext";
@@ -38,6 +41,7 @@ function App() {
   // const navigate = useNavigate();
 
   const { user } = useAuth();
+  axios.defaults.headers.common["x-access-token"] = user;
   return (
     <div className="App bg-[#F5F5F5]">
       <div className="fixed top-0 w-full top"></div>
@@ -49,22 +53,31 @@ function App() {
         <Routes>
           <Route path="*" element={<Signup />} />
           {/* <Route path="/" element={<PostView />} /> */}
-          <Route path="/editProfile" element={<Edit_profile/>}/>
-          <Route path="/placeBid" element={<Place_bid/>}/>
+          <Route path="/editProfile" element={<Edit_profile />} />
+          <Route path="/placeBid" element={<Place_bid />} />
           <Route path="/sidebar_admin" element={<Sidebar_admin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          
+          <Route path="/signup" element={<Signup />} />
           <Route path="/Author_profile" element={<Author_profile />} />
           <Route
-            path="/add-book"
-            element={user ? <BookForm /> : <Navigate to="/login" />}
+            path="/add_book"
+            element={user ? <AddBook_Main /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/add_book_2"
+            element={user ? <AddBook_Main_2 /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/have_isbn"
+            element={user ? <Have_ISBN /> : <Navigate to="/login" />}
           />
           <Route path="/" element={<BookList />} />
-          <Route path="/sell_book" element={<Sellbook />} />
+          {/* <Route path="/sell_book" element={<Sellbook />} /> */}
           <Route path="/bid_sell" element={<BidSell />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/logout" element={<Logout />} />
+          {/* <Route path="/add_book" element={<Logout />} /> */}
         </Routes>
       </main>
     </div>
