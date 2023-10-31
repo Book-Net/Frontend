@@ -7,7 +7,8 @@ import { GrLogout } from "react-icons/gr";
 import { BsBellFill } from "react-icons/bs";
 
 const navLinks = [
-  { to: "/", text: "Home" },
+  // { to: "/", text: "Home" },
+  { to: "/", text: "Market Place" },
   { to: "/", text: "About Us" },
   { to: "/", text: "Options" },
   { to: "/", text: "Contact Us" },

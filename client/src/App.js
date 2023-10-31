@@ -6,8 +6,9 @@ import Navbar_2 from "./components/Navbar_2";
 import Signup from "./pages/Signup";
 import Profile_card from "./components/Profile_card";
 import Profile from "./pages/Profile";
-import Profile_navbar from "./components/Profile_navbar";
-import Reg_home from "./pages/Reg_home";
+import Edit_profile from "./pages/Edit_profile";
+import Place_bid from "./pages/Place_bid";
+import Sidebar_admin from "./pages/Sidebar_admin";
 import Login from "./pages/Login";
 import Booklist from "./pages/BookList";
 import Book_sale_details from "./pages/Book_sale_details";
@@ -40,16 +41,26 @@ axios.defaults.withCredentials = true;
 function App() {
   const isLoggedIn = true; //change this after authentication done
 
-  const LoginContextProvider = ({ children }) => {
-    const [logOrSignUp, setLogOrSignUp] = useState(true);
-  };
-
+  const { user } = useAuth();
+  axios.defaults.headers.common["x-access-token"] = user;
   return (
     <div className="App bg-[#F5F5F5]">
+<<<<<<<<< Temporary merge branch 1
       <div className="fixed top-0 w-full top"></div>
       <header className="header">
+        <Navbar_1 />
+      </header>
+      <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
+      <main className="mt-[120px]">
+        <Routes>
+<<<<<<<<< Temporary merge branch 1
+          <Route path="*" element={<Signup />} />
+          <Route path="/" element={<PostView />} />
+=========
+       <div className="fixed top-0 w-full top"></div> 
+       <header className="header">
         {isLoggedIn ? <Navbar_2 /> : <Navbar_1 />}
-      </header> 
+      </header> */
       <main className="mt-[120px]">
         {/* <Main_image /> */}
         {/* <Signup /> */}
@@ -59,32 +70,32 @@ function App() {
         {/* <Add_book_for_sell/> */}
         {/* <Appk/> */}
         {/* <BookForm/> */}
-        {/* {<Booklist/>} */}
         <Routes>
-          {/* <Route path="*" element={<Signup />} /> */}
-          <Route path="/postview" element={<PostView />} />
           {/* <Route path="/" element={<Add_book_for_bid />} /> */}
+>>>>>>>>> Temporary merge branch 2
           <Route path="/login" element={<Login />} />
-          {/* If you meant /signUp instead of /signup, change the path accordingly */}
           <Route path="/signup" element={<Signup />} />
-          <Route path="/Unreg_home" element={<Unreg_home/>}/>
-          <Route path="/Author_Profile" element={<Author_profile/>}/>
-          <Route path="/PostView" element={<PostView/>}/>
-          <Route path="/" element={<Booklist/>}/>
-          <Route path="/AddBook_Main" element={<AddBook_Main/>}/>
-          <Route path="/AddBook_Main_2" element={<AddBook_Main_2/>}/>
-          <Route path="/booksell_detail" element={<Book_sale_details/>}/>
-          <Route path="/postAdd" element={<CreatePost/>}/>
-          
-
-
-
-          {/* Redirect to home page if no matching route is found */}
-          {/* <Route path="*" element={<Home />} /> */}
-          <Route path="/booksell_detail/:id" element={<BookSellDetails />} />
-          <Route path="/checkout-success" element={<checkout_success />} />
-          
-        </Routes>-
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/Author_profile" element={<Author_profile />} />
+          <Route
+            path="/add_book"
+            element={user ? <AddBook_Main /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/add_book_2"
+            element={user ? <AddBook_Main_2 /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/have_isbn"
+            element={user ? <Have_ISBN /> : <Navigate to="/login" />}
+          />
+          <Route path="/" element={<BookList />} />
+          {/* <Route path="/sell_book" element={<Sellbook />} /> */}
+          <Route path="/bid_sell" element={<BidSell />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/logout" element={<Logout />} />
+          {/* <Route path="/add_book" element={<Logout />} /> */}
+        </Routes>
       </main>
     </div>
   );
