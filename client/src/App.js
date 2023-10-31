@@ -10,6 +10,7 @@ import Profile_navbar from "./components/Profile_navbar";
 import Reg_home from "./pages/Reg_home";
 import Login from "./pages/Login";
 import Booklist from "./pages/BookList";
+import Book_sale_details from "./pages/Book_sale_details";
 import { createContext, useState } from "react";
 import Add_book_for_sell from "./components/Add_book_for_sell";
 import Add_book_for_bid from "./components/Add_book_for_bid";
@@ -47,7 +48,7 @@ function App() {
         {/* <Add_book_for_sell/> */}
         {/* <Appk/> */}
         {/* <BookForm/> */}
-        {/* {CreatePost} */}
+        {/* {<Booklist/>} */}
         <Routes>
           {/* <Route path="/" element={<Add_book_for_bid />} /> */}
           <Route path="/login" element={<Login />} />
@@ -56,13 +57,14 @@ function App() {
           <Route path="/Unreg_home" element={<Unreg_home/>}/>
           <Route path="/Author_Profile" element={<Author_profile/>}/>
           <Route path="/PostView" element={<PostView/>}/>
-          <Route path="/" element={<Have_ISBN/>}/>
+          <Route path="/" element={<Booklist/>}/>
           <Route path="/AddBook_Main" element={<AddBook_Main/>}/>
           <Route path="/AddBook_Main_2" element={<AddBook_Main_2/>}/>
           <Route path="/AddFor_Bid" element={<AddFor_Bid/>}/>
           <Route path="/AddFor_Sell" element={<AddFor_Sell/>}/>
           <Route path="/AddFor_Exchange" element={<AddFor_Exchange/>}/>
           <Route path="/AddFor_Donate" element={<AddFor_Donate/>}/>
+          <Route path="/booksell_detail" element={<Book_sale_details/>}/>
           
 
 
