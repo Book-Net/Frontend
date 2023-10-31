@@ -29,6 +29,7 @@ function SignupForm() {
       );
 
       const responseData = response.data;
+      console.log(responseData.message);
       if (responseData.error) {
         toast.error(responseData.error);
       } else {
@@ -38,8 +39,9 @@ function SignupForm() {
           password: "",
           rePassword: "",
         });
-        toast.success("Registration successful. Welcome!");
-        navigate("/login");
+        toast.success(responseData.message);
+
+        // navigate("/login");
       }
     } catch (error) {
       console.log(error);

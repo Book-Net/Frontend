@@ -28,6 +28,7 @@ import AddBook_Main from "./pages/AddBook_Main";
 import AddBook_Main_2 from "./pages/AddBook_Main_2";
 import Logout from "./components/Logout";
 import Have_ISBN from "./pages/Have_ISBN";
+import EmailVerify from "./components/EmailVerify";
 
 // context api
 // import { AuthProvider } from "./context/AppContext";
@@ -48,7 +49,7 @@ function App() {
       <header className="header">
         <Navbar_1 />
       </header>
-      <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
+      <Toaster position="bottom-right" toastOptions={{ duration: 4000 }} />
       <main className="mt-[120px]">
         <Routes>
           <Route path="*" element={<Signup />} />
@@ -78,6 +79,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/logout" element={<Logout />} />
           {/* <Route path="/add_book" element={<Logout />} /> */}
+          <Route path="/users/:id/verify/:token" element={<EmailVerify />} />
         </Routes>
       </main>
     </div>
