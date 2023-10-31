@@ -8,7 +8,7 @@ import Exchange_book from "../components/Exchange_book";
 import ReusableInputField from "../components/ReusableInputField";
 
 
-function AddBook_Main() {
+function AddBook_Main_2() {
 
 
     const clearForm = () => {
@@ -332,4 +332,4 @@ function AddBook_Main() {
     );
 }
 
-export default AddBook_Main;
+export default AddBook_Main_2;

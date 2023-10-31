@@ -12,8 +12,6 @@ import Login from "./pages/Login";
 import Booklist from "./pages/BookList";
 import Book_sale_details from "./pages/Book_sale_details";
 import { createContext, useState } from "react";
-import Add_book_for_sell from "./components/Add_book_for_sell";
-import Add_book_for_bid from "./components/Add_book_for_bid";
 import Unreg_home from "./pages/Unreg_home";
 import Author_profile from "./pages/Author_profile";
 import PostView from "./pages/PostView";
@@ -21,13 +19,17 @@ import axios from "axios";
 import { Toaster } from "react-hot-toast";
 import BookList from "./pages/BookList";
 import BookSellDetails from "./pages/Book_sale_details";
-import Logout from "./components/Logout";
+import AddBook_Main from "./pages/AddBook_Main";
+import AddBook_Main_2 from "./pages/AddBook_Main_2";
+import Add_book_for_bid from "./components/Add_book_for_bid";
+
+// import Logout from "./components/Logout";
 
 
 
 // context api
 // import { AuthProvider } from "./context/AppContext";
-import { useAuth } from "./context/AppContext";
+// import { useAuth } from "./context/AppContext";
 import checkout_success from "./components/Checkout_success";
 // import { useNavigate } from "react-router-dom";
 
@@ -70,10 +72,6 @@ function App() {
           <Route path="/" element={<Booklist/>}/>
           <Route path="/AddBook_Main" element={<AddBook_Main/>}/>
           <Route path="/AddBook_Main_2" element={<AddBook_Main_2/>}/>
-          <Route path="/AddFor_Bid" element={<AddFor_Bid/>}/>
-          <Route path="/AddFor_Sell" element={<AddFor_Sell/>}/>
-          <Route path="/AddFor_Exchange" element={<AddFor_Exchange/>}/>
-          <Route path="/AddFor_Donate" element={<AddFor_Donate/>}/>
           <Route path="/booksell_detail" element={<Book_sale_details/>}/>
           
 
