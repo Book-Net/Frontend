@@ -1,7 +1,7 @@
 import React from "react";
 import Main_image from "../components/Main_image"
 import Searchbar from "../components/Searchbar";
-import BookList from "../components/BookList";
+import BookList from "BookList";
 
 function Unreg_home() {
   return (
