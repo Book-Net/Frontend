@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link, Navigate } from "react-router-dom";
 // import Main_image from "./components/Main_image";
 import Navbar_1 from "./components/Navbar_1";
 import Navbar_2 from "./components/Navbar_2";
@@ -7,8 +7,6 @@ import Signup from "./pages/Signup";
 import Profile_card from "./components/Profile_card";
 import Profile from "./pages/Profile";
 import Edit_profile from "./pages/Edit_profile";
-import Place_bid from "./pages/Place_bid";
-import Sidebar_admin from "./pages/Sidebar_admin";
 import Login from "./pages/Login";
 import Sellbook from "./components/Add_book_for_sell";
 import BidSell from "./components/Bid_Sell";
@@ -23,10 +21,13 @@ import AddBook_Main from "./pages/AddBook_Main";
 import AddBook_Main_2 from "./pages/AddBook_Main_2";
 import Logout from "./components/Logout";
 import Have_ISBN from "./pages/Have_ISBN";
+import Place_bid from "./components/PlaceBidCard";
+import Sidebar_admin from "./pages/Sidebar_admin";
+ 
 
 // context api
 // import { AuthProvider } from "./context/AppContext";
-// import { useAuth } from "./context/AppContext";
+import { useAuth } from "./context/AppContext";
 import checkout_success from "./components/Checkout_success";
 // import { useNavigate } from "react-router-dom";
 
