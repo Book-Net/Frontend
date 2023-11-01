@@ -5,6 +5,7 @@ import { HiMenu } from "react-icons/hi";
 import { RiCloseFill } from "react-icons/ri";
 import { GrLogout } from "react-icons/gr";
 import { BsBellFill } from "react-icons/bs";
+import axios from "axios";
 import image1 from "../assets/image1.png";
 
 import { useAuth } from "../context/AppContext";
@@ -26,6 +27,21 @@ function Navbar_1() {
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
+
+  const [img, setImg] = useState("");
+
+  useEffect(() => {
+    const myImg = async () => {
+      try {
+        const response = await axios.get("/me");
+        setImg(response.data.user.img);
+        console.log(response.data.user.img);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    myImg();
+  }, [user]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -135,9 +151,9 @@ function Navbar_1() {
                 <li className="my-2 pb-2 md:my-0">
                   <Link to="/profile" className="px-[15px] py-[8px] block ">
                     <img
-                      src={image1}
+                      src={`http://localhost:9000/give_file/${img}`}
                       alt=""
-                      className=" w-[60px] rounded-full border-4 shadow-lg border-[#bf5a36]"
+                      className=" w-[60px] rounded-full border-4 shadow-lg object-cover border-[#bf5a36]"
                     />
                   </Link>
                 </li>

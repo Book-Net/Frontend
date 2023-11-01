@@ -1,5 +1,5 @@
 import React from "react";
-import image1 from "../assets/image1.png";
+// import image1 from "../assets/image1.png";
 import book_bg_img from "../assets/book_bg_img.png";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
@@ -27,6 +27,7 @@ const Edit_profile = () => {
           "content-type": "multipart/form-data",
         },
       });
+      navigate("/profile");
     } catch (error) {}
   };
 
@@ -85,6 +86,21 @@ const Edit_profile = () => {
     myDetails();
   }, []);
 
+  const [img, setImg] = useState("");
+
+  useEffect(() => {
+    const myImg = async () => {
+      try {
+        const response = await axios.get("/me");
+        setImg(response.data.user.img);
+        console.log(response.data.user.img);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    myImg();
+  }, []);
+
   return (
     <>
       <div className="bg-gray-100 min-h-screen justify-center items-left ">
@@ -92,34 +108,38 @@ const Edit_profile = () => {
           <Link to="/profile" className="text-gray-600 absolute top-4 left-4 ">
             &larr; Back to Profile
           </Link>
-          <div
-            className="absolute top-1/7 right-1/3 transform translate-x-1/8 -translate-y-1/6"
-            style={{ zIndex: 1 }}
-          >
-            <img
-              src={image1}
-              alt=""
-              className="w-40 h-40 rounded-full max-w-full border border-gray-300"
-            />
+          <div className="flex flex-row items-center">
+            <div
+              className="absolute top-1/7 left-1/3 transform translate-x-1/8 -translate-y-1/6"
+              style={{ zIndex: 1 }}
+            >
+              <img
+                src={`http://localhost:9000/give_file/${img}`}
+                alt=""
+                className="w-40 h-40 rounded-full max-w-full border object-cover border-gray-300"
+              />
+            </div>
+            <div className="absolute right-0">
+              <input
+                type="file"
+                name="file"
+                accept="image/*"
+                required
+                multiple
+                onChange={handleFileChange}
+              />
+              <Button
+                className="bg-[#BF5A36] text-white mt-3 font-bold "
+                type="submit"
+                onClick={update_pic}
+              >
+                Update Image
+              </Button>
+            </div>
           </div>
-          <input
-            type="file"
-            name="file"
-            accept="image/*"
-            required
-            multiple
-            onChange={handleFileChange}
-          />
-          <Button
-            className="bg-[#BF5A36] text-white mt-3 font-bold px-6"
-            type="submit"
-            onClick={update_pic}
-          >
-            Update
-          </Button>
         </div>
 
-        <div class="flex justify-center items-center h-screen">
+        <div class="flex justify-center items-center mt-10">
           <form
             action=""
             class="grid grid-cols-3 gap-4 w-3/5 p-20 bg-gray-50 rounded-md shadow-md"
@@ -162,14 +182,14 @@ const Edit_profile = () => {
               required
             />
 
-            <label class="col-span-1 text-left pr-4 self-center">Country</label>
+            {/* <label class="col-span-1 text-left pr-4 self-center">Country</label>
             <input
               type="text"
               class="col-span-2 pl-4 py-3 shadow-md my-1 rounded-md placeholder-[#BF5A36]"
               placeholder={details.country}
               onChange={(e) => setData({ ...data, country: e.target.value })}
               required
-            />
+            /> */}
 
             {/* <label class="col-span-1 text-left pr-4 self-center">
               Password

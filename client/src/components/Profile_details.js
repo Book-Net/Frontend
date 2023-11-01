@@ -1,6 +1,11 @@
 import React from "react";
-import { HiMail } from "react-icons/hi";
-import { BsFillTelephoneFill } from "react-icons/bs";
+import {
+  HiMail,
+  HiLocationMarker,
+  HiUserCircle,
+  HiPhone,
+} from "react-icons/hi";
+// import { BsFillTelephoneFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -24,12 +29,17 @@ const Profile_details = () => {
   return (
     <>
       <div className="flex flex-col gap-4 m-2 text-left">
-        <h2 className="text-[#576467] text-xl font-bold mb-10">
+        <h2 className="text-[#576467] text-xl font-bold mb-4">
           {details.userName}
         </h2>
-        <div className="text-[#65BCB5]">
-          <Link to="../editProfile">
-            <i class="bx bxs-edit-alt"></i>Edit profile
+        <div className="text-[#BF5A36]">
+          <Link to="../editProfile" className="font-bold">
+            <i class="bx bxs-edit-alt"></i>➡ Customize profile 🎨
+          </Link>
+        </div>
+        <div className="text-[#BF5A36]">
+          <Link to="../becomeAuthor" className="font-bold">
+            <i class="bx bxs-edit-alt "></i>➡ Become Author 🧞‍♂️
           </Link>
         </div>
 
@@ -39,18 +49,26 @@ const Profile_details = () => {
               <span className="text-gray-500">
                 <HiMail />
               </span>
-              <p className="mb-1">{details.email}</p>
+              <p className="mb-1 ml-1">{"User Email: " + details.email}</p>
             </div>
-            <div className="flex flex-row items-center gap-3">
+            <div className="flex flex-row items-center">
               <span className="text-gray-500">
-                <BsFillTelephoneFill />
+                <HiUserCircle />
               </span>
-              <p className="mb-1">{details.phone}</p>
+              <p className="mb-1 ml-1">{"User Type: " + details.userType}</p>
             </div>
-          </div>
-          <div className="ml-50">
-            <p className="mb-1">{details.address}</p>
-            <p>{details.country}</p>
+            <div className="flex flex-row items-center">
+              <span className="text-gray-500">
+                <HiPhone />
+              </span>
+              <p className="mb-1 ml-1">{"Phone Number: " + details.phone}</p>
+            </div>
+            <div className="flex flex-row items-center">
+              <span className="text-gray-500">
+                <HiLocationMarker />
+              </span>
+              <p className="mb-1 ml-1">{"User Address: " + details.address}</p>
+            </div>
           </div>
         </div>
       </div>

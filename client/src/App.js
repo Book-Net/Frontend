@@ -33,6 +33,7 @@ import EmailVerify from "./components/EmailVerify";
 // context api
 // import { AuthProvider } from "./context/AppContext";
 import { useAuth } from "./context/AppContext";
+import Become_author from "./pages/Become_author";
 // import { useNavigate } from "react-router-dom";
 
 axios.defaults.baseURL = "http://localhost:9000";
@@ -64,6 +65,10 @@ function App() {
           <Route
             path="/add_book"
             element={user ? <AddBook_Main /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/becomeAuthor"
+            element={user ? <Become_author /> : <Navigate to="/login" />}
           />
           <Route
             path="/add_book_2"

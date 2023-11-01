@@ -8,6 +8,7 @@ import Profile_card from "../components/Profile_card";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import MyBookList from "./OwnProfileBookList";
 
 const Profile = () => {
   const [img, setImg] = useState("");
@@ -27,9 +28,10 @@ const Profile = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
-      <div className="bg-[#F3DEC9] shadow-lg shadow-[#F3DEC9] ">
+      <div className="bg-[#F3DEC9] shadow-lg object-cover w-screen shadow-[#F3DEC9] ">
         <img src={book_bg_img} alt="" />
       </div>
+
       <div className="p-5 w-full md:max-w-screen-lg">
         <div
           className="absolute top-1/2 left-25 transform -translate-x-1/8 -translate-y-1/6"
@@ -38,7 +40,7 @@ const Profile = () => {
           <img
             src={`http://localhost:9000/give_file/${img}`}
             alt=""
-            className="w-40 h-40 rounded-full max-w-full border border-gray-300"
+            className="w-40 h-40 rounded-full max-w-full border object-cover border-gray-300"
           />
         </div>
 
@@ -57,16 +59,17 @@ const Profile = () => {
           {<Profile_card title="Donates" />}
         </div>
 
-        <div className="mt-10 w-full md:max-w-screen-lg flex justify-star">
+        <div className=" mt-10 w-full md:max-w-screen-lg flex justify-start">
           <Link to={"/have_isbn"}>
             <Button
-              className="bg-[#BF5A36] text-white mt-3 font-bold px-6"
-              type=""
+              className={"bg-[#BF5A36] text-white mt-3 font-bold px-6"}
+              type={""}
             >
-              Add Book
+              Add Books
             </Button>
           </Link>
         </div>
+        <MyBookList />
       </div>
     </div>
   );
