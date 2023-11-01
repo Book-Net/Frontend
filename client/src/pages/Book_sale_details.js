@@ -13,6 +13,8 @@ import Button from "../components/Button";
 import { AiOutlineHeart } from "react-icons/ai";
 import checkoutBtn from "../components/CheckoutBtn";
 import { Link } from "react-router-dom";
+import Book_owner from "../components/Book_owner";
+import Book_suj from "../components/Book_suj";
 
 const Book_sale_details = () => {
   const [book, setBook] = useState("");
@@ -109,14 +111,12 @@ const Book_sale_details = () => {
           Ask a question
         </Button> */}
 
-        <div className="w-full px-20 py-4 mt-8 bg-gray-100 rounded-lg shadow-md md:max-w-screen-lg">
-          <div className="flex flex-row">
-            <p className="font-bold text-red-700 text-left flex mr-1">
-              Pickup location:
-            </p>
-            <p> {book.location}</p>
+        <div className="w-full p-5 mt-8 bg-gray-100 rounded-lg shadow-md md:max-w-screen-lg">
+          <div>
+            <Book_owner bookId={bookId} />
           </div>
         </div>
+        <Book_suj bookcat={book.category} />
       </div>
     </div>
   );
