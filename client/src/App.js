@@ -33,7 +33,7 @@ function App() {
     <div className="App bg-[#F5F5F5]">
        <div className="fixed top-0 w-full top"></div> 
        <header className="header">
-        {isLoggedIn ? <Navbar_2 /> : <Navbar_1 />}
+        {isLoggedIn ? <Navbar_1 /> : <Navbar_2 />}
       </header> */
       <main className="mt-[120px]">
         <Routes>
@@ -41,10 +41,10 @@ function App() {
           <Route path="/login" element={<Login />} />
           {/* If you meant /signUp instead of /signup, change the path accordingly */}
           <Route path="/signup" element={<Signup />} />
-          <Route path="/Unreg_Home" element={<Unreg_home/>}/>
+          <Route path="/UnregHome" element={<Unreg_home/>}/>
           <Route path="/Author_Profile" element={<Author_profile/>}/>
           <Route path="/PostView" element={<PostView/>}/>
-          <Route path="/Have ISBN" element={<Have_ISBN/>}/>
+          <Route path="/Have_ISBN" element={<Have_ISBN/>}/>
           <Route path="/AddBook_Main" element={<AddBook_Main/>}/>
           <Route path="/AddBookmain2" element={<AddBook_Main_2/>}/>
           <Route path="/AddFor_Bid" element={<AddFor_Bid/>}/>

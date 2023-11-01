@@ -21,7 +21,7 @@ function Searchbar(props) {
         <div className="my-3 justify-center flex gap-2">
           <select className="border-none outline-none rounded-lg py-2 px-3 text-[#BF5A36] bg-transparent font-semibold">
             <option defaultValue="category" selected disabled>
-              {props.name}
+                Categories
             </option>
             <option value="category">Category1</option>
             <option value="category">Category2</option>

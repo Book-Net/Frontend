@@ -7,7 +7,7 @@ function Main_image() {
       <div className="flex-1 py-8 px-10">
         {" "}
         {/* Updated */}
-        <p className="text-4xl lg:text-6xl font-mansalva">
+        <p className="text-4xl lg:text-6xl font-mansalva text-[#4F6D7A]">
           Connect, Share, and Trade Your Favourite Reads.....
         </p>
       </div>
