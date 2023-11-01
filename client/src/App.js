@@ -26,7 +26,7 @@ function App() {
     <div className="App bg-[#F5F5F5]">
       <div className="top w-full fixed top-0"></div>
       <header className="header">
-        {isLoggedIn ? <Navbar_2 /> : <Navbar_1 />}
+        {isLoggedIn ? <Navbar_1 /> : <Navbar_2 />}
       </header>
       <main className="mt-[120px]">
         <Routes>
@@ -36,7 +36,7 @@ function App() {
           <Route path="/profile" element={<Profile/>}/>
           <Route path="/editProfile" element={<Edit_profile/>}/>
           <Route path="/placeBid" element={<Place_bid/>}/>
-          <Route path="/sidebar_admin" element={<Sidebar_admin />} />
+          <Route path="/admin" element={<Sidebar_admin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           
