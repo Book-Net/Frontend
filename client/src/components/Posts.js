@@ -7,6 +7,8 @@ import PostActions from "./PostAction";
 
 
 function Post() {
+
+    
     return (
         <div className="bg-[#f5f5f5] py-2 mt-8  shadow-md hover:shadow-lg transition mx-auto rounded-md">
             <div className="flex">
