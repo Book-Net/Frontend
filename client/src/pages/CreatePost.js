@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 function CreatePost() {
@@ -19,9 +20,26 @@ function CreatePost() {
     setErrors({});
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Add validation logic here
+
+    try {
+      await axios.post('http://localhost:9000/createPost',{title, description, u_id:1})
+      .then((res) => {
+        console.log("hey" + res.data)
+        // window.location.href= res.data.url;
+      }).catch((error) => {console.log("Error in createPost", error)})
+     } catch (error) {
+      console.log("Error in catch in try catch in creating post request " + error)
+     }
+
+    console.log("Title : ",title)
+    console.log("Description : ",description)
+
+    
+    
+
     const newErrors = {};
 
     if (!title) {

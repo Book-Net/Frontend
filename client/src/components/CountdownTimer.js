@@ -9,7 +9,7 @@ function CountdownTimer({ book }) {
 
     // For this example, I'll assume that you've set the endDate manually.
     const endDate = new Date(book.ends);
-    console.log(book)
+    // console.log(book)
     setEndDate(endDate);
 
     // Calculate the time remaining and update it every second
