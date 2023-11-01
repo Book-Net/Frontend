@@ -73,10 +73,16 @@ const Book_owner = () => {
         </div>
 
         {/* Right side (name and age) */}
-        <div className="flex flex-col justify-start space-x-8 ">
+        <div className="flex flex-col justify-center items-center space-x-8 ">
           <div className="flex flex-col items-start text-2xl  text-[#4F6D7A] font-bold">
-            <h2>Published By</h2>
-            <h2>{owner.userName}</h2>
+            <h2 className="flex text-lg">
+              Published By:{" "}
+              <h2 className="text-[#BF5A36] ml-1 text-lg">{owner.userName}</h2>
+            </h2>
+            <h2 className="flex  text-lg">
+              Phone:{" "}
+              <h2 className="text-[#BF5A36] ml-1  text-lg">{owner.phone}</h2>
+            </h2>
           </div>
         </div>
       </div>
