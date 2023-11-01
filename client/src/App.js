@@ -41,7 +41,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           {/* If you meant /signUp instead of /signup, change the path accordingly */}
           <Route path="/signup" element={<Signup />} />
-          <Route path="/UnregHome" element={<Unreg_home/>}/>
+          <Route path="/Unreg_home" element={<Unreg_home/>}/>
           <Route path="/Author_Profile" element={<Author_profile/>}/>
           <Route path="/PostView" element={<PostView/>}/>
           <Route path="/Have_ISBN" element={<Have_ISBN/>}/>
