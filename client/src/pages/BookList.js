@@ -22,6 +22,7 @@ const BookList = () => {
   // };
 
   const [books, setBooks] = useState([]);
+  
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -37,6 +38,27 @@ const BookList = () => {
     fetchBooks();
   }, []);
 
+
+  const generateBookLink = (book) => {
+    switch (book.option) {
+      case "Sell":
+        return `/booksell_detail/${book._id}`;
+        break;
+      case "Bid":
+        return `/bid_interface/${book._id}`;
+        break;
+      case "Donate":
+        return `/login`;
+        break;
+      case "Exchange":
+        return `/`;
+        break;
+      default:
+        return `/login`;
+        break;
+    }
+  };
+
   return (
     <section className="my-16 max-w-[1400px] mx-auto">
       <div className="container mx-auto">
@@ -46,7 +68,7 @@ const BookList = () => {
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {books.map((book, index) => (
-            <Link to={`/booksell_detail/${book._id}`} key={index}> <BookCard book={book} /></Link>
+            <Link to={generateBookLink(book)} key={index}> <BookCard book={book} /></Link>
           ))}
           {/* {console.log(books[0]._id)} */}
         </div>

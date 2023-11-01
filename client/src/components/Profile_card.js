@@ -1,8 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 import Button from "../components/Button";
 
-function Profile_card() {
+function Profile_card({ title, desc, btn }) {
   return (
     <div className="p-3 border-2 border-[#BF5A36] rounded-[12px] w-[180px] h-[150px] p-0 min-w-[150px] ">
       <div className="bg-[#F2CB9E] rounded-[12px] h-[125px]">
@@ -30,7 +30,7 @@ function Profile_card() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Profile_card
+export default Profile_card;

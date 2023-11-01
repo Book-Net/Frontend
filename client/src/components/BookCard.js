@@ -3,24 +3,55 @@ import { AiFillStar } from "react-icons/ai";
 
 
 const BookCard = ({ book }) => {
-  const { title, img, price, rating, number_of_ratings, authors, condition } =
+  const { title, img, price, rating, number_of_ratings, authors, condition, option, minbid, needs} =
     book;
 
-  function BookRating({ rating, number_of_ratings }) {
-    const stars = [];
-    
-    for (let i = 0; i < rating; i++) {
-      stars.push(<AiFillStar key={i} className="text-yellow-500" />);
-    }
+  const[clicked,setClicked]=useState("");
+  let content;
+  let amount;
 
-    return (
-      <div className="flex items-center mb-2 text-yellow-500 ratings">
-        {stars}
-        <p className="ml-1 text-sm text-gray-600 font-roboto">
-          ({number_of_ratings})
-        </p>
-      </div>
-    );
+  function MyComponent(contentKey) {
+  
+    switch (contentKey) {
+      case "Sell":
+        content = "Buy Now"
+        amount = "Rs : "+price;
+        break;
+      case "Bid":
+        content="Bid Now";
+        amount = "Min Bid Rs : "+ minbid;
+        break;
+      case "Donate":
+        content="For Donation";
+        break;
+      case "Exchange":
+        content="For Exchange";
+        amount = needs;
+        break;
+      default:
+        content = null;
+        amount = null;
+        break;
+    }
+  }
+
+    MyComponent(option)
+
+  function BookRating({ rating, number_of_ratings }) {
+    // const stars = [];
+    
+    // for (let i = 0; i < rating; i++) {
+    //   stars.push(<AiFillStar key={i} className="text-yellow-500" />);
+    // }
+
+    // return (
+    //   <div className="flex items-center mb-2 text-yellow-500 ratings">
+    //     {stars}
+    //     <p className="ml-1 text-sm text-gray-600 font-roboto">
+    //       ({})
+    //     </p>
+    //   </div>
+    // );
   }
 
   return (
@@ -35,17 +66,18 @@ const BookCard = ({ book }) => {
       </div>
       <div className="p-3 w-full max-w-[200px] relative">
         <div>
-          <BookRating rating={rating} number_of_ratings={number_of_ratings} />
+          {/* <BookRating rating={rating} number_of_ratings={number_of_ratings} /> */}
         </div>
         <div>
-          <p className="font-bold mb-2 w-full overflow-hidden text-md text-left text-[#4F6D7A]" >
+          <p className="font-bold mb-2 text-xl w-full overflow-hidden text-md text-left text-[#4F6D7A]" >
             {title}
           </p>
-          <p className="text-left text-sm mb-2 text-[#4F6D7A]">{author}</p>
+          <p className="text-left text-lg mb-2 text-[#4F6D7A]">{authors}</p>
         </div>
         <div className=" absolute bottom-2">
           <p className="text-left text-xl font-semibold text-[#BF5A36] mb-4">
-            Rs. <span>{price}</span>
+            <p>{content}</p>
+            <p>{amount}</p>
           </p>
         </div>
       </div>

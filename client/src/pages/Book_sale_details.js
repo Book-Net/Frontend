@@ -19,13 +19,11 @@ const Book_sale_details = () => {
   const [book, setBook] = useState("");
   const bookId = useParams();
   
-  const [me, setme] = useState({
-    name: '',
-    img: '',
-  });
+  const [me, setme] = useState("");
 
 
-  console.log( bookId);
+
+  // console.log( bookId);
   useEffect(() => {
     const fetchBooks = async () => {
       try {
@@ -45,10 +43,13 @@ const Book_sale_details = () => {
   }, []);
 
   const des = book.description;
-
-  async function getme(){
-      // res = `http://localhost:9000/me`
+  
+  const getme = async () => {
+    const r = book.price
+    console.log(r)
+    // const response = await axios.get(`http://localhost:9000/getme/${bookId.u_id}`);
   }
+  getme();
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
@@ -75,7 +76,7 @@ const Book_sale_details = () => {
               <Book_name_author title={book.title} author={book.authors}/>
             </div>
             <div className="mt-4 bg-gray-100 p-4 rounded-md shadow-md shadow-#9B9B9B w-1/2 ml-0">
-              <BuyNowCard price={book.price} cartItems={['book1']}/>
+              <BuyNowCard book={book} cartItems={['book1']}/>
               {/* <checkoutBtn/> */}
             </div>
           </div>

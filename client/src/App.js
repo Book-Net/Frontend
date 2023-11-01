@@ -1,12 +1,19 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes, Link, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Routes,
+  Link,
+  Navigate,
+} from "react-router-dom";
 // import Main_image from "./components/Main_image";
 import Navbar_1 from "./components/Navbar_1";
-import Navbar_2 from "./components/Navbar_2";
 import Signup from "./pages/Signup";
-import Profile_card from "./components/Profile_card";
 import Profile from "./pages/Profile";
 import Edit_profile from "./pages/Edit_profile";
+// import Place_bid from "./pages/Place_bid";
+import Sidebar_admin from "./pages/Sidebar_admin";
 import Login from "./pages/Login";
 import Sellbook from "./components/Add_book_for_sell";
 import BidSell from "./components/Bid_Sell";
@@ -21,14 +28,12 @@ import AddBook_Main from "./pages/AddBook_Main";
 import AddBook_Main_2 from "./pages/AddBook_Main_2";
 import Logout from "./components/Logout";
 import Have_ISBN from "./pages/Have_ISBN";
-import Place_bid from "./components/PlaceBidCard";
-import Sidebar_admin from "./pages/Sidebar_admin";
- 
+import Book_sale_details from "./pages/Book_sale_details";
+import Bid_interface from "./pages/Bid_interface";
 
 // context api
 // import { AuthProvider } from "./context/AppContext";
 import { useAuth } from "./context/AppContext";
-import checkout_success from "./components/Checkout_success";
 // import { useNavigate } from "react-router-dom";
 
 axios.defaults.baseURL = "http://localhost:9000";
@@ -48,15 +53,19 @@ function App() {
       <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
       <main className="mt-[120px]">
         <Routes>
-          <Route path="*" element={<Signup />} />
+          <Route path="*" element={<Login />} />
           {/* <Route path="/" element={<PostView />} /> */}
           <Route path="/editProfile" element={<Edit_profile />} />
-          <Route path="/placeBid" element={<Place_bid />} />
+          {/* <Route path="/placeBid" element={<Place_bid />} /> */}
           <Route path="/sidebar_admin" element={<Sidebar_admin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/Author_profile" element={<Author_profile />} />
+          //
+          <Route path="/booksell_detail/:id" element={<Book_sale_details/>}/>
+          <Route path="/bid_interface/:id" element={<Bid_interface/>}/>
+          //
           <Route
             path="/add_book"
             element={user ? <AddBook_Main /> : <Navigate to="/login" />}
@@ -82,4 +91,3 @@ function App() {
 }
 
 export default App;
-

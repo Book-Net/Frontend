@@ -8,7 +8,7 @@ import axios from 'axios'
 import CheckoutBtn from "../components/CheckoutBtn";
 
 
-function BuyNowCard({price}) {
+function BuyNowCard({book}) {
 
 // const user = useSelector((state) => state.auth)
 
@@ -24,7 +24,7 @@ function BuyNowCard({price}) {
   return (
     <>
     <div className="" >
-        <p className="price">RS : {price}</p>
+        <p className="price">RS : {book.price}</p>
         {/* <Button
           className="bg-[#BF5A36] text-white my-6 font-bold px-6 shadow-lg"
           type="submit"
