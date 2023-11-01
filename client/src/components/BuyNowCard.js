@@ -24,7 +24,7 @@ function BuyNowCard({price , name}) {
   return (
     <>
     <div className="" >
-        <p className="price">RS : {price}</p>
+        <p className="price">RS : {book.price}</p>
         {/* <Button
           className="bg-[#BF5A36] text-white my-6 font-bold px-6 shadow-lg"
           type="submit"

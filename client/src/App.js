@@ -1,13 +1,18 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes, Link, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Routes,
+  Link, Navigate,
+  Navigate,
+} from "react-router-dom";
 // import Main_image from "./components/Main_image";
 import Navbar_1 from "./components/Navbar_1";
-import Navbar_2 from "./components/Navbar_2";
 import Signup from "./pages/Signup";
-import Profile_card from "./components/Profile_card";
 import Profile from "./pages/Profile";
 import Edit_profile from "./pages/Edit_profile";
-import Place_bid from "./pages/Place_bid";
+// import Place_bid from "./pages/Place_bid";
 import Sidebar_admin from "./pages/Sidebar_admin";
 import Login from "./pages/Login";
 import Booklist from "./pages/BookList";
@@ -37,15 +42,14 @@ import Logout from "./components/Logout";
 // context api
 // import { AuthProvider } from "./context/AppContext";
 import { useAuth } from "./context/AppContext";
-
-// import checkout_success from "./components/Checkout_success";
+import Become_author from "./pages/Become_author";
 // import { useNavigate } from "react-router-dom";
 
 axios.defaults.baseURL = "http://localhost:9000";
 axios.defaults.withCredentials = true;
 
 function App() {
-  const isLoggedIn = true; //change this after authentication done
+  // const navigate = useNavigate();
 
   const { user } = useAuth();
   axios.defaults.headers.common["x-access-token"] = user;
@@ -55,12 +59,12 @@ function App() {
       <header className="header">
         <Navbar_1 />
       </header>
-      <Toaster position="bottom-right" toastOptions={{ duration: 3000 }} />
+      <Toaster position="bottom-right" toastOptions={{ duration: 4000 }} />
       <main className="mt-[120px]">
         <Routes>
-          <Route path="*" element={<Signup />} />
+          <Route path="*" element={<Login />} />
           <Route path="/postView" element={<PostView />} />
-          <Route path="/placeBid" element={<Place_bid />} />
+          {/* <Route path="/placeBid" element={<Place_bid />} /> */}
           <Route path="/sidebar_admin" element={<Sidebar_admin />} />
           <Route path="/editProfile" element={<Edit_profile />} />
           {/* <Route path="/" element={<Add_book_for_bid />} /> */}
@@ -68,9 +72,17 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/Author_profile" element={<Author_profile />} />
+          //
+          <Route path="/booksell_detail/:id" element={<Book_sale_details />} />
+          <Route path="/bid_interface/:id" element={<Bid_interface />} />
+          //
           <Route
             path="/add_book"
             element={user ? <AddBook_Main /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/becomeAuthor"
+            element={user ? <Become_author /> : <Navigate to="/login" />}
           />
           <Route
             path="/add_book_2"
@@ -90,6 +102,7 @@ function App() {
           <Route path="/Post" element={< Posts/>} />
           <Route path="/booksell_detail/:id" element={<BookSellDetails />} />
           {/* <Route path="/add_book" element={<Logout />} /> */}
+          <Route path="/users/:id/verify/:token" element={<EmailVerify />} />
         </Routes>
       </main>
     </div>
@@ -97,4 +110,3 @@ function App() {
 }
 
 export default App;
-

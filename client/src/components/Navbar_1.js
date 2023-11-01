@@ -5,6 +5,10 @@ import { HiMenu } from "react-icons/hi";
 import { RiCloseFill } from "react-icons/ri";
 import { GrLogout } from "react-icons/gr";
 import { BsBellFill } from "react-icons/bs";
+import axios from "axios";
+import image1 from "../assets/image1.png";
+
+import { useAuth } from "../context/AppContext";
 
 const navLinks = [
   // { to: "/", text: "Home" },
@@ -15,6 +19,7 @@ const navLinks = [
 ];
 
 function Navbar_1() {
+  const { user } = useAuth();
   const [open, setOpen] = useState(true);
 
   const [scrolled, setScrolled] = useState(false);
@@ -22,6 +27,21 @@ function Navbar_1() {
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
   };
+
+  const [img, setImg] = useState("");
+
+  useEffect(() => {
+    const myImg = async () => {
+      try {
+        const response = await axios.get("/me");
+        setImg(response.data.user.img);
+        console.log(response.data.user.img);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    myImg();
+  }, [user]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,11 +61,11 @@ function Navbar_1() {
 
   return (
     <div
-      className={`navbar fixed top-[10px] left-[50%] translate-x-[-50%] right-0 max-w-[1400px] w-full z-[1000] `}
+      className={`navbar fixed top-[10px] left-[50%] translate-x-[-50%] right-0 w-full z-[1000] `}
     >
       <div
         className={`md:flex md:justify-between items-center h-[70px] pt-2 ${
-          scrolled ? "bg-[#F5F5F5] opacity-95" : "bg-[#F5F5F5]"
+          scrolled ? "bg-[#dddcdc] opacity-95" : "bg-[#F5F5F5]"
         }`}
       >
         <div className="md:h-[70px] min-w-280px md:ml-[30px] ">
@@ -88,26 +108,58 @@ function Navbar_1() {
             </ul>
           </div>
 
-          <div className="mx-[20px] my-3">
-            <ul className="md:flex md:mr-[30px]">
-              <li className="my-2 md:my-0 md:ml-4">
-                <Link
-                  to="/login"
-                  className="font-roboto shadow-md md:mx-[20px] px-[15px] py-[8px] font-semibold rounded-md bg-[#4F6D7A] text-[#FFFFFf] block md:inline"
-                >
-                  Login
-                </Link>
-              </li>
-              <li className="my-2 md:my-0">
-                <Link
-                  to="/signup"
-                  className="font-roboto shadow-md px-[15px] py-[8px] font-semibold rounded-md bg-[#F2CB9E] text-[#885F53] block md:inline"
-                >
-                  Signup
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {!user ? (
+            <div className="mx-[20px] my-3">
+              <ul className="md:flex md:mr-[30px]">
+                <li className="my-2 md:my-0 md:ml-4">
+                  <Link
+                    to="/login"
+                    className="font-roboto shadow-md md:mx-[20px] px-[15px] py-[8px] font-semibold rounded-md bg-[#4F6D7A] text-[#FFFFFf] block md:inline"
+                  >
+                    Login
+                  </Link>
+                </li>
+                <li className="my-2 md:my-0">
+                  <Link
+                    to="/signup"
+                    className="font-roboto shadow-md px-[15px] py-[8px] font-semibold rounded-md bg-[#F2CB9E] text-[#885F53] block md:inline"
+                  >
+                    Signup
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <div className="mx-[20px] my-3">
+              <ul className="flex md:mr-[30px] justify-start items-center">
+                <li className="my-2 md:my-0 md:mx-3">
+                  <Link
+                    to="/"
+                    className="font-roboto px-[15px] py-[8px] text-2xl block md:inline"
+                  >
+                    <BsBellFill />
+                  </Link>
+                </li>{" "}
+                <li className="my-2 md:my-0 md:mx-3 ">
+                  <Link
+                    to="/logout"
+                    className="font-roboto px-[15px] py-[8px] text-2xl block md:inline"
+                  >
+                    <GrLogout />
+                  </Link>
+                </li>
+                <li className="my-2 pb-2 md:my-0">
+                  <Link to="/profile" className="px-[15px] py-[8px] block ">
+                    <img
+                      src={`http://localhost:9000/give_file/${img}`}
+                      alt=""
+                      className=" w-[60px] rounded-full border-4 shadow-lg object-cover border-[#bf5a36]"
+                    />
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          )}
         </div>
       </div>
     </div>
