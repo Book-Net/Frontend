@@ -23,7 +23,7 @@ function Profile_card({ title, desc, btn }) {
 
       <div className="">
         <div>
-          <p className="font-roboto text-base pt-7">{desc}</p>
+          <p className="text-base font-roboto pt-7">{desc}</p>
         </div>
         <div className="py-1">
           <Link to="/sell_book"></Link>

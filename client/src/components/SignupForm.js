@@ -29,6 +29,7 @@ function SignupForm() {
       );
 
       const responseData = response.data;
+      console.log(responseData.message);
       if (responseData.error) {
         toast.error(responseData.error);
       } else {
