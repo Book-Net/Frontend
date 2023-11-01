@@ -50,10 +50,10 @@ const BookList = () => {
         return `/bid_interface/${book._id}`;
         break;
       case "Donate":
-        return `/login`;
+        return `/donate_interface/${book._id}`;
         break;
       case "Exchange":
-        return `/`;
+        return `/exchange_interface/${book._id}`;
         break;
       default:
         return `/login`;

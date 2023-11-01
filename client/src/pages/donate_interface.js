@@ -18,7 +18,7 @@ import Swal from "sweetalert2";
 import Book_owner from "../components/Book_owner";
 import Book_suj from "../components/Book_suj";
 
-const Bid_interface = () => {
+const Donate_interface = () => {
   const [book, setBook] = useState("");
   const bookId = useParams();
   const [book_id, setbook_id] = useState("");
@@ -28,37 +28,32 @@ const Bid_interface = () => {
     }, [bookId.id]);
   
   const [book_dtl, setbook_dtl] = useState("");
-  const [dateStr,setdateStr] = useState("");
-  const [timeStr,settimeStr] =useState("");
-  const [bidAmount, setBidAmount] = useState('');
+  const [Request, setRequest] = useState('');
 
   async function handleBidSubmit(e) {
     e.preventDefault();
-    if(bidAmount<parseInt(book.minbid, 10) + 100)
-    {
-        return Swal.fire("Enter a Bid Bigger Than Minimum Bid");
-    }
+    console.log(e)
     try {
         // Replace the following with your actual API endpoint and payload
 
         const response = await axios.post(
-            "/bid",
+            "/donate",
             {
                 book_id,
-                bidAmount,
+                Request,
             },
             { withCredentials: true }
           );
 
         if (response.status === 200) {
             // Handle a successful bid submission, e.g., show a success message.
-            Swal.fire("Bid submitted successfully");
+            Swal.fire("Request submitted successfully");
         } else {
             // Handle errors, e.g., display an error message.
-            Swal.fire("Error submitting bid");
+            Swal.fire("Error submitting request");
         }
     } catch (error) {
-        Swal.fire("Error submitting bid" + error);
+        Swal.fire("Error submitting request" + error);
     }
 };
 
@@ -84,21 +79,10 @@ const Bid_interface = () => {
   useEffect(() => {
     const bookends = async () => {
         setbook_dtl(book)
-        const originalDateTime = book.starts;
-        const date = new Date(originalDateTime);
-
-        setdateStr(date.toLocaleDateString()); // Get the date portion
-        settimeStr(date.toLocaleTimeString());
     };
     bookends();
-  }, [book.ends]);
+  }, [book.needs]);
 
-  useEffect(() => {
-    const bid = async () => {
-        setBidAmount(parseInt(book.minbid, 10) + 100)
-    };
-    bid();
-  }, [book.minbid]);
 
 
   const des = book.description;
@@ -138,21 +122,14 @@ const Bid_interface = () => {
             <div className="flex flex-row">
               <div className="flex flex-col justify-start space-x-8 ">
                 <div className="flex flex-col items-start  text-red-700 font-bold">
-                    <h3>Bid Starts -</h3>
-                    <h3>Ends Bid In - </h3>
-                    <h3>BID NOW - minimum bid : {parseInt(book.minbid, 10) + 100}</h3>
+                    <h3>Request this book -</h3>
                 </div>
                 </div>
                 <div className="flex flex-col justify-start space-x-8 text-left ml-10">
                 <div className="flex flex-col text-left">
-                <p className="text-[#4F6D7A] font-bold">
-                  <p>
-                    {dateStr} On {timeStr}
-                  </p>
-                </p>
                 <p className="font-bold text-[#c90404]">
                   <p>
-                    <CountdownTimer book={book_dtl}/>
+                    {book_dtl.needs}
                   </p>
                 </p>
                 </div>
@@ -163,12 +140,9 @@ const Bid_interface = () => {
                     <div className="w-full">
                         <input
                         className="bg-gray-50 border border-[#BF5A36] border-opacity-30 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="BID HERE"
                         required
-                        type="number"
-                        min={book.minbid}
-                        onChange={(e) => setBidAmount(e.target.value)}
-                        value={bidAmount}
+                        type="text"
+                        onChange={(e) => setRequest(e.target.value)}
                         />
                     </div>
                     <div>
@@ -176,7 +150,7 @@ const Bid_interface = () => {
                         className="items-center px-7 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 bg-[#BF5A36] disabled:bg-gray-500 disabled:opacity-50"
                         type="submit"
                     >
-                        BID
+                        Request
                     </button>
                     </div>
                 </div>
@@ -238,4 +212,4 @@ const Bid_interface = () => {
   );
 };
 
-export default Bid_interface;
+export default Donate_interface;;

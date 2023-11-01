@@ -41,6 +41,8 @@ import PaymentSuccess from "./pages/checkout-success";
 import Bid_Sell from "./components/Bid_Sell";
 import Posts from "./components/Posts";
 import Dashboard_Admin from "./components/Dashboard_admin";
+import Don_interface from "./pages/donate_interface";
+import Ex_interface from "./pages/Ex_interface";
 
 // context api
 import { useAuth } from "./context/AppContext";
@@ -77,6 +79,8 @@ function App() {
           //
           <Route path="/booksell_detail/:id" element={<Book_sale_details />} />
           <Route path="/bid_interface/:id" element={<Bid_interface />} />
+          <Route path="/exchange_interface/:id" element={<Ex_interface />} />
+          <Route path="/donate_interface/:id" element={<Don_interface />} />
           //
           <Route
             path="/add_book"
