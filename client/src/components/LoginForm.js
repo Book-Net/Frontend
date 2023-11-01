@@ -49,13 +49,13 @@ function LoginForm() {
   const Test = async (e) => {
     e.preventDefault();
     // console.log(user);
-    const token = localStorage.getItem("user");
+    // const token = localStorage.getItem("user");
     const config = {
-      headers: { "x-access-token": token, withCredentials: true },
+      headers: { withCredentials: true },
     };
 
     try {
-      const response = await axios.post("/test", null, config);
+      const response = await axios.get("/me", null, config);
       // Handle the response here
     } catch (error) {
       // Handle any errors that occur during the request

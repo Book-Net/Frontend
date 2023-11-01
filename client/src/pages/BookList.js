@@ -3,21 +3,25 @@ import axios from "axios";
 import BookCard from "../components/BookCard";
 import Main_image from "../components/Main_image";
 import Searchbar from "../components/Searchbar";
+import { useAuth } from "../context/AppContext";
 
 const BookList = () => {
-  const [books, setBooks] = useState([]);
+  // const [books, setBooks] = useState([]);
+  const { books, setBooks } = useAuth();
+
+  console.log(books);
+  const fetchBooks = async () => {
+    try {
+      const response = await axios.get("http://localhost:9000/BookList");
+      setBooks(response.data);
+      // console.log(response.data);
+    } catch (error) {
+      console.error("Error fetching books:", error);
+      // console.error();
+    }
+  };
 
   useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        const response = await axios.get("http://localhost:9000/BookList");
-        setBooks(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.error("Error fetching books:", error);
-        console.error();
-      }
-    };
     fetchBooks();
   }, []);
 

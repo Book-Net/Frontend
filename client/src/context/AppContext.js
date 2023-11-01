@@ -5,6 +5,7 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const storedUser = localStorage.getItem("user"); // Retrieve user from local storage
   const [user, setUser] = useState(storedUser ? storedUser : null);
+  const [books, setBooks] = useState([]);
 
   useEffect(() => {
     if (user) {
@@ -15,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser, books, setBooks }}>
       {children}
     </AuthContext.Provider>
   );

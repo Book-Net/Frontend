@@ -6,8 +6,25 @@ import Button from "../components/Button";
 import Profile_navbar from "../components/Profile_navbar";
 import Profile_card from "../components/Profile_card";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Profile = () => {
+  const [img, setImg] = useState("");
+
+  useEffect(() => {
+    const myImg = async () => {
+      try {
+        const response = await axios.get("/me");
+        setImg(response.data.user.img);
+        console.log(response.data.user.img);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    myImg();
+  }, []);
+
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
       <div className="bg-[#F3DEC9] shadow-lg shadow-[#F3DEC9] ">
@@ -19,13 +36,13 @@ const Profile = () => {
           style={{ zIndex: 1 }}
         >
           <img
-            src={image1}
+            src={`http://localhost:9000/give_file/${img}`}
             alt=""
-            className="w-32 h-32 rounded-full max-w-full border border-gray-300"
+            className="w-40 h-40 rounded-full max-w-full border border-gray-300"
           />
         </div>
 
-        <div className="mt-10 w-full md:max-w-screen-lg flex justify-star">
+        <div className="mt-16 w-full md:max-w-screen-lg flex justify-star">
           <Profile_details />
         </div>
 
