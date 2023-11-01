@@ -15,6 +15,8 @@ import checkoutBtn from "../components/CheckoutBtn";
 import { Link } from "react-router-dom";
 import CountdownTimer from "../components/CountdownTimer";
 import Swal from "sweetalert2";
+import Book_owner from "../components/Book_owner";
+import Book_suj from "../components/Book_suj";
 
 const Bid_interface = () => {
   const [book, setBook] = useState("");
@@ -188,6 +190,7 @@ const Bid_interface = () => {
                 <div className="text-red-700 font-bold">
                   <h3>Condition</h3>
                   <h3>Author</h3>
+                  <h3>Category</h3>
                   <h3>Description</h3>
                 </div>
                 </div>
@@ -199,6 +202,9 @@ const Bid_interface = () => {
                   </p>
                   <p>
                     {book.authors}
+                  </p>
+                  <p>
+                    {book.category}
                   </p>
                   <p className="text-[#4F6D7A] font-bold">
                   {/* {des.map((item, index) => (
@@ -223,9 +229,10 @@ const Bid_interface = () => {
 
         <div className="w-full p-5 mt-8 bg-gray-100 rounded-lg shadow-md md:max-w-screen-lg">
           <div>
-            
+            <Book_owner bookId={book_id}/>
           </div>
         </div>
+      <Book_suj bookcat={book.category}/>
       </div>
     </div>
   );

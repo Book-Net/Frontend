@@ -13,17 +13,49 @@ import Button from "../components/Button";
 import { AiOutlineHeart } from "react-icons/ai";
 import checkoutBtn from "../components/CheckoutBtn";
 import { Link } from "react-router-dom";
+import CountdownTimer from "../components/CountdownTimer";
+import Swal from "sweetalert2";
 import Book_owner from "../components/Book_owner";
 import Book_suj from "../components/Book_suj";
 
-
-const Book_sale_details = () => {
+const Donate_interface = () => {
   const [book, setBook] = useState("");
   const bookId = useParams();
+  const [book_id, setbook_id] = useState("");
+
+  useEffect(() => {
+    setbook_id(bookId.id)
+    }, [bookId.id]);
   
-  const [me, setme] = useState("");
+  const [book_dtl, setbook_dtl] = useState("");
+  const [Request, setRequest] = useState('');
 
+  async function handleBidSubmit(e) {
+    e.preventDefault();
+    console.log(e)
+    try {
+        // Replace the following with your actual API endpoint and payload
 
+        const response = await axios.post(
+            "/donate",
+            {
+                book_id,
+                Request,
+            },
+            { withCredentials: true }
+          );
+
+        if (response.status === 200) {
+            // Handle a successful bid submission, e.g., show a success message.
+            Swal.fire("Request submitted successfully");
+        } else {
+            // Handle errors, e.g., display an error message.
+            Swal.fire("Error submitting request");
+        }
+    } catch (error) {
+        Swal.fire("Error submitting request" + error);
+    }
+};
 
   // console.log( bookId);
   useEffect(() => {
@@ -44,11 +76,20 @@ const Book_sale_details = () => {
     fetchBooks();
   }, []);
 
+  useEffect(() => {
+    const bookends = async () => {
+        setbook_dtl(book)
+    };
+    bookends();
+  }, [book.needs]);
+
+
+
   const des = book.description;
   
   const getme = async () => {
     const r = book.price
-    console.log(r)
+    // console.log(r)
     // const response = await axios.get(`http://localhost:9000/getme/${bookId.u_id}`);
   }
   getme();
@@ -77,10 +118,44 @@ const Book_sale_details = () => {
             <div className="pb-2">
               <Book_name_author title={book.title} author={book.authors}/>
             </div>
-            <div className="mt-4 bg-gray-100 p-4 rounded-md shadow-md shadow-#9B9B9B w-1/2 ml-0">
-              <BuyNowCard book={book} cartItems={['book1']}/>
-              {/* <checkoutBtn/> */}
+            <div className="mt-4 bg-gray-100 p-4 rounded-md shadow-md shadow-#9B9B9B w-full ml-0">
+            <div className="flex flex-row">
+              <div className="flex flex-col justify-start space-x-8 ">
+                <div className="flex flex-col items-start  text-red-700 font-bold">
+                    <h3>Request this book -</h3>
+                </div>
+                </div>
+                <div className="flex flex-col justify-start space-x-8 text-left ml-10">
+                <div className="flex flex-col text-left">
+                <p className="font-bold text-[#c90404]">
+                  <p>
+                    {book_dtl.needs}
+                  </p>
+                </p>
+                </div>
+              </div>
             </div>
+            <form onSubmit={(e) => handleBidSubmit(e)} encType="multipart/form-data">
+                <div className="flex lex flex-row items-end  space-x-5 ">
+                    <div className="w-full">
+                        <input
+                        className="bg-gray-50 border border-[#BF5A36] border-opacity-30 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                        required
+                        type="text"
+                        onChange={(e) => setRequest(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                    <button
+                        className="items-center px-7 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-primary-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-primary-800 bg-[#BF5A36] disabled:bg-gray-500 disabled:opacity-50"
+                        type="submit"
+                    >
+                        Request
+                    </button>
+                    </div>
+                </div>
+            </form>
+            </div> 
           </div>
         </div>
         <div className="flex justify-center w-full p-20 mt-10 bg-gray-100 rounded-lg shadow-md md:max-w-screen-lg">
@@ -128,7 +203,7 @@ const Book_sale_details = () => {
 
         <div className="w-full p-5 mt-8 bg-gray-100 rounded-lg shadow-md md:max-w-screen-lg">
           <div>
-            <Book_owner bookId={bookId}/>
+            <Book_owner bookId={book_id}/>
           </div>
         </div>
       <Book_suj bookcat={book.category}/>
@@ -137,4 +212,4 @@ const Book_sale_details = () => {
   );
 };
 
-export default Book_sale_details;
+export default Donate_interface;;

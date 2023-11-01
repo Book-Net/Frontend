@@ -30,6 +30,8 @@ import Logout from "./components/Logout";
 import Have_ISBN from "./pages/Have_ISBN";
 import Book_sale_details from "./pages/Book_sale_details";
 import Bid_interface from "./pages/Bid_interface";
+import Ex_interface from "./pages/Ex_interface";
+import Donate_interface from "./pages/Donate_interface";
 
 // context api
 // import { AuthProvider } from "./context/AppContext";
@@ -62,6 +64,9 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/Author_profile" element={<Author_profile />} />
+
+          <Route path="/ex_interface/:id" element={<Ex_interface />} />
+          <Route path="/donate_interface/:id" element={<Donate_interface />} />
           //
           <Route path="/booksell_detail/:id" element={<Book_sale_details/>}/>
           <Route path="/bid_interface/:id" element={<Bid_interface/>}/>
