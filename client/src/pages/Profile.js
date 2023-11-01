@@ -23,11 +23,11 @@ const Profile = () => {
             alt=""
             className="w-32 h-32 max-w-full border border-gray-300 rounded-full"
           />
-<<<<<<<<< Temporary merge branch 1
+
         </div>
-=========
+
       </div>
->>>>>>>>> Temporary merge branch 2
+
 
         <div className="flex w-full mt-10 md:max-w-screen-lg justify-star">
           <Profile_details />
@@ -46,7 +46,7 @@ const Profile = () => {
           }
         </div>
       </div>
-    </div>
+    
   )
 }
 

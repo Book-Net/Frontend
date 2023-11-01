@@ -45,8 +45,7 @@ const BookCard = ({ book }) => {
           </p>
           <p className="text-left text-sm mb-2 text-[#4F6D7A]">{author}</p>
         </div>
-        <div className="absolute  bottom-2">
-<<<<<<<<< Temporary merge branch 1
+        <div className="absolute bottom-2">
           <p className="text-left text-xl font-semibold text-[#BF5A36] mb-4">
             Rs. <span>{price}</span>
           </p>
