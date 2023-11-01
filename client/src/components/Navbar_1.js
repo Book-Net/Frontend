@@ -7,14 +7,15 @@ import { GrLogout } from "react-icons/gr";
 import { BsBellFill } from "react-icons/bs";
 import axios from "axios";
 import image1 from "../assets/image1.png";
+import def_img from "../assets/default_image.png";
 
 import { useAuth } from "../context/AppContext";
 
 const navLinks = [
   // { to: "/", text: "Home" },
   { to: "/", text: "Market Place" },
+  { to: "/postView", text: "Social Posts" },
   { to: "/", text: "About Us" },
-  { to: "/", text: "Options" },
   { to: "/", text: "Contact Us" },
 ];
 
@@ -70,11 +71,13 @@ function Navbar_1() {
       >
         <div className="md:h-[70px] min-w-280px md:ml-[30px] ">
           <div>
-            <img
-              className="h-[70px] px-5 mx-auto md:flex justify-center items-center"
-              src={logo}
-              alt=""
-            />
+            <Link to={"/"}>
+              <img
+                className="h-[70px] px-5 mx-auto md:flex justify-center items-center cursor-pointer"
+                src={logo}
+                alt=""
+              />
+            </Link>
           </div>
 
           <div
@@ -148,12 +151,15 @@ function Navbar_1() {
                     <GrLogout />
                   </Link>
                 </li>
-                <li className="my-2 pb-2 md:my-0">
-                  <Link to="/profile" className="px-[15px] py-[8px] block ">
+                <li className=" pt-3 md:my-0">
+                  <Link
+                    to="/profile"
+                    className="px-[15px] w-[70px] h-[70px] py-[8px] block "
+                  >
                     <img
                       src={`http://localhost:9000/give_file/${img}`}
-                      alt=""
-                      className=" w-[60px] rounded-full border-4 shadow-lg object-cover border-[#bf5a36]"
+                      alt="Profile"
+                      className=" rounded-full  border-4 shadow-lg object-cover border-[#bf5a36]"
                     />
                   </Link>
                 </li>

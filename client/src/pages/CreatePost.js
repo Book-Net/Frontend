@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function CreatePost() {
   const [title, setTitle] = useState("");
@@ -20,25 +21,34 @@ function CreatePost() {
     setErrors({});
   };
 
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Add validation logic here
 
     try {
-      await axios.post('http://localhost:9000/createPost',{title, description, u_id:1})
-      .then((res) => {
-        console.log("hey" + res.data)
-        // window.location.href= res.data.url;
-      }).catch((error) => {console.log("Error in createPost", error)})
-     } catch (error) {
-      console.log("Error in catch in try catch in creating post request " + error)
-     }
+      await axios
+        .post("http://localhost:9000/createPost", {
+          title,
+          description,
+          u_id: 1,
+        })
+        .then((res) => {
+          console.log("hey" + res.data);
+          navigate("/postView");
+          // window.location.href= res.data.url;
+        })
+        .catch((error) => {
+          console.log("Error in createPost", error);
+        });
+    } catch (error) {
+      console.log(
+        "Error in catch in try catch in creating post request " + error
+      );
+    }
 
-    console.log("Title : ",title)
-    console.log("Description : ",description)
-
-    
-    
+    console.log("Title : ", title);
+    console.log("Description : ", description);
 
     const newErrors = {};
 
@@ -63,11 +73,15 @@ function CreatePost() {
     <div className="h-screen">
       <section className="bg-white py-4 w-[850px] m-auto rounded-lg shadow-inherit mt-6">
         <div className="max-w-2xl px-4 py-4 mx-auto">
-          <p className="topics text-[#4F6D7A] text-3xl text-center font-semibold mb-8 mt-5">Create Post</p>
+          <p className="topics text-[#4F6D7A] text-3xl text-center font-semibold mb-8 mt-5">
+            Create Post
+          </p>
           <form onSubmit={handleSubmit}>
             <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
               <div className="w-full sm:col-span-2">
-                <label className="block mb-2 text-sm font-medium text-[#BF5A36] text-left">Title</label>
+                <label className="block mb-2 text-sm font-medium text-[#BF5A36] text-left">
+                  Title
+                </label>
                 <input
                   className={`bg-gray-50 border border-[#BF5A36] border-opacity-30 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 ${
                     errors.title ? "border-red-500" : ""
@@ -77,10 +91,14 @@ function CreatePost() {
                   onChange={handleTitleChange}
                   required=""
                 />
-                {errors.title && <p className="mt-1 text-sm text-red-500">{errors.title}</p>}
+                {errors.title && (
+                  <p className="mt-1 text-sm text-red-500">{errors.title}</p>
+                )}
               </div>
               <div className="sm:col-span-2">
-                <label className="block mb-2 text-sm font-medium text-[#BF5A36] text-left">Description</label>
+                <label className="block mb-2 text-sm font-medium text-[#BF5A36] text-left">
+                  Description
+                </label>
                 <textarea
                   className={`block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-[#BF5A36] border-opacity-30 focus:ring-primary-500 focus:border-primary-500 ${
                     errors.description ? "border-red-500" : ""
@@ -90,7 +108,11 @@ function CreatePost() {
                   onChange={handleDescriptionChange}
                   rows={8}
                 ></textarea>
-                {errors.description && <p className="mt-1 text-sm text-red-500">{errors.description}</p>}
+                {errors.description && (
+                  <p className="mt-1 text-sm text-red-500">
+                    {errors.description}
+                  </p>
+                )}
               </div>
             </div>
             <div className="flex justify-between">

@@ -32,13 +32,24 @@ function LoginForm() {
         toast.error(response.data.error);
       } else {
         setUser(response.data.token);
+        const role = response.data.userType;
+
         console.log(localStorage.getItem("user"));
         setData({
           email: "",
           password: "",
         });
+        switch (role) {
+          case "Normal User":
+            navigate("/", { replace: true });
+            break;
+          case "Admin":
+            navigate("/Dashboard_admin", { replace: true });
+            break;
+          default:
+            break;
+        }
         // Redirect or perform other actions based on login success
-        navigate("/", { replace: true });
         toast.success(`Welcome! Login successful.`);
       }
     } catch (error) {
@@ -104,14 +115,6 @@ function LoginForm() {
           type="submit"
         >
           LOG IN
-        </Button>
-
-        <Button
-          className="bg-[#BF5A36] text-white mt-3 font-bold px-6"
-          type=""
-          onClick={Test}
-        >
-          hi
         </Button>
       </form>
     </div>

@@ -88,7 +88,9 @@ function Searchbar() {
             <option value="All">All</option>
             <option value="Fiction">Fiction</option>
             <option value="Non-Fiction">Non-Fiction</option>
-            <option value="damn">Damn</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Fantasy">Fantasy</option>
+            <option value="Educational">Educational</option>
           </select>
 
           <select

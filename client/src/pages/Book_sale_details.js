@@ -58,7 +58,7 @@ const Book_sale_details = () => {
       </div> */}
       <div className="w-full p-20 bg-white rounded-lg shadow-md md:max-w-screen-lg">
         <div className="flex">
-          <div className="w-1/3">
+          <div className="w-2/4">
             <img
               src={`http://localhost:9000/give_file/${book.img}`}
               className="w-4/5 rounded-md"
@@ -82,27 +82,20 @@ const Book_sale_details = () => {
         <div className="flex justify-center w-full p-20 mt-10 bg-gray-100 rounded-lg shadow-md md:max-w-screen-lg">
           <div className="flex flex-row">
             <div className="flex flex-col justify-start space-x-8 ">
-              <div className="font-bold text-red-700">
+              <div className="font-bold text-red-700 text-left">
                 <h3>Condition</h3>
                 <h3>Author</h3>
+                <h3>Category</h3>
                 <h3>Description</h3>
               </div>
             </div>
-            <div className="flex flex-col justify-start ml-10 space-x-8 text-left">
+            <div className="flex flex-col justify-start ml-10  space-x-8 text-left">
               <div className="flex flex-col text-left">
                 <p className="text-[#4F6D7A] font-bold">
                   <p>{book.condition}</p>
                   <p>{book.authors}</p>
-                  <p className="text-[#4F6D7A] font-bold">
-                    {
-                      /* {des.map((item, index) => (
-                      <div key={index} className="row">
-                        {item}
-                      </div>
-                    ))} */
-                      des
-                    }
-                  </p>
+                  <p>{book.category}</p>
+                  <p className="text-[#4F6D7A] font-bold">{des}</p>
                 </p>
               </div>
             </div>
@@ -116,8 +109,13 @@ const Book_sale_details = () => {
           Ask a question
         </Button> */}
 
-        <div className="w-full p-5 mt-8 bg-gray-100 rounded-lg shadow-md md:max-w-screen-lg">
-          <div></div>
+        <div className="w-full px-20 py-4 mt-8 bg-gray-100 rounded-lg shadow-md md:max-w-screen-lg">
+          <div className="flex flex-row">
+            <p className="font-bold text-red-700 text-left flex mr-1">
+              Pickup location:
+            </p>
+            <p> {book.location}</p>
+          </div>
         </div>
       </div>
     </div>

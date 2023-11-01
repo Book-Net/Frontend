@@ -17,9 +17,7 @@ import Sidebar_admin from "./pages/Sidebar_admin";
 import Login from "./pages/Login";
 import Sellbook from "./components/Add_book_for_sell";
 import BidSell from "./components/Bid_Sell";
-import Add_book_for_bid from "./components/Add_book_for_bid";
 import BookForm from "./components/BookForm";
-import Login from "./pages/Login";
 import Booklist from "./pages/BookList";
 // import Book_sale_details from "./pages/Book_sale_details";
 import { createContext, useState } from "react";
@@ -37,19 +35,13 @@ import Book_sale_details from "./pages/Book_sale_details";
 import Bid_interface from "./pages/Bid_interface";
 import EmailVerify from "./components/EmailVerify";
 import BookSellDetails from "./pages/Book_sale_details";
-import AddBook_Main from "./pages/AddBook_Main";
-import AddBook_Main_2 from "./pages/AddBook_Main_2";
 import Add_book_for_bid from "./components/Add_book_for_bid";
 import CreatePost from "./pages/CreatePost";
-import Have_ISBN from "./pages/Have_ISBN";
+import PaymentSuccess from "./pages/checkout-success";
 import Bid_Sell from "./components/Bid_Sell";
 import Posts from "./components/Posts";
-// import Comments from './components/Posts/comment'
-
-import Logout from "./components/Logout";
 
 // context api
-// import { AuthProvider } from "./context/AppContext";
 import { useAuth } from "./context/AppContext";
 import Become_author from "./pages/Become_author";
 // import { useNavigate } from "react-router-dom";
@@ -101,13 +93,25 @@ function App() {
             path="/have_isbn"
             element={user ? <Have_ISBN /> : <Navigate to="/login" />}
           />
+          <Route
+            path="/createPost"
+            element={user ? <CreatePost /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/Dashboard_admin"
+            element={user ? <CreatePost /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/checkout-success"
+            element={user ? <PaymentSuccess /> : <Navigate to="/login" />}
+          />
           <Route path="/" element={<BookList />} />
           {/* <Route path="/sell_book" element={<Sellbook />} /> */}
           <Route path="/bid_sell" element={<Bid_Sell />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/bookList" element={<Booklist />} />
-          <Route path="/createPost" element={<CreatePost />} />
+          {/* <Route path="/createPost" element={<CreatePost />} /> */}
           <Route path="/Post" element={<Posts />} />
           <Route path="/booksell_detail/:id" element={<BookSellDetails />} />
           {/* <Route path="/add_book" element={<Logout />} /> */}
