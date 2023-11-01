@@ -1,10 +1,37 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Barchart from './Barchart';
 import Sales_linechart from './Sales_linechart';
 import Bid_linechart from './Bid_linechart';
 import Button from "./Button";
+import axios from 'axios';
+import fake from './fake';
 
 function Dashboard_admin() {
+
+  let totalSalesRevenue = 0;
+
+  const [sales_data, setSales_data] = useState([])
+
+  useEffect(() => {
+    const fetchSales = async () => {
+      try {
+        const response = await axios.get("http://localhost:9000/sales");
+        setSales_data(response.data);
+      
+      } catch (error) {
+        console.error("Error fetching orderDetails:", error);
+        
+      }
+    };
+    fetchSales();
+  }, []);
+  
+  const [sales1, setSales1] = useState([])
+  useEffect(() => {
+    setSales1(sales_data)
+  }, [sales_data]);
+console.log(sales1)
+
   return (
     <div className='p-0 h-[auto]'>
 
@@ -22,15 +49,36 @@ function Dashboard_admin() {
         
       <div className='grid grid-cols-2 gap-4'>
 
+      {sales1.map((saleOrder,index)=>
+          {
+            // console.log(saleOrder)
+            totalSalesRevenue+=saleOrder.total
+
+          }
+      )
+      }
           <div className='col-span-1'>
-            <div className='border-2 my-8 mr-5 border-[#F1E6D9] bg-[#F2CB9E] h-[auto] p-4 justify-left font-roboto'>
-              <p className='text-[#BF5A36]  text-3xl font-bold pr-5'>Sales Transactions</p>
-              <p>(For this month)</p>
-              <p className='text-[#555555]  text-2xl pl-5'>400</p>   
-            </div>  
+          <div className='border-2 border-[#3498db] rounded-lg bg-[#f0f0f0] p-3'>
+          <p className='text-[#3498db] text-xl font-semibold mb-2'>Sales Summary</p>
+          <div className='flex justify-between items-center'>
+          <p className='text-[#333333] text-base font-medium'>Total Income:</p>
+          <p className='text-[#2ecc71] text-lg font-semibold'>Rs. {totalSalesRevenue}</p>
+  </div>
+  <div className='flex justify-between items-center'>
+    <p className='text-[#333333] text-base font-medium'>Total Profit:</p>
+    <p className='text-[#e74c3c] text-lg font-semibold'>Rs. {totalSalesRevenue * 0.05}</p>
+  </div>
+  <div className='flex justify-between items-center mt-3'>
+    <p className='text-[#333333] text-base font-medium'>Number of Sales:</p>
+    <p className='text-[#555555] text-lg font-semibold'>{sales1.length}</p>
+  </div>
+</div>
+
+  
 
             <div>
-                <Sales_linechart />
+                 
+                <Sales_linechart sales={totalSalesRevenue}/>
             </div>
           </div>
 
