@@ -34,7 +34,7 @@ const Profile = () => {
 
       <div className="p-5 w-full md:max-w-screen-lg">
         <div
-          className="absolute top-1/2 left-25 transform -translate-x-1/8 -translate-y-1/6"
+          className="absolute transform top-1/2 left-25 -translate-x-1/8 -translate-y-1/6"
           style={{ zIndex: 1 }}
         >
           <img

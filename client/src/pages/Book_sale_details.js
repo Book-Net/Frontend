@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 
 import axios from "axios";
 import Book_categories from "../components/Book_categories";
@@ -14,26 +14,23 @@ import { AiOutlineHeart } from "react-icons/ai";
 import checkoutBtn from "../components/CheckoutBtn";
 import { Link } from "react-router-dom";
 
-
 const Book_sale_details = () => {
   const [book, setBook] = useState("");
   const bookId = useParams();
-  
+
   const [me, setme] = useState("");
-
-
 
   // console.log( bookId);
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        
-        const response = await axios.get(`http://localhost:9000/book_details/${bookId.id}`);
+        const response = await axios.get(
+          `http://localhost:9000/book_details/${bookId.id}`
+        );
         // console.log(response)
         setBook(response.data);
         // setBooks(response.data);
         // console.log("response Data" );
-        
       } catch (error) {
         console.error("Error fetching books:", error);
         console.error();
@@ -43,12 +40,12 @@ const Book_sale_details = () => {
   }, []);
 
   const des = book.description;
-  
+
   const getme = async () => {
-    const r = book.price
-    console.log(r)
+    const r = book.price;
+    console.log(r);
     // const response = await axios.get(`http://localhost:9000/getme/${bookId.u_id}`);
-  }
+  };
   getme();
 
   return (
@@ -64,7 +61,8 @@ const Book_sale_details = () => {
           <div className="w-1/3">
             <img
               src={`http://localhost:9000/give_file/${book.img}`}
-              className="w-4/5 rounded-md" alt=""
+              className="w-4/5 rounded-md"
+              alt=""
               srcSet=""
             />
           </div>
@@ -73,44 +71,42 @@ const Book_sale_details = () => {
           </div>
           <div className="w-2/3 px-4">
             <div className="pb-2">
-              <Book_name_author title={book.title} author={book.authors}/>
+              <Book_name_author title={book.title} author={book.authors} />
             </div>
             <div className="mt-4 bg-gray-100 p-4 rounded-md shadow-md shadow-#9B9B9B w-1/2 ml-0">
-              <BuyNowCard book={book} cartItems={['book1']}/>
+              <BuyNowCard book={book} cartItems={["book1"]} />
               {/* <checkoutBtn/> */}
             </div>
           </div>
         </div>
         <div className="flex justify-center w-full p-20 mt-10 bg-gray-100 rounded-lg shadow-md md:max-w-screen-lg">
-        <div className="flex flex-row">
-              <div className="flex flex-col justify-start space-x-8 ">
-                <div className="text-red-700 font-bold">
-                  <h3>Condition</h3>
-                  <h3>Author</h3>
-                  <h3>Description</h3>
-                </div>
-                </div>
-                <div className="flex flex-col justify-start space-x-8 text-left ml-10">
-                <div className="flex flex-col text-left">
+          <div className="flex flex-row">
+            <div className="flex flex-col justify-start space-x-8 ">
+              <div className="font-bold text-red-700">
+                <h3>Condition</h3>
+                <h3>Author</h3>
+                <h3>Description</h3>
+              </div>
+            </div>
+            <div className="flex flex-col justify-start ml-10 space-x-8 text-left">
+              <div className="flex flex-col text-left">
                 <p className="text-[#4F6D7A] font-bold">
-                  <p>
-                    {book.condition}
-                  </p>
-                  <p>
-                    {book.authors}
-                  </p>
+                  <p>{book.condition}</p>
+                  <p>{book.authors}</p>
                   <p className="text-[#4F6D7A] font-bold">
-                  {/* {des.map((item, index) => (
+                    {
+                      /* {des.map((item, index) => (
                       <div key={index} className="row">
                         {item}
                       </div>
                     ))} */
-                    des}
+                      des
+                    }
                   </p>
                 </p>
-                </div>
               </div>
             </div>
+          </div>
         </div>
 
         {/* <Button
@@ -121,9 +117,7 @@ const Book_sale_details = () => {
         </Button> */}
 
         <div className="w-full p-5 mt-8 bg-gray-100 rounded-lg shadow-md md:max-w-screen-lg">
-          <div>
-            
-          </div>
+          <div></div>
         </div>
       </div>
     </div>

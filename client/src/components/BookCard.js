@@ -1,31 +1,39 @@
 import React, { useState } from "react";
 import { AiFillStar } from "react-icons/ai";
 
-
 const BookCard = ({ book }) => {
-  const { title, img, price, rating, number_of_ratings, authors, condition, option, minbid, needs} =
-    book;
+  const {
+    title,
+    img,
+    price,
+    rating,
+    number_of_ratings,
+    authors,
+    condition,
+    option,
+    minbid,
+    needs,
+  } = book;
 
-  const[clicked,setClicked]=useState("");
+  const [clicked, setClicked] = useState("");
   let content;
   let amount;
 
   function MyComponent(contentKey) {
-  
     switch (contentKey) {
       case "Sell":
-        content = "Buy Now"
-        amount = "Rs : "+price;
+        content = "Buy Now";
+        amount = "Rs : " + price;
         break;
       case "Bid":
-        content="Bid Now";
-        amount = "Min Bid Rs : "+ minbid;
+        content = "Bid Now";
+        amount = "Min Bid Rs : " + minbid;
         break;
       case "Donate":
-        content="For Donation";
+        content = "For Donation";
         break;
       case "Exchange":
-        content="For Exchange";
+        content = "For Exchange";
         amount = needs;
         break;
       default:
@@ -35,15 +43,13 @@ const BookCard = ({ book }) => {
     }
   }
 
-    MyComponent(option)
+  MyComponent(option);
 
   function BookRating({ rating, number_of_ratings }) {
     // const stars = [];
-    
     // for (let i = 0; i < rating; i++) {
     //   stars.push(<AiFillStar key={i} className="text-yellow-500" />);
     // }
-
     // return (
     //   <div className="flex items-center mb-2 text-yellow-500 ratings">
     //     {stars}
@@ -55,7 +61,10 @@ const BookCard = ({ book }) => {
   }
 
   return (
-    <div className="flex h-[350px] bg-[#F5F5F5] shadow-md hover:shadow-lg transition mx-auto rounded-md min-w-[350px] max-h-[230px]" onClick={() => setClicked(!clicked)}>
+    <div
+      className="flex h-[350px] bg-[#F5F5F5] shadow-md hover:shadow-lg transition mx-auto rounded-md min-w-[350px] max-h-[230px]"
+      onClick={() => setClicked(!clicked)}
+    >
       <div className="p-3 w-full max-w-[150px]">
         <img
           src={`http://localhost:9000/give_file/${img}`}
@@ -69,7 +78,7 @@ const BookCard = ({ book }) => {
           {/* <BookRating rating={rating} number_of_ratings={number_of_ratings} /> */}
         </div>
         <div>
-          <p className="font-bold mb-2 text-xl w-full overflow-hidden text-md text-left text-[#4F6D7A]" >
+          <p className="font-bold mb-2 text-xl w-full overflow-hidden text-md text-left text-[#4F6D7A]">
             {title}
           </p>
           <p className="text-left text-lg mb-2 text-[#4F6D7A]">{authors}</p>
@@ -85,4 +94,4 @@ const BookCard = ({ book }) => {
   );
 };
 
-export default BookCard
+export default BookCard;

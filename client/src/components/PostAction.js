@@ -1,5 +1,7 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { AiOutlineLike, AiOutlineComment } from 'react-icons/ai';
+
 
 const PostActions = () => {
     const [isLiked, setIsLiked] = useState(false);
@@ -9,6 +11,7 @@ const PostActions = () => {
     const [comments, setComments] = useState([
         { user: 'Lahiru Sanjana', text: 'I have one' },
         { user: 'Samitha Rathnayake', text: 'Where are you from?' },
+        { user: 'Naveendra', text: 'I have a new book' },
         { user: 'Naveendra', text: 'I have a new book' },
     ]);
   
@@ -24,8 +27,21 @@ const PostActions = () => {
     setShowComments(!showComments);
   };
 
-  const handleComment = () => {
+  const handleComment = async (e) => {
     // Add your comment logic here
+
+    e.preventDefault();
+    // Add validation logic here
+
+    try {
+      await axios.post('http://localhost:9000/createComment',{name:"Default", newComment:"Test", u_id:"1"})
+      .then((res) => {
+        console.log("hey" + res.data)
+      }).catch((error) => {console.log("Error in create Comment", error)})
+     } catch (error) {
+      console.log("Error in catch in try catch in creating comment request " + error)
+     }
+
     if (newComment.trim() !== '') {
       setComments([...comments, newComment]);
       setCommentCount(commentCount + 1);
@@ -58,7 +74,7 @@ const PostActions = () => {
         </button>
       </div>
       {showComments && (
-        <div className="space-y-2 text-left ml-7 text-gray-500">
+        <div className="space-y-2 text-left text-gray-500 ml-7">
           {comments.map((comment, index) => (
             <p key={index}>
               <span className="font-semibold">{comment.user}: </span>
@@ -74,7 +90,7 @@ const PostActions = () => {
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
           placeholder="Add a comment..."
-          className="flex-1 p-2 border ml-2 rounded-md focus:outline-none"
+          className="flex-1 p-2 ml-2 border rounded-md focus:outline-none"
         />
         <button
           className="px-4 py-[5px] text-white mr-2 font-bold bg-[#BF5A36] rounded-[4px] hover:bg-[#9e553b]"

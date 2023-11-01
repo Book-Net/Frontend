@@ -19,6 +19,11 @@ import Sellbook from "./components/Add_book_for_sell";
 import BidSell from "./components/Bid_Sell";
 import Add_book_for_bid from "./components/Add_book_for_bid";
 import BookForm from "./components/BookForm";
+import Login from "./pages/Login";
+import Booklist from "./pages/BookList";
+// import Book_sale_details from "./pages/Book_sale_details";
+import { createContext, useState } from "react";
+import Unreg_home from "./pages/Unreg_home";
 import Author_profile from "./pages/Author_profile";
 import PostView from "./pages/PostView";
 import axios from "axios";
@@ -31,6 +36,17 @@ import Have_ISBN from "./pages/Have_ISBN";
 import Book_sale_details from "./pages/Book_sale_details";
 import Bid_interface from "./pages/Bid_interface";
 import EmailVerify from "./components/EmailVerify";
+import BookSellDetails from "./pages/Book_sale_details";
+import AddBook_Main from "./pages/AddBook_Main";
+import AddBook_Main_2 from "./pages/AddBook_Main_2";
+import Add_book_for_bid from "./components/Add_book_for_bid";
+import CreatePost from "./pages/CreatePost";
+import Have_ISBN from "./pages/Have_ISBN";
+import Bid_Sell from "./components/Bid_Sell";
+import Posts from "./components/Posts";
+// import Comments from './components/Posts/comment'
+
+import Logout from "./components/Logout";
 
 // context api
 // import { AuthProvider } from "./context/AppContext";
@@ -56,10 +72,11 @@ function App() {
       <main className="mt-[120px]">
         <Routes>
           <Route path="*" element={<Login />} />
-          {/* <Route path="/" element={<PostView />} /> */}
-          <Route path="/editProfile" element={<Edit_profile />} />
+          <Route path="/postView" element={<PostView />} />
           {/* <Route path="/placeBid" element={<Place_bid />} /> */}
           <Route path="/sidebar_admin" element={<Sidebar_admin />} />
+          <Route path="/editProfile" element={<Edit_profile />} />
+          {/* <Route path="/" element={<Add_book_for_bid />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup" element={<Signup />} />
@@ -86,9 +103,13 @@ function App() {
           />
           <Route path="/" element={<BookList />} />
           {/* <Route path="/sell_book" element={<Sellbook />} /> */}
-          <Route path="/bid_sell" element={<BidSell />} />
+          <Route path="/bid_sell" element={<Bid_Sell />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/logout" element={<Logout />} />
+          <Route path="/bookList" element={<Booklist />} />
+          <Route path="/createPost" element={<CreatePost />} />
+          <Route path="/Post" element={<Posts />} />
+          <Route path="/booksell_detail/:id" element={<BookSellDetails />} />
           {/* <Route path="/add_book" element={<Logout />} /> */}
           <Route path="/users/:id/verify/:token" element={<EmailVerify />} />
         </Routes>
