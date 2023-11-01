@@ -53,8 +53,8 @@ function App() {
           <Route path="/AddFor_Donate" element={<AddFor_Donate/>}/>
           <Route path="/AddFor_Donate" element={<AddFor_Donate/>}/>
           <Route path="/Transaction_table" element={<Transactions_table/>}/>
-          <Route path="/aaaaa" element={<About_us/>}/>
-          <Route path="/" element={<Contact_us/>}/>
+          <Route path="/" element={<About_us/>}/>
+          <Route path="/Contact_us" element={<Contact_us/>}/>
 
           
           
