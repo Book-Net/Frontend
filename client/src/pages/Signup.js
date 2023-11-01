@@ -11,7 +11,7 @@ function Signup() {
       <div className="bg-[#F2CB9E] rounded-2xl w-2/5 md:block hidden ">
         <div className="relative">
           <p className=" font-mansalva md:text-4xl text-[#4F6D7A] p-5 fnb">
-            Connect, Share and Trade Your Favourite Reads.....
+            Connect, Share and Trade Your Favorite Reads.....
           </p>
         </div>
         <div className="">

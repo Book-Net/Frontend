@@ -40,6 +40,7 @@ import CreatePost from "./pages/CreatePost";
 import PaymentSuccess from "./pages/checkout-success";
 import Bid_Sell from "./components/Bid_Sell";
 import Posts from "./components/Posts";
+import Dashboard_Admin from "./components/Dashboard_admin";
 
 // context api
 import { useAuth } from "./context/AppContext";
@@ -99,7 +100,7 @@ function App() {
           />
           <Route
             path="/Dashboard_admin"
-            element={user ? <CreatePost /> : <Navigate to="/login" />}
+            element={user ? <Dashboard_Admin /> : <Navigate to="/login" />}
           />
           <Route
             path="/checkout-success"
