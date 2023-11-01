@@ -34,14 +34,13 @@ function SignupForm() {
         toast.error(responseData.error);
       } else {
         setData({
-          userName: "",
+          name: "",
           email: "",
           password: "",
           rePassword: "",
         });
-        toast.success(responseData.message);
-
-        // navigate("/login");
+        toast.success("Registration successful. Welcome!");
+        navigate("/");
       }
     } catch (error) {
       console.log(error);

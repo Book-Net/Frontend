@@ -9,6 +9,7 @@ function Exchange_book({onChange}) {
                     placeholder="Tell us what you looking for..." 
                     type="text"
                     onChange={onChange}
+                    maxLength={25}
                     required 
                     />
                 </div>

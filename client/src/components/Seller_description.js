@@ -1,4 +1,4 @@
-import Button from "../components/Button";
+import Button from "./Button";
 import { AiFillStar } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 
