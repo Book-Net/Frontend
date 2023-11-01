@@ -42,9 +42,9 @@ function App() {
           {/* If you meant /signUp instead of /signup, change the path accordingly */}
           <Route path="/signup" element={<Signup />} />
           <Route path="/Unreg_home" element={<Unreg_home/>}/>
-          <Route path="/Author_Profile" element={<Author_profile/>}/>
+          <Route path="/Author_profile" element={<Author_profile/>}/>
           <Route path="/PostView" element={<PostView/>}/>
-          <Route path="/Have_ISBN" element={<Have_ISBN/>}/>
+          <Route path="/" element={<Have_ISBN/>}/>
           <Route path="/AddBook_Main" element={<AddBook_Main/>}/>
           <Route path="/AddBookmain2" element={<AddBook_Main_2/>}/>
           <Route path="/AddFor_Bid" element={<AddFor_Bid/>}/>
@@ -53,7 +53,7 @@ function App() {
           <Route path="/AddFor_Donate" element={<AddFor_Donate/>}/>
           <Route path="/AddFor_Donate" element={<AddFor_Donate/>}/>
           <Route path="/Transaction_table" element={<Transactions_table/>}/>
-          <Route path="/" element={<About_us/>}/>
+          <Route path="/aaaaa" element={<About_us/>}/>
           <Route path="/Contact_us" element={<Contact_us/>}/>
 
           
