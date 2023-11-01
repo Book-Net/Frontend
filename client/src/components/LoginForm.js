@@ -24,13 +24,7 @@ function LoginForm() {
           required
         />
         <br />
-        <input
-          type="password"
-          className="pl-2 py-3 shadow-md my-3 rounded-md placeholder-[#BF5A36] w-3/5"
-          placeholder="Re-Enter Password"
-          required
-        />{" "}
-        <br />
+        
         <p className="my-2">
           Don’t have an account?
           <span>

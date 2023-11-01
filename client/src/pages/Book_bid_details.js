@@ -16,9 +16,9 @@ const Book_bid_details = () => {
       <div className="w-3/4 mx-auto">
         <Searchbar />
       </div>
-      <div className="w-3/4 mx-auto">
+      {/* <div className="w-3/4 mx-auto">
         <Book_categories />
-      </div>
+      </div> */}
       <div className="bg-white p-20 rounded-lg shadow-md w-full md:max-w-screen-lg">
         <div className="flex">
           <div className="w-1/2">
