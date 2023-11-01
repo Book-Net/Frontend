@@ -23,7 +23,7 @@ function PaymentSuccessPage() {
           Thank you for your purchase. Your payment was successful.
         </p>
         <button className="mt-6 px-6 py-3 text-white bg-[#BF5A36] rounded-lg hover:bg-yellow-800">
-          Done
+          Done !
         </button>
       </div>
     </div>
