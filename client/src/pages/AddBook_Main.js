@@ -207,7 +207,7 @@ function AddBook_Main() {
     try {
       // Send the form data to your server using Axios
       const response = await axios.post(
-        "http://localhost:9000/add_book_detail_sell",
+        "/add_book_detail_sell",
         formData,
         {
           headers: {
@@ -230,7 +230,7 @@ function AddBook_Main() {
       // Redirect to the next page or perform any other necessary actions
     } catch (error) {
       // Handle errors (e.g., show an error message)
-      console.error("Error fetching book details:", error);
+      console.error("Error connecting book DB:", error);
       Swal.fire("An error occurred while saving file to database");
     }
   }

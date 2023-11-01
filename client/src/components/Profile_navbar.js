@@ -27,7 +27,7 @@ function Profile_navbar() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Profile_navbar;
+export default Profile_navbar

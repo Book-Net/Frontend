@@ -34,7 +34,7 @@ function SignupForm() {
         toast.error(responseData.error);
       } else {
         setData({
-          userName: "",
+          name: "",
           email: "",
           password: "",
           rePassword: "",

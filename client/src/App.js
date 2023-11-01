@@ -12,7 +12,7 @@ import Navbar_1 from "./components/Navbar_1";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
 import Edit_profile from "./pages/Edit_profile";
-import Place_bid from "./pages/Place_bid";
+// import Place_bid from "./pages/Place_bid";
 import Sidebar_admin from "./pages/Sidebar_admin";
 import Login from "./pages/Login";
 import Sellbook from "./components/Add_book_for_sell";
@@ -28,6 +28,8 @@ import AddBook_Main from "./pages/AddBook_Main";
 import AddBook_Main_2 from "./pages/AddBook_Main_2";
 import Logout from "./components/Logout";
 import Have_ISBN from "./pages/Have_ISBN";
+import Book_sale_details from "./pages/Book_sale_details";
+import Bid_interface from "./pages/Bid_interface";
 import EmailVerify from "./components/EmailVerify";
 
 // context api
@@ -53,15 +55,19 @@ function App() {
       <Toaster position="bottom-right" toastOptions={{ duration: 4000 }} />
       <main className="mt-[120px]">
         <Routes>
-          <Route path="*" element={<Signup />} />
+          <Route path="*" element={<Login />} />
           {/* <Route path="/" element={<PostView />} /> */}
           <Route path="/editProfile" element={<Edit_profile />} />
-          <Route path="/placeBid" element={<Place_bid />} />
+          {/* <Route path="/placeBid" element={<Place_bid />} /> */}
           <Route path="/sidebar_admin" element={<Sidebar_admin />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/Author_profile" element={<Author_profile />} />
+          //
+          <Route path="/booksell_detail/:id" element={<Book_sale_details />} />
+          <Route path="/bid_interface/:id" element={<Bid_interface />} />
+          //
           <Route
             path="/add_book"
             element={user ? <AddBook_Main /> : <Navigate to="/login" />}
