@@ -1,10 +1,9 @@
-import React from 'react';
-import { Line } from 'react-chartjs-2';
-import { CategoryScale } from 'chart.js';
-import Chart from 'chart.js/auto';
+import React from "react";
+import { Line } from "react-chartjs-2";
+import { CategoryScale } from "chart.js";
+import Chart from "chart.js/auto";
 
 Chart.register(CategoryScale);
-
 
 // const data = {
 //     labels: ['January', 'February', 'March', 'April', 'May' , 'June' , 'July', 'August' , 'September', 'Octomber' , 'November' , 'December'],
@@ -18,35 +17,47 @@ Chart.register(CategoryScale);
 // };
 
 const options = {
-    scales: {
-      x: {
-        type: 'category',
-      },
-      y: {
-        beginAtZero: true,
-      },
+  scales: {
+    x: {
+      type: "category",
     },
+    y: {
+      beginAtZero: true,
+    },
+  },
 };
 
-const Bid_linechart = ({bids}) => {
-
+const Bid_linechart = ({ bids }) => {
+  console.log("nmmmmmmmmmm" + bids);
   const data = {
-    labels: ['January', 'February', 'March', 'April', 'May' , 'June' , 'July', 'August' , 'September', 'Octomber' , 'November' , 'December'],
+    labels: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "Octomber",
+      "November",
+      "December",
+    ],
     datasets: [
       {
-        label: 'Bid Transactions',
-        data: [bids, , 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        backgroundColor: '#6D8D9B',
-      }
+        label: "Bid Transactions",
+        data: [bids, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        backgroundColor: "#6D8D9B",
+      },
     ],
+  };
+
+  return (
+    <div className="w-1200px h-1000px">
+      <Line data={data} options={options} />
+    </div>
+  );
 };
 
-    return (
-      <div className='w-1200px h-1000px'>
-        <Line data={data} options={options} />
-      </div>
-    );
-};
-  
-
-export default Bid_linechart;
+export default Bid_linechart;

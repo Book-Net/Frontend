@@ -43,6 +43,8 @@ import Posts from "./components/Posts";
 import Dashboard_Admin from "./components/Dashboard_admin";
 import Don_interface from "./pages/donate_interface";
 import Ex_interface from "./pages/Ex_interface";
+import Contact from "./pages/Contact_us";
+import About from "./pages/AboutUs";
 
 // context api
 import { useAuth } from "./context/AppContext";
@@ -67,24 +69,50 @@ function App() {
       <main className="mt-[120px]">
         <Routes>
           <Route path="*" element={<Login />} />
-          <Route path="/postView" element={<PostView />} />
+          {/* <Route path="/postView" element={<PostView />} /> */}
           {/* <Route path="/placeBid" element={<Place_bid />} /> */}
           <Route path="/sidebar_admin" element={<Sidebar_admin />} />
-          <Route path="/editProfile" element={<Edit_profile />} />
+          <Route path="/contactUs" element={<Contact />} />
+          <Route path="/aboutUs" element={<About />} />
+          {/* <Route path="/editProfile" element={<Edit_profile />} /> */}
           {/* <Route path="/" element={<Add_book_for_bid />} /> */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/Author_profile" element={<Author_profile />} />
           //
-          <Route path="/booksell_detail/:id" element={<Book_sale_details />} />
-          <Route path="/bid_interface/:id" element={<Bid_interface />} />
-          <Route path="/exchange_interface/:id" element={<Ex_interface />} />
-          <Route path="/donate_interface/:id" element={<Don_interface />} />
+          {/* <Route path="/booksell_detail/:id" element={<Book_sale_details />} /> */}
+          {/* <Route path="/bid_interface/:id" element={<Bid_interface />} /> */}
+          {/* <Route path="/exchange_interface/:id" element={<Ex_interface />} /> */}
+          {/* <Route path="/donate_interface/:id" element={<Don_interface />} /> */}
           //
+          <Route
+            path="/booksell_detail/:id"
+            element={user ? <Book_sale_details /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/bid_interface/:id"
+            element={user ? <Bid_interface /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/exchange_interface/:id"
+            element={user ? <Ex_interface /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/donate_interface/:id"
+            element={user ? <Don_interface /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/postView"
+            element={user ? <PostView /> : <Navigate to="/login" />}
+          />
           <Route
             path="/add_book"
             element={user ? <AddBook_Main /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/editProfile"
+            element={user ? <Edit_profile /> : <Navigate to="/login" />}
           />
           <Route
             path="/becomeAuthor"
@@ -110,6 +138,10 @@ function App() {
             path="/checkout-success"
             element={user ? <PaymentSuccess /> : <Navigate to="/login" />}
           />
+          <Route
+            path="//booksell_detail/:id"
+            element={user ? <BookSellDetails /> : <Navigate to="/login" />}
+          />
           <Route path="/" element={<BookList />} />
           {/* <Route path="/sell_book" element={<Sellbook />} /> */}
           <Route path="/bid_sell" element={<Bid_Sell />} />
@@ -118,7 +150,7 @@ function App() {
           <Route path="/bookList" element={<Booklist />} />
           {/* <Route path="/createPost" element={<CreatePost />} /> */}
           <Route path="/Post" element={<Posts />} />
-          <Route path="/booksell_detail/:id" element={<BookSellDetails />} />
+          {/* <Route path="/booksell_detail/:id" element={<BookSellDetails />} /> */}
           {/* <Route path="/add_book" element={<Logout />} /> */}
           <Route path="/users/:id/verify/:token" element={<EmailVerify />} />
         </Routes>

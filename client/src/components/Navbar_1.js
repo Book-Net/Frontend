@@ -15,8 +15,8 @@ const navLinks = [
   // { to: "/", text: "Home" },
   { to: "/", text: "Market Place" },
   { to: "/postView", text: "Social Posts" },
-  { to: "/", text: "About Us" },
-  { to: "/", text: "Contact Us" },
+  { to: "/aboutUs", text: "About Us" },
+  { to: "/contactUs", text: "Contact Us" },
 ];
 
 function Navbar_1() {
