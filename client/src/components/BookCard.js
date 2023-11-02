@@ -18,23 +18,28 @@ const BookCard = ({ book }) => {
   const [clicked, setClicked] = useState("");
   let content;
   let amount;
+  let commision;
 
   function MyComponent(contentKey) {
     switch (contentKey) {
       case "Sell":
         content = "Buy Now";
         amount = "Rs : " + price;
+        commision = " 5% + shipping";
         break;
       case "Bid":
         content = "Bid Now";
         amount = "Min Bid Rs : " + minbid;
+        commision = " 5% + shipping";
         break;
       case "Donate":
         content = "For Donation";
+        commision = "Free";
         break;
       case "Exchange":
         content = "For Exchange";
         amount = needs;
+        commision = "+ shipping";
         break;
       default:
         content = null;
@@ -87,6 +92,7 @@ const BookCard = ({ book }) => {
           <p className="text-left text-xl font-semibold text-[#BF5A36] mb-4">
             <p>{content}</p>
             <p>{amount}</p>
+            <p className="text-sm">{commision}</p>
           </p>
         </div>
       </div>

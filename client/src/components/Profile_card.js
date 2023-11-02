@@ -12,7 +12,7 @@ function Profile_card({ title, desc, btn }) {
           </p>
         </div>
         <div>
-          <p className="font-roboto text-3xl text-[#555555] pt-0">10</p>
+          <p className="font-roboto text-3xl text-[#555555] pt-0">0</p>
           <div className="pt-2">
             <p className="font-roboto text-1xl text-[#555555] underline pt-0">
               <Link to="/#">View</Link>
